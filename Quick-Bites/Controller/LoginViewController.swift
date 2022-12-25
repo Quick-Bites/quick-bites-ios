@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    private var dataSource = DataSource()
+    private var dataSource = AuthenticationDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: DataDelegate {
+extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn() {
         performSegue(withIdentifier: "showCitySelection", sender: self)
     }

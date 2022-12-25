@@ -15,7 +15,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
     
-    private var dataSource = DataSource()
+    private var dataSource = AuthenticationDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController {
                 let email = email.text,
                 let phoneNumber = phoneNumber.text
         {
-            dataSource.signInUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber)
+            dataSource.signUpUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber)
             
         }else{
             print("error")
@@ -50,7 +50,7 @@ class SignUpViewController: UIViewController {
 
 }
 
-extension SignUpViewController: DataDelegate {
+extension SignUpViewController: AuthenticationDataDelegate {
     func userSignedIn() {
         _ = navigationController?.popViewController(animated: true)
     }

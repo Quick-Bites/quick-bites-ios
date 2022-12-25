@@ -7,15 +7,15 @@
 
 import Foundation
 
-class DataSource {
+class AuthenticationDataSource {
     
-    var delegate: DataDelegate?
+    var delegate: AuthenticationDataDelegate?
     
     init(){
         
     }
     
-    func signInUser(fullname:String, username:String, password:String, email:String, phoneNumber:String) {
+    func signUpUser(fullname:String, username:String, password:String, email:String, phoneNumber:String) {
         
         let url = URL(string: Constants.getRegisterURL())!
         let body = [

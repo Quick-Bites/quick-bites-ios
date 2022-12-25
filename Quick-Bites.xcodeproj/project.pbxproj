@@ -19,8 +19,8 @@
 		254A5F9D295738EE00B0D089 /* CitySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F9C295738EE00B0D089 /* CitySelection.storyboard */; };
 		254A5F9F29573B5200B0D089 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F9E29573B5200B0D089 /* User.swift */; };
 		254A5FA1295746AA00B0D089 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA0295746AA00B0D089 /* Constants.swift */; };
-		254A5FA3295761BA00B0D089 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA2295761BA00B0D089 /* DataSource.swift */; };
-		254A5FA5295761EE00B0D089 /* DataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA4295761EE00B0D089 /* DataDelegate.swift */; };
+		254A5FA3295761BA00B0D089 /* AuthenticationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA2295761BA00B0D089 /* AuthenticationDataSource.swift */; };
+		254A5FA5295761EE00B0D089 /* AuthenticationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA4295761EE00B0D089 /* AuthenticationDataDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		254A5F9C295738EE00B0D089 /* CitySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CitySelection.storyboard; sourceTree = "<group>"; };
 		254A5F9E29573B5200B0D089 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		254A5FA0295746AA00B0D089 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		254A5FA2295761BA00B0D089 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		254A5FA4295761EE00B0D089 /* DataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDelegate.swift; sourceTree = "<group>"; };
+		254A5FA2295761BA00B0D089 /* AuthenticationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataSource.swift; sourceTree = "<group>"; };
+		254A5FA4295761EE00B0D089 /* AuthenticationDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				254A5F9E29573B5200B0D089 /* User.swift */,
-				254A5FA2295761BA00B0D089 /* DataSource.swift */,
-				254A5FA4295761EE00B0D089 /* DataDelegate.swift */,
+				254A5FA2295761BA00B0D089 /* AuthenticationDataSource.swift */,
+				254A5FA4295761EE00B0D089 /* AuthenticationDataDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,9 +197,9 @@
 			files = (
 				254A5F8029571CD800B0D089 /* LoginViewController.swift in Sources */,
 				254A5F932957279400B0D089 /* KeychainService.swift in Sources */,
-				254A5FA5295761EE00B0D089 /* DataDelegate.swift in Sources */,
+				254A5FA5295761EE00B0D089 /* AuthenticationDataDelegate.swift in Sources */,
 				254A5F7C29571CD800B0D089 /* AppDelegate.swift in Sources */,
-				254A5FA3295761BA00B0D089 /* DataSource.swift in Sources */,
+				254A5FA3295761BA00B0D089 /* AuthenticationDataSource.swift in Sources */,
 				254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */,
 				254A5F9B295738E100B0D089 /* CitySelectionViewController.swift in Sources */,
 				254A5F9929572AC000B0D089 /* SignUpViewController.swift in Sources */,

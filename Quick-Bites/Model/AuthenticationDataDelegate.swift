@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol DataDelegate {
+protocol AuthenticationDataDelegate {
     
     func userLoggedIn()
     func userSignedIn()
     
 }
 
-extension DataDelegate {
+extension AuthenticationDataDelegate {
     
     func userLoggedIn() {}
     func userSignedIn() {}
