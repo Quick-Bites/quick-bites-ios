@@ -9,21 +9,37 @@
 /* Begin PBXBuildFile section */
 		254A5F7C29571CD800B0D089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7B29571CD800B0D089 /* AppDelegate.swift */; };
 		254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7D29571CD800B0D089 /* SceneDelegate.swift */; };
-		254A5F8029571CD800B0D089 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7F29571CD800B0D089 /* ViewController.swift */; };
+		254A5F8029571CD800B0D089 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7F29571CD800B0D089 /* LoginViewController.swift */; };
 		254A5F8329571CD800B0D089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8129571CD800B0D089 /* Main.storyboard */; };
 		254A5F8529571CD900B0D089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8429571CD900B0D089 /* Assets.xcassets */; };
 		254A5F8829571CD900B0D089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8629571CD900B0D089 /* LaunchScreen.storyboard */; };
+		254A5F932957279400B0D089 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F922957279400B0D089 /* KeychainService.swift */; };
+		254A5F9929572AC000B0D089 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F9829572AC000B0D089 /* SignUpViewController.swift */; };
+		254A5F9B295738E100B0D089 /* CitySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F9A295738E100B0D089 /* CitySelectionViewController.swift */; };
+		254A5F9D295738EE00B0D089 /* CitySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F9C295738EE00B0D089 /* CitySelection.storyboard */; };
+		254A5F9F29573B5200B0D089 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F9E29573B5200B0D089 /* User.swift */; };
+		254A5FA1295746AA00B0D089 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA0295746AA00B0D089 /* Constants.swift */; };
+		254A5FA3295761BA00B0D089 /* AuthenticationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA2295761BA00B0D089 /* AuthenticationDataSource.swift */; };
+		254A5FA5295761EE00B0D089 /* AuthenticationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5FA4295761EE00B0D089 /* AuthenticationDataDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		254A5F7829571CD800B0D089 /* Quick-Bites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick-Bites.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		254A5F7B29571CD800B0D089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		254A5F7D29571CD800B0D089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		254A5F7F29571CD800B0D089 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		254A5F7F29571CD800B0D089 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		254A5F8229571CD800B0D089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		254A5F8429571CD900B0D089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		254A5F8729571CD900B0D089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		254A5F8929571CD900B0D089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		254A5F922957279400B0D089 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		254A5F9829572AC000B0D089 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		254A5F9A295738E100B0D089 /* CitySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionViewController.swift; sourceTree = "<group>"; };
+		254A5F9C295738EE00B0D089 /* CitySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CitySelection.storyboard; sourceTree = "<group>"; };
+		254A5F9E29573B5200B0D089 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		254A5FA0295746AA00B0D089 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		254A5FA2295761BA00B0D089 /* AuthenticationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataSource.swift; sourceTree = "<group>"; };
+		254A5FA4295761EE00B0D089 /* AuthenticationDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDataDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,55 @@
 		254A5F7A29571CD800B0D089 /* Quick-Bites */ = {
 			isa = PBXGroup;
 			children = (
+				254A5FA62958578900B0D089 /* Utility */,
+				254A5F952957297500B0D089 /* Storyboard */,
+				254A5F942957293900B0D089 /* Controller */,
+				254A5F912957277100B0D089 /* Model */,
 				254A5F7B29571CD800B0D089 /* AppDelegate.swift */,
 				254A5F7D29571CD800B0D089 /* SceneDelegate.swift */,
-				254A5F7F29571CD800B0D089 /* ViewController.swift */,
-				254A5F8129571CD800B0D089 /* Main.storyboard */,
 				254A5F8429571CD900B0D089 /* Assets.xcassets */,
 				254A5F8629571CD900B0D089 /* LaunchScreen.storyboard */,
 				254A5F8929571CD900B0D089 /* Info.plist */,
 			);
 			path = "Quick-Bites";
+			sourceTree = "<group>";
+		};
+		254A5F912957277100B0D089 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				254A5F9E29573B5200B0D089 /* User.swift */,
+				254A5FA2295761BA00B0D089 /* AuthenticationDataSource.swift */,
+				254A5FA4295761EE00B0D089 /* AuthenticationDataDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		254A5F942957293900B0D089 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				254A5F7F29571CD800B0D089 /* LoginViewController.swift */,
+				254A5F9829572AC000B0D089 /* SignUpViewController.swift */,
+				254A5F9A295738E100B0D089 /* CitySelectionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		254A5F952957297500B0D089 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				254A5F8129571CD800B0D089 /* Main.storyboard */,
+				254A5F9C295738EE00B0D089 /* CitySelection.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		254A5FA62958578900B0D089 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				254A5F922957279400B0D089 /* KeychainService.swift */,
+				254A5FA0295746AA00B0D089 /* Constants.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +184,7 @@
 				254A5F8829571CD900B0D089 /* LaunchScreen.storyboard in Resources */,
 				254A5F8529571CD900B0D089 /* Assets.xcassets in Resources */,
 				254A5F8329571CD800B0D089 /* Main.storyboard in Resources */,
+				254A5F9D295738EE00B0D089 /* CitySelection.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +195,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				254A5F8029571CD800B0D089 /* ViewController.swift in Sources */,
+				254A5F8029571CD800B0D089 /* LoginViewController.swift in Sources */,
+				254A5F932957279400B0D089 /* KeychainService.swift in Sources */,
+				254A5FA5295761EE00B0D089 /* AuthenticationDataDelegate.swift in Sources */,
 				254A5F7C29571CD800B0D089 /* AppDelegate.swift in Sources */,
+				254A5FA3295761BA00B0D089 /* AuthenticationDataSource.swift in Sources */,
 				254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */,
+				254A5F9B295738E100B0D089 /* CitySelectionViewController.swift in Sources */,
+				254A5F9929572AC000B0D089 /* SignUpViewController.swift in Sources */,
+				254A5F9F29573B5200B0D089 /* User.swift in Sources */,
+				254A5FA1295746AA00B0D089 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
