@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run SwiftLint
+        run: swiftlint lint --config .swiftlint.yml --quiet
+        env:
+          LC_CTYPE: en_US.UTF-8
+      - name: Check SwiftLint exit code
+        if: ${{ failure() }}
+        run: exit 1
