@@ -10,6 +10,7 @@ import Foundation
 class AuthenticationDataSource {
     
     var delegate: AuthenticationDataDelegate?
+    private let keychain = KeychainWrapper()
     
     init(){
         
@@ -80,6 +81,15 @@ class AuthenticationDataSource {
                         let refreshToken = json["refresh_token"]
                         print("Access token: \(accessToken ?? "err")")
                         print("Refresh token: \(refreshToken ?? "err")")
+                        
+                        if let accessTokenStr = accessToken,
+                            let refreshTokenStr = refreshToken {
+                            try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_access_token", password: accessTokenStr)
+                            try self.keychain.addItem(account: "quick_bites_user", service: "quick_bits_refresh_token", password: refreshTokenStr)
+                        }
+                        
+                        print(try self.keychain.searchItem(account: username, service: "quick_bites_access_token"))
+                        
                         DispatchQueue.main.async {
                             self.delegate?.userLoggedIn()
                         }
