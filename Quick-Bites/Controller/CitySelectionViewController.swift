@@ -9,10 +9,14 @@ import UIKit
 
 class CitySelectionViewController: UIViewController {
 
+    @IBOutlet weak var citySelectionTableView: UITableView!
+    private var citySelectionDataSource = CitySelectionDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "Cities"
         // Do any additional setup after loading the view.
+        citySelectionDataSource.delegate = self
+        citySelectionDataSource.getListOfCities()
     }
     
 
@@ -26,4 +30,37 @@ class CitySelectionViewController: UIViewController {
     }
     */
 
+}
+
+extension CitySelectionViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return citySelectionDataSource.getNumberOfCities()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CitySelectionCell") as? CitySelectionTableViewCell
+        else  {
+            return UITableViewCell()
+        }
+        
+        if let city = citySelectionDataSource.getCity(for: indexPath.row) {
+            cell.nameLabel.text = city.name
+        } else {
+            cell.nameLabel.text = ""
+        }
+        
+        return cell
+    }
+}
+
+extension CitySelectionViewController: CitySelectionDataDelegate {
+    
+    func citiesLoaded() {
+        self.citySelectionTableView.reloadData()
+    }
 }
