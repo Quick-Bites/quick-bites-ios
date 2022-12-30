@@ -10,12 +10,14 @@ import CoreLocation
 
 class LocationHelper:NSObject {
     private let locationManager = CLLocationManager()
+    weak var delegate: LocationDelegate?
+    private var city: String?
     
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.distanceFilter = 5
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 5000
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.startUpdatingLocation()
     }
     
@@ -25,6 +27,10 @@ class LocationHelper:NSObject {
     
     func askForAlwaysPermission() {
         locationManager.requestAlwaysAuthorization()
+    }
+    
+    func getCityName() -> String? {
+        return city
     }
 }
 
@@ -37,9 +43,11 @@ extension LocationHelper: CLLocationManagerDelegate {
             geocoder.reverseGeocodeLocation(location, preferredLocale: preferredLocale) { (placemarks, error) in
                 if  let placemarks = placemarks,
                     let lastPlacemark = placemarks.last,
-                    let city = lastPlacemark.administrativeArea,
+                    let cityName = lastPlacemark.administrativeArea,
                     error == nil {
-                        print("City: \(city)")
+                        print("City: \(cityName)")
+                    self.city = cityName
+                    self.delegate?.cityNameFound(cityName: cityName)
                 }
             }
         }
