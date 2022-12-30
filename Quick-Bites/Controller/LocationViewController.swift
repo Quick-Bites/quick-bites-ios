@@ -26,23 +26,24 @@ class LocationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    }
-    */
+    }*/
+    
 
     @IBAction func askForPermission(_ sender: Any) {
         if let cityName = self.cityName {
-            if let nextViewController = self.continueNextView() {
-                show(nextViewController, sender: self)
+            if let categoryViewController = self.instantiateCategoryViewController() {
+                categoryViewController.cityName = self.cityName
+                show(categoryViewController, sender: self)
             }
         } else {
             locationHelper.askForInUsePermission()
         }
     }
     
-    func continueNextView() -> UIViewController? {
-        guard let nextViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") else { print("CategoryViewController not found!")
+    func instantiateCategoryViewController() -> CategoryViewController? {
+        guard let categoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") else { print("CategoryViewController not found!")
             return nil }
-        return nextViewController
+        return categoryViewController as? CategoryViewController
     }
 }
 

@@ -9,12 +9,15 @@ import UIKit
 
 class CategoryViewController: UIViewController {
 
+    var cityName: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let cityName = cityName {
+            self.title = cityName
+        }
     }
-    
 
     /*
     // MARK: - Navigation
