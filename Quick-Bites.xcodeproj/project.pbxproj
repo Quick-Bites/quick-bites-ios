@@ -25,6 +25,7 @@
 		497F83E2295F4D0100F57A91 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83DC295F4D0100F57A91 /* User.swift */; };
 		497F83E3295F4D0100F57A91 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83DD295F4D0100F57A91 /* City.swift */; };
 		497F83E7295F4D6700F57A91 /* CitySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83E5295F4D6700F57A91 /* CitySelectionTableViewCell.swift */; };
+		497F83E9295F515600F57A91 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83E8295F515600F57A91 /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		497F83DC295F4D0100F57A91 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		497F83DD295F4D0100F57A91 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		497F83E5295F4D6700F57A91 /* CitySelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySelectionTableViewCell.swift; sourceTree = "<group>"; };
+		497F83E8295F515600F57A91 /* LocationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		254A5FA62958578900B0D089 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				497F83E8295F515600F57A91 /* LocationHelper.swift */,
 				254A5F922957279400B0D089 /* KeychainService.swift */,
 				254A5FA0295746AA00B0D089 /* Constants.swift */,
 			);
@@ -232,6 +235,7 @@
 				497F83E7295F4D6700F57A91 /* CitySelectionTableViewCell.swift in Sources */,
 				497F83E2295F4D0100F57A91 /* User.swift in Sources */,
 				254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */,
+				497F83E9295F515600F57A91 /* LocationHelper.swift in Sources */,
 				254A5F9B295738E100B0D089 /* CitySelectionViewController.swift in Sources */,
 				254A5F9929572AC000B0D089 /* SignUpViewController.swift in Sources */,
 				497F83DF295F4D0100F57A91 /* CitySelectionDataDelegate.swift in Sources */,
