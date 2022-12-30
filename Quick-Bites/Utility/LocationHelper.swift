@@ -32,8 +32,9 @@ extension LocationHelper: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let lastLocation = locations.last
         let geocoder = CLGeocoder()
+        let preferredLocale = Locale(identifier: "en_US")  // specify the preferred language
         if let location = lastLocation {
-            geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            geocoder.reverseGeocodeLocation(location, preferredLocale: preferredLocale) { (placemarks, error) in
                 if  let placemarks = placemarks,
                     let lastPlacemark = placemarks.last,
                     let city = lastPlacemark.administrativeArea,
@@ -44,3 +45,4 @@ extension LocationHelper: CLLocationManagerDelegate {
         }
     }
 }
+
