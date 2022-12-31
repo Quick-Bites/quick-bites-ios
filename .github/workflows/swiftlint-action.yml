@@ -1,19 +1,25 @@
-name: CI
+name: SwiftLint
 
 on:
   pull_request:
-    branches:
-      - master
+    paths:
+      - '.github/workflows/swiftlint-action.yml'
+      - '.swiftlint.yml'
+      - '**/*.swift'
+  push:
+    paths:
+      - '.github/workflows/swiftlint-action.yml'
+      - '.swiftlint.yml'
+      - '**/*.swift'
 
 jobs:
-  build:
+  SwiftLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run SwiftLint
-        run: swiftlint lint --config .swiftlint.yml --quiet
+      - uses: actions/checkout@v1
+      - name: GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+      - name: Files Changed in PR (Only files changed in the PR)
+        uses: norio-nomura/action-swiftlint@3.2.1
         env:
-          LC_CTYPE: en_US.UTF-8
-      - name: Check SwiftLint exit code
-        if: ${{ failure() }}
-        run: exit 1
+          DIFF_BASE: ${{ github.base_ref }}
