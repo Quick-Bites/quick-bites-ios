@@ -10,4 +10,5 @@ import UIKit
 class CategorySelectionCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var foodImageView: UIImageView!
 }

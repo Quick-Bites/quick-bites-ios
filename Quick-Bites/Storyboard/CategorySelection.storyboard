@@ -33,18 +33,34 @@
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVv-7C-1Mi">
-                                                    <rect key="frame" x="123.33333333333334" y="139" width="52" height="21"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="burger" translatesAutoresizingMaskIntoConstraints="NO" id="zHT-Y4-EBA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="292"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qRX-Yb-ad1">
+                                                    <rect key="frame" x="0.0" y="252" width="300" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Burger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVv-7C-1Mi">
+                                                            <rect key="frame" x="123.33333333333334" y="13" width="59" height="24"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" systemColor="separatorColor"/>
+                                        <constraints>
+                                            <constraint firstItem="zHT-Y4-EBA" firstAttribute="leading" secondItem="tOY-TW-WBT" secondAttribute="leadingMargin" constant="-8" id="0rq-HB-n8b"/>
+                                            <constraint firstItem="zHT-Y4-EBA" firstAttribute="top" secondItem="tOY-TW-WBT" secondAttribute="topMargin" constant="-8" id="Chx-n9-mDh"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="zHT-Y4-EBA" secondAttribute="trailing" constant="-8" id="sxo-bE-vdL"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="zHT-Y4-EBA" secondAttribute="bottom" id="vBB-FH-hwS"/>
+                                        </constraints>
                                         <size key="customSize" width="300" height="300"/>
                                         <connections>
+                                            <outlet property="foodImageView" destination="zHT-Y4-EBA" id="fze-e7-dTA"/>
                                             <outlet property="nameLabel" destination="kVv-7C-1Mi" id="bcN-p6-DVe"/>
                                         </connections>
                                     </collectionViewCell>
@@ -70,13 +86,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bC8-0B-5HX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="38"/>
+            <point key="canvasLocation" x="872.51908396946567" y="37.323943661971832"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="burger" width="1333.3333740234375" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -16,12 +16,12 @@ class CategorySelectionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let cityName = cityName {
-            self.title = cityName
-        }
+        self.title = "Select a category"
+        
         categorySelectionDataSource.delegate = self
         categorySelectionDataSource.getListOfCategories()
     }
+   
 
     /*
     // MARK: - Navigation
@@ -51,8 +51,8 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         }
         
         if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
-            print("Entered into collection cell \(category.name)")
             cell.nameLabel.text = category.name
+            cell.foodImageView.image = UIImage(named: category.name.lowercased())
         }
         
         return cell
