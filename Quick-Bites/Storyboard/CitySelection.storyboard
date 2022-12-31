@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fv9-B3-r5H">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -11,13 +11,13 @@
         <!--City Selection View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="CitySelectionViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CitySelectionViewController" id="Y6W-OH-hqX" customClass="CitySelectionViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XaT-uE-6mE">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CitySelectionCell" id="0ye-ai-ZqK" customClass="CitySelectionTableViewCell" customModule="Quick_Bites" customModuleProvider="target">
@@ -41,6 +41,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="dpd-8K-JH7" id="eUa-hh-ZyF"/>
+                                            <segue destination="s4W-SD-dqF" kind="show" id="bo9-eq-ALt"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -59,13 +60,74 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XaT-uE-6mE" secondAttribute="bottom" id="ya1-t8-7KO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="a7M-gt-hpG"/>
                     <connections>
                         <outlet property="citySelectionTableView" destination="XaT-uE-6mE" id="Gcd-Hv-jxb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-2"/>
+            <point key="canvasLocation" x="1053" y="-39"/>
+        </scene>
+        <!--CategorySelection-->
+        <scene sceneID="z6C-aT-PmH">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CategoryViewController" storyboardName="CategorySelection" id="s4W-SD-dqF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MYr-p6-cEt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TIt-od-DUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1818" y="-80"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="FZn-Fw-o9C">
+            <objects>
+                <viewController id="Fv9-B3-r5H" customClass="LocationViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FBw-cM-fzy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="juC-s8-4YR">
+                                <rect key="frame" x="102" y="372.66666666666669" width="189" height="106.66666666666669"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-yO-jRV">
+                                        <rect key="frame" x="21.666666666666671" y="0.0" width="145.66666666666663" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Use my location"/>
+                                        <connections>
+                                            <action selector="askForPermission:" destination="Fv9-B3-r5H" eventType="touchUpInside" id="ycj-b7-SF6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfB-SW-BcN">
+                                        <rect key="frame" x="0.0" y="72.333333333333314" width="189" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Select a city manually"/>
+                                        <connections>
+                                            <segue destination="Y6W-OH-hqX" kind="show" id="1Yo-7h-647"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mfB-SW-BcN" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="4Nt-4P-NVR"/>
+                                    <constraint firstItem="H9D-yO-jRV" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="f6y-t9-i3V"/>
+                                    <constraint firstAttribute="bottom" secondItem="mfB-SW-BcN" secondAttribute="bottom" constant="20" symbolic="YES" id="uci-aE-vfG"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rvg-v2-xUF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="juC-s8-4YR" firstAttribute="centerX" secondItem="FBw-cM-fzy" secondAttribute="centerX" id="FYQ-YT-y3G"/>
+                            <constraint firstItem="juC-s8-4YR" firstAttribute="centerY" secondItem="FBw-cM-fzy" secondAttribute="centerY" id="nR2-Zn-KZY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorizationButton" destination="H9D-yO-jRV" id="WUG-6S-Xry"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocj-7I-VMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-131" y="-39"/>
         </scene>
     </scenes>
     <resources>

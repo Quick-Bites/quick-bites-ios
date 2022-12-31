@@ -88,8 +88,6 @@ class AuthenticationDataSource {
                             try self.keychain.addItem(account: "quick_bites_user", service: "quick_bits_refresh_token", password: refreshTokenStr)
                         }
                         
-                        print(try self.keychain.searchItem(account: username, service: "quick_bites_access_token"))
-                        
                         DispatchQueue.main.async {
                             self.delegate?.userLoggedIn()
                         }
