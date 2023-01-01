@@ -1,0 +1,17 @@
+opt_in_rules:
+  - comma
+  - leading_whitespace
+
+line_length: 120
+
+excluded:
+  - Carthage
+  - Pods
+  - fastlane
+  - Build
+  - .build
+  - *.xcodeproj
+  - *.xcworkspace
+  - *.xcframework
+  - *.xcarchive
+  - *.xcappdata
