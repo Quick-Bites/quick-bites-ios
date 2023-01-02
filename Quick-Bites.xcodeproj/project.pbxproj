@@ -36,6 +36,8 @@
 		497F841D2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841C2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift */; };
 		497F841F2963162A00F57A91 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841E2963162A00F57A91 /* UserInfoViewController.swift */; };
 		497F84212963164800F57A91 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497F84202963164800F57A91 /* UserInfo.storyboard */; };
+		497F84232963280F00F57A91 /* UserInfoDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F84222963280F00F57A91 /* UserInfoDataDelegate.swift */; };
+		497F84252963281700F57A91 /* UserInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F84242963281700F57A91 /* UserInfoDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		497F841C2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		497F841E2963162A00F57A91 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		497F84202963164800F57A91 /* UserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
+		497F84222963280F00F57A91 /* UserInfoDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataDelegate.swift; sourceTree = "<group>"; };
+		497F84242963281700F57A91 /* UserInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,8 @@
 				497F841629604EC100F57A91 /* CategorySelectionDataDelegate.swift */,
 				497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */,
 				497F841A29604F5100F57A91 /* Category.swift */,
+				497F84222963280F00F57A91 /* UserInfoDataDelegate.swift */,
+				497F84242963281700F57A91 /* UserInfoDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				497F841F2963162A00F57A91 /* UserInfoViewController.swift in Sources */,
 				497F83E2295F4D0100F57A91 /* User.swift in Sources */,
 				497F841D2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift in Sources */,
+				497F84232963280F00F57A91 /* UserInfoDataDelegate.swift in Sources */,
 				497F841729604EC100F57A91 /* CategorySelectionDataDelegate.swift in Sources */,
 				254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */,
 				497F83E9295F515600F57A91 /* LocationHelper.swift in Sources */,
@@ -279,6 +286,7 @@
 				497F83DF295F4D0100F57A91 /* CitySelectionDataDelegate.swift in Sources */,
 				497F83E3295F4D0100F57A91 /* City.swift in Sources */,
 				497F83F3295F708800F57A91 /* CategorySelectionViewController.swift in Sources */,
+				497F84252963281700F57A91 /* UserInfoDataSource.swift in Sources */,
 				254A5FA1295746AA00B0D089 /* Constants.swift in Sources */,
 				497F841B29604F5100F57A91 /* Category.swift in Sources */,
 			);

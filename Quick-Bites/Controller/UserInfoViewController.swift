@@ -8,11 +8,13 @@
 import UIKit
 
 class UserInfoViewController: UIViewController {
-
+    var username: String?
+    private let userInfoDataSource = UserInfoDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        userInfoDataSource.delegate = self
     }
     
 
@@ -26,4 +28,10 @@ class UserInfoViewController: UIViewController {
     }
     */
 
+}
+
+extension UserInfoViewController: UserInfoDataDelegate {
+    func userInfoLoaded(user: User) {
+
+    }
 }

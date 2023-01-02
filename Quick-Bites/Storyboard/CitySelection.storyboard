@@ -123,7 +123,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfq-XG-iuJ">
-                                <rect key="frame" x="270.66666666666669" y="59" width="102.33333333333331" height="34.333333333333343"/>
+                                <rect key="frame" x="270.66666666666669" y="60" width="102.33333333333331" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Username"/>
                                 <connections>
@@ -134,9 +134,9 @@
                         <viewLayoutGuide key="safeArea" id="Rvg-v2-xUF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rfq-XG-iuJ" firstAttribute="top" secondItem="Rvg-v2-xUF" secondAttribute="top" id="21y-hK-dUa"/>
                             <constraint firstItem="juC-s8-4YR" firstAttribute="centerX" secondItem="FBw-cM-fzy" secondAttribute="centerX" id="FYQ-YT-y3G"/>
                             <constraint firstItem="Rvg-v2-xUF" firstAttribute="trailing" secondItem="rfq-XG-iuJ" secondAttribute="trailing" constant="20" id="a7e-sJ-OEv"/>
+                            <constraint firstItem="rfq-XG-iuJ" firstAttribute="top" secondItem="Rvg-v2-xUF" secondAttribute="top" constant="1" id="liU-A5-GXN"/>
                             <constraint firstItem="juC-s8-4YR" firstAttribute="centerY" secondItem="FBw-cM-fzy" secondAttribute="centerY" id="nR2-Zn-KZY"/>
                         </constraints>
                     </view>
