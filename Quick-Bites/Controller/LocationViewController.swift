@@ -40,10 +40,10 @@ class LocationViewController: UIViewController {
         }
     }
     
-    func instantiateCategoryViewController() -> CategoryViewController? {
+    func instantiateCategoryViewController() -> CategorySelectionViewController? {
         guard let categoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") else { print("CategoryViewController not found!")
             return nil }
-        return categoryViewController as? CategoryViewController
+        return categoryViewController as? CategorySelectionViewController
     }
 }
 
