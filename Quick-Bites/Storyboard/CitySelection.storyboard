@@ -110,7 +110,6 @@
                                 <constraints>
                                     <constraint firstItem="mfB-SW-BcN" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="4Nt-4P-NVR"/>
                                     <constraint firstItem="H9D-yO-jRV" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="f6y-t9-i3V"/>
-                                    <constraint firstAttribute="bottom" secondItem="mfB-SW-BcN" secondAttribute="bottom" constant="20" symbolic="YES" id="uci-aE-vfG"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -127,7 +126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocj-7I-VMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="-39"/>
+            <point key="canvasLocation" x="-132.06106870229007" y="-39.436619718309863"/>
         </scene>
     </scenes>
     <resources>

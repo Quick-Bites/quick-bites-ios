@@ -46,7 +46,7 @@ class AuthenticationDataSource {
                 let statusCode = httpResponse.statusCode
                 if statusCode == 201 {
                     DispatchQueue.main.async {
-                        self.delegate?.userSignedIn()
+                        self.delegate?.userSignedUp()
                     }
                 }else{
                     return
@@ -85,11 +85,11 @@ class AuthenticationDataSource {
                         if let accessTokenStr = accessToken,
                             let refreshTokenStr = refreshToken {
                             try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_access_token", password: accessTokenStr)
-                            try self.keychain.addItem(account: "quick_bites_user", service: "quick_bits_refresh_token", password: refreshTokenStr)
+                            try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_refresh_token", password: refreshTokenStr)
                         }
                         
                         DispatchQueue.main.async {
-                            self.delegate?.userLoggedIn()
+                            self.delegate?.userLoggedIn(username: username)
                         }
                     }
                 } catch {

@@ -13,26 +13,47 @@ class LocationViewController: UIViewController {
     
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
+    var username: String?
+
+    @IBOutlet weak var userInfoButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationHelper.delegate = self
         // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
+        self.title = "Location"
+    }
+    
+    @objc func rightButtonTapped() {
+        let storyboard = UIStoryboard(name: "UserInfo", bundle: nil)
+        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
+           let username = username {
+            destinationViewController.username = username
+            show(destinationViewController, sender: self)
+        }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    }*/
+        if
+            let userInfoViewController = segue.destination as? UserInfoViewController,
+            let username = self.username
+        {
+            userInfoViewController.username = username
+        }
+    }
     
 
     @IBAction func askForPermission(_ sender: Any) {
         if let cityName = self.cityName {
             if let categoryViewController = self.instantiateCategoryViewController() {
-                categoryViewController.cityName = self.cityName
+                categoryViewController.cityName = cityName
                 show(categoryViewController, sender: self)
             }
         } else {
