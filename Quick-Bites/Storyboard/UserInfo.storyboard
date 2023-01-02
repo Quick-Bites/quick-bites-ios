@@ -98,6 +98,12 @@
                             <constraint firstItem="sCC-jh-36b" firstAttribute="top" secondItem="vTn-go-Ymj" secondAttribute="bottom" constant="50" id="zJ3-ta-agF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="zIZ-U6-lS7" id="Ge5-6T-HUB"/>
+                        <outlet property="fullNameLabel" destination="Z5x-1e-rrr" id="RZq-J4-RE6"/>
+                        <outlet property="phoneLabel" destination="HiN-Qg-1CB" id="T6g-mZ-0zh"/>
+                        <outlet property="usernameLabel" destination="LTV-Lp-2fR" id="RtS-Tp-Rs0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

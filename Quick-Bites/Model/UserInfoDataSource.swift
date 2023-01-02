@@ -17,7 +17,7 @@ class UserInfoDataSource {
 
     func getUserDetails(for username: String) {
         let session = URLSession.shared
-        if let url = URL(string: "\(Constants.getCategoriesURL())/\(username)") {
+        if let url = URL(string: "\(Constants.getUserDetailsURL())/\(username)") {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             

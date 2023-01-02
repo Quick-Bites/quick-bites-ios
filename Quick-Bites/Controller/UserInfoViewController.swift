@@ -10,13 +10,27 @@ import UIKit
 class UserInfoViewController: UIViewController {
     var username: String?
     private let userInfoDataSource = UserInfoDataSource()
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         userInfoDataSource.delegate = self
+        if let username = username {
+            userInfoDataSource.getUserDetails(for: username)
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        usernameLabel.text = "N/A"
+        fullNameLabel.text = "N/A"
+        emailLabel.text = "N/A"
+        phoneLabel.text = "N/A"
+    }
 
     /*
     // MARK: - Navigation
@@ -32,6 +46,9 @@ class UserInfoViewController: UIViewController {
 
 extension UserInfoViewController: UserInfoDataDelegate {
     func userInfoLoaded(user: User) {
-
+        usernameLabel.text = user.username
+        fullNameLabel.text = user.name
+        emailLabel.text = user.email
+        phoneLabel.text = user.phoneNumber
     }
 }
