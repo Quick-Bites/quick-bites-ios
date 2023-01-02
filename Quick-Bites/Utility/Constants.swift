@@ -25,4 +25,8 @@ class Constants {
     static func getCategoriesURL() -> String{
         return "\(baseURL)/api/restaurant/categories"
     }
+    
+    static func getUserDetailsURL() -> String{
+        return "\(baseURL)/api/user/details"
+    }
 }
