@@ -9,8 +9,11 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    private var username: String?
     
     private var dataSource = AuthenticationDataSource()
     
@@ -20,14 +23,24 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if
+            let locationViewController = segue.destination as? LocationViewController,
+            let username = self.username
+        {
+            locationViewController.username = username
+        }
+    }
+    
     @IBAction func login(_ sender: Any) {
         if
-            let username = username.text,
-            let password = password.text
+            let username = usernameTextField.text,
+            let password = passwordTextField.text
         {
             dataSource.logInUser(username: username, password: password)
-            
-        }else{
+        } else{
             print("error")
         }
         
@@ -35,7 +48,8 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController: AuthenticationDataDelegate {
-    func userLoggedIn() {
+    func userLoggedIn(username: String) {
+        self.username = username
         performSegue(withIdentifier: "showCitySelection", sender: self)
     }
 }

@@ -13,7 +13,7 @@ class CitySelectionViewController: UIViewController {
     private var citySelectionDataSource = CitySelectionDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Cities"
+        self.title = "Select a city"
         // Do any additional setup after loading the view.
         citySelectionDataSource.delegate = self
         citySelectionDataSource.getListOfCities()
