@@ -62,6 +62,7 @@
                                         <connections>
                                             <outlet property="foodImageView" destination="zHT-Y4-EBA" id="fze-e7-dTA"/>
                                             <outlet property="nameLabel" destination="kVv-7C-1Mi" id="bcN-p6-DVe"/>
+                                            <segue destination="hO6-W8-p78" kind="show" id="Jeb-LS-UOY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -87,6 +88,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bC8-0B-5HX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="872.51908396946567" y="37.323943661971832"/>
+        </scene>
+        <!--RestaurantSelection-->
+        <scene sceneID="PNK-AV-lb3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RestaurantSelection" id="hO6-W8-p78" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xpd-bE-8Rw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iO1-vu-tti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="-57"/>
         </scene>
     </scenes>
     <resources>
