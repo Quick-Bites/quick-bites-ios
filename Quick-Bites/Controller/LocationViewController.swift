@@ -32,7 +32,7 @@ class LocationViewController: UIViewController {
     @IBAction func askForPermission(_ sender: Any) {
         if let cityName = self.cityName {
             if let categoryViewController = self.instantiateCategoryViewController() {
-                categoryViewController.cityName = self.cityName
+                categoryViewController.cityName = cityName
                 show(categoryViewController, sender: self)
             }
         } else {
