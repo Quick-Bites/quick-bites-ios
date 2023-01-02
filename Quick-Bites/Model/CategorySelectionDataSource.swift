@@ -28,11 +28,21 @@ class CategorySelectionDataSource {
             }
             
             let dataTask = session.dataTask(with: request) { data, response, error in
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    self.categoryArray = try! decoder.decode([Category].self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.categoriesLoaded()
+                if let data = data,
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        let decoder = JSONDecoder()
+                        self.categoryArray = try! decoder.decode([Category].self, from: data)
+                        DispatchQueue.main.async {
+                            self.delegate?.categoriesLoaded()
+                        }
+                    }
+                    else if httpResponse.statusCode == 403 {
+                        print("Access token was expired")
+                        self.delegate?.accessTokenExpired()
+                    }
+                    else {
+                        print("There is a problem \(httpResponse.description)")
                     }
                 }
             }
