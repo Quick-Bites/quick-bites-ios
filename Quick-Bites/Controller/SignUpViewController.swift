@@ -21,6 +21,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         dataSource.delegate = self
         // Do any additional setup after loading the view.
+        self.title = "Sign Up"
     }
     
 

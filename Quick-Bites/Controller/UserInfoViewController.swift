@@ -14,6 +14,7 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var reservationsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,5 +51,15 @@ extension UserInfoViewController: UserInfoDataDelegate {
         fullNameLabel.text = user.name
         emailLabel.text = user.email
         phoneLabel.text = user.phoneNumber
+        if user.reservations.isEmpty {
+            reservationsButton.isEnabled = false
+            reservationsButton.alpha = 0.9
+            reservationsButton.tintColor = .gray
+            reservationsButton.setTitle("No reservations were found", for: .normal)
+        } else {
+            reservationsButton.isEnabled = true
+            reservationsButton.alpha = 1
+            reservationsButton.tintColor = .blue
+        }
     }
 }

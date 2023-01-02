@@ -21,8 +21,16 @@ class LocationViewController: UIViewController {
         super.viewDidLoad()
         locationHelper.delegate = self
         // Do any additional setup after loading the view.
-        if let username = username {
-            userInfoButton.setTitle(username, for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
+        self.title = "Location"
+    }
+    
+    @objc func rightButtonTapped() {
+        let storyboard = UIStoryboard(name: "UserInfo", bundle: nil)
+        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
+           let username = username {
+            destinationViewController.username = username
+            show(destinationViewController, sender: self)
         }
     }
 

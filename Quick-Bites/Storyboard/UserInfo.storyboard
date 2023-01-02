@@ -11,7 +11,7 @@
         <!--User Profile-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController title="User Profile" id="Y6W-OH-hqX" customClass="UserInfoViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserInfoViewController" title="User Profile" id="Y6W-OH-hqX" customClass="UserInfoViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,6 +102,7 @@
                         <outlet property="emailLabel" destination="zIZ-U6-lS7" id="Ge5-6T-HUB"/>
                         <outlet property="fullNameLabel" destination="Z5x-1e-rrr" id="RZq-J4-RE6"/>
                         <outlet property="phoneLabel" destination="HiN-Qg-1CB" id="T6g-mZ-0zh"/>
+                        <outlet property="reservationsButton" destination="sCC-jh-36b" id="EtP-G7-Q6A"/>
                         <outlet property="usernameLabel" destination="LTV-Lp-2fR" id="RtS-Tp-Rs0"/>
                     </connections>
                 </viewController>
