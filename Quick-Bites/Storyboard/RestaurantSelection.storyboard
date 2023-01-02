@@ -68,21 +68,83 @@
             </objects>
             <point key="canvasLocation" x="6.8702290076335872" y="-2.1126760563380285"/>
         </scene>
-        <!--View Controller-->
+        <!--Restaurant Detail View Controller-->
         <scene sceneID="U7F-NW-72u">
             <objects>
-                <viewController id="ShO-c2-o89" sceneMemberID="viewController">
+                <viewController id="ShO-c2-o89" customClass="RestaurantDetailViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7VD-bB-0ax">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="746-sx-6rd">
+                                <rect key="frame" x="175.66666666666666" y="190" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvC-hW-JGU">
+                                <rect key="frame" x="175.66666666666666" y="272" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeL-OO-C0P">
+                                <rect key="frame" x="175.66666666666666" y="313" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2j9-8Y-3Yk">
+                                <rect key="frame" x="175.66666666666666" y="231" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ui-2m-Qxc">
+                                <rect key="frame" x="110" y="446" width="173" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Make a Reservation"/>
+                                <connections>
+                                    <segue destination="feE-gY-yrO" kind="show" id="jq5-J9-hzj"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="VqH-2T-CTP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zvC-hW-JGU" firstAttribute="top" secondItem="2j9-8Y-3Yk" secondAttribute="bottom" constant="20" id="1Ty-R1-wIm"/>
+                            <constraint firstItem="746-sx-6rd" firstAttribute="top" secondItem="VqH-2T-CTP" secondAttribute="top" constant="131" id="1ZI-CP-vz0"/>
+                            <constraint firstItem="2j9-8Y-3Yk" firstAttribute="top" secondItem="746-sx-6rd" secondAttribute="bottom" constant="20" id="4id-qO-Y8W"/>
+                            <constraint firstItem="EeL-OO-C0P" firstAttribute="centerX" secondItem="VqH-2T-CTP" secondAttribute="centerX" id="CzO-Lo-rZ9"/>
+                            <constraint firstItem="2j9-8Y-3Yk" firstAttribute="centerX" secondItem="VqH-2T-CTP" secondAttribute="centerX" id="GVX-pr-5CB"/>
+                            <constraint firstItem="6ui-2m-Qxc" firstAttribute="centerX" secondItem="VqH-2T-CTP" secondAttribute="centerX" id="Y9w-U2-uYM"/>
+                            <constraint firstItem="746-sx-6rd" firstAttribute="centerX" secondItem="VqH-2T-CTP" secondAttribute="centerX" id="bM9-tY-BTt"/>
+                            <constraint firstItem="zvC-hW-JGU" firstAttribute="centerX" secondItem="VqH-2T-CTP" secondAttribute="centerX" id="eWW-Uv-gpx"/>
+                            <constraint firstItem="6ui-2m-Qxc" firstAttribute="top" secondItem="EeL-OO-C0P" secondAttribute="bottom" constant="112" id="ld1-d0-s3h"/>
+                            <constraint firstItem="EeL-OO-C0P" firstAttribute="top" secondItem="zvC-hW-JGU" secondAttribute="bottom" constant="20" id="vs1-BS-Owq"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wat-UE-iQ5"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="2j9-8Y-3Yk" id="lzP-Do-6Tw"/>
+                        <outlet property="nameLabel" destination="746-sx-6rd" id="WAo-p5-VNm"/>
+                        <outlet property="phoneNumberLabel" destination="zvC-hW-JGU" id="A3m-Mg-HrJ"/>
+                        <outlet property="ratingLabel" destination="EeL-OO-C0P" id="30F-HT-7uk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fu7-cQ-fFs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="764" y="-4"/>
+        </scene>
+        <!--Reservation-->
+        <scene sceneID="rM9-HM-djk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reservation" id="feE-gY-yrO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WmU-ZU-doI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bqH-1G-9Qx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1273" y="61"/>
         </scene>
     </scenes>
     <resources>

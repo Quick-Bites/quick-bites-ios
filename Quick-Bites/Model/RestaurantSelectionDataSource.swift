@@ -62,6 +62,42 @@ class RestaurantSelectionDataSource {
         }
     }
     
+    func getRestaurantDetails(with city: String, with restaurantName:String){
+        let url = URL(string: Constants.getRestaurantDetailsURL())!
+        let body = [
+            "restaurantName": restaurantName,
+            "locatedCity": city
+        ]
+        let bodyData = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = bodyData
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            print("An error occurred")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            if let data = data {
+                let decoder = JSONDecoder()
+                let restaurant = try! decoder.decode([Restaurant].self, from: data)
+                DispatchQueue.main.async {
+                    self.delegate?.restaurantDetailsLoaded(restaurant: restaurant[0])
+                }
+                
+            }
+        }
+        task.resume()
+    }
+    
     func getNumberOfRestaurants() -> Int{
         return restaurantArray.count
     }

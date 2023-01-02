@@ -9,4 +9,10 @@ import Foundation
 
 protocol RestaurantSelectionDataDelegate {
     func restaurantsLoaded()
+    func restaurantDetailsLoaded(restaurant: Restaurant)
+}
+
+extension RestaurantSelectionDataDelegate {
+    func restaurantsLoaded() {}
+    func restaurantDetailsLoaded(restaurant: Restaurant) {}
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class Constants {
-    static let baseURL = "http://ec2-99-79-59-139.ca-central-1.compute.amazonaws.com"
+    static let baseURL = "x"
     
     static func getLoginURL() -> String{
         return "\(baseURL)/api/login"
@@ -30,6 +30,10 @@ class Constants {
     }
     static func getCityRestaurantsWithCategoryURL(with city: String, with category: String) -> String{
         return "\(baseURL)/api/restaurant/category/\(category)/city/\(city)"
+    }
+    
+    static func getRestaurantDetailsURL() -> String{
+        return "\(baseURL)/api/restaurant/details"
     }
     
     static func getUserDetailsURL() -> String{
