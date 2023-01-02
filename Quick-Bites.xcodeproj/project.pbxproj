@@ -34,6 +34,8 @@
 		497F841929604ECB00F57A91 /* CategorySelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */; };
 		497F841B29604F5100F57A91 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841A29604F5100F57A91 /* Category.swift */; };
 		497F841D2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841C2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift */; };
+		497F841F2963162A00F57A91 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841E2963162A00F57A91 /* UserInfoViewController.swift */; };
+		497F84212963164800F57A91 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497F84202963164800F57A91 /* UserInfo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionDataSource.swift; sourceTree = "<group>"; };
 		497F841A29604F5100F57A91 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		497F841C2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		497F841E2963162A00F57A91 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		497F84202963164800F57A91 /* UserInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				497F83EC295F65B500F57A91 /* LocationViewController.swift */,
 				254A5F9A295738E100B0D089 /* CitySelectionViewController.swift */,
 				497F83F2295F708800F57A91 /* CategorySelectionViewController.swift */,
+				497F841E2963162A00F57A91 /* UserInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				254A5F8129571CD800B0D089 /* Main.storyboard */,
 				254A5F9C295738EE00B0D089 /* CitySelection.storyboard */,
 				497F83F4295F9B8900F57A91 /* CategorySelection.storyboard */,
+				497F84202963164800F57A91 /* UserInfo.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				497F83F5295F9B8900F57A91 /* CategorySelection.storyboard in Resources */,
 				254A5F8329571CD800B0D089 /* Main.storyboard in Resources */,
 				254A5F9D295738EE00B0D089 /* CitySelection.storyboard in Resources */,
+				497F84212963164800F57A91 /* UserInfo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 				497F83E1295F4D0100F57A91 /* AuthenticationDataDelegate.swift in Sources */,
 				497F841929604ECB00F57A91 /* CategorySelectionDataSource.swift in Sources */,
 				497F83E7295F4D6700F57A91 /* CitySelectionTableViewCell.swift in Sources */,
+				497F841F2963162A00F57A91 /* UserInfoViewController.swift in Sources */,
 				497F83E2295F4D0100F57A91 /* User.swift in Sources */,
 				497F841D2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift in Sources */,
 				497F841729604EC100F57A91 /* CategorySelectionDataDelegate.swift in Sources */,

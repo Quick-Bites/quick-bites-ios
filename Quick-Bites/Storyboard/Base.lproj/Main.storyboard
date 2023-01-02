@@ -105,8 +105,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="brA-Fd-VhQ"/>
                     <connections>
-                        <outlet property="password" destination="UDJ-GL-5h3" id="sPB-DJ-3Gu"/>
-                        <outlet property="username" destination="HdR-J3-VHc" id="pmZ-Dq-3pA"/>
+                        <outlet property="passwordTextField" destination="UDJ-GL-5h3" id="RcL-K4-vMa"/>
+                        <outlet property="usernameTextField" destination="HdR-J3-VHc" id="a3t-ZB-3H0"/>
                         <segue destination="KiQ-pz-Cki" kind="show" identifier="showCitySelection" id="R4c-6W-jYL"/>
                     </connections>
                 </viewController>
@@ -206,11 +206,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="XNV-dY-Bh8"/>
                     <connections>
-                        <outlet property="email" destination="YkZ-Br-4sq" id="0Su-QZ-qUO"/>
-                        <outlet property="fullname" destination="qna-7Y-8le" id="DAu-Wh-pnT"/>
-                        <outlet property="password" destination="8j4-jt-rEh" id="yW0-bh-Kod"/>
-                        <outlet property="phoneNumber" destination="UgL-UI-AtP" id="rRc-OI-Vja"/>
-                        <outlet property="username" destination="qpN-r0-DxJ" id="Ktw-CO-sOm"/>
+                        <outlet property="emailTextField" destination="YkZ-Br-4sq" id="tap-iU-gvf"/>
+                        <outlet property="fullNameTextField" destination="qna-7Y-8le" id="2ZR-gG-r2Z"/>
+                        <outlet property="passwordTextField" destination="8j4-jt-rEh" id="CBB-Ka-C5C"/>
+                        <outlet property="phoneNumberTextField" destination="UgL-UI-AtP" id="zAD-st-Tv7"/>
+                        <outlet property="usernameTextField" destination="qpN-r0-DxJ" id="xAB-YA-PMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFY-IH-Efi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

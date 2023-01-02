@@ -13,10 +13,17 @@ class LocationViewController: UIViewController {
     
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
+    var username: String?
+
+    @IBOutlet weak var userInfoButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         locationHelper.delegate = self
         // Do any additional setup after loading the view.
+        if let username = username {
+            userInfoButton.setTitle(username, for: .normal)
+        }
     }
 
     /*

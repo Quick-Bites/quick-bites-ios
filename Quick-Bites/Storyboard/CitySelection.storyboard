@@ -79,6 +79,16 @@
             </objects>
             <point key="canvasLocation" x="1818" y="-80"/>
         </scene>
+        <!--UserInfo-->
+        <scene sceneID="ln4-tn-Aex">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserInfo" id="Hcd-Hk-lw9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KVO-FE-edL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRH-k3-H3c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24" y="-582"/>
+        </scene>
         <!--Location View Controller-->
         <scene sceneID="FZn-Fw-o9C">
             <objects>
@@ -110,24 +120,34 @@
                                 <constraints>
                                     <constraint firstItem="mfB-SW-BcN" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="4Nt-4P-NVR"/>
                                     <constraint firstItem="H9D-yO-jRV" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="f6y-t9-i3V"/>
-                                    <constraint firstAttribute="bottom" secondItem="mfB-SW-BcN" secondAttribute="bottom" constant="20" symbolic="YES" id="uci-aE-vfG"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfq-XG-iuJ">
+                                <rect key="frame" x="270.66666666666669" y="59" width="102.33333333333331" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Username"/>
+                                <connections>
+                                    <segue destination="Hcd-Hk-lw9" kind="show" id="71F-ka-wbW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rvg-v2-xUF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rfq-XG-iuJ" firstAttribute="top" secondItem="Rvg-v2-xUF" secondAttribute="top" id="21y-hK-dUa"/>
                             <constraint firstItem="juC-s8-4YR" firstAttribute="centerX" secondItem="FBw-cM-fzy" secondAttribute="centerX" id="FYQ-YT-y3G"/>
+                            <constraint firstItem="Rvg-v2-xUF" firstAttribute="trailing" secondItem="rfq-XG-iuJ" secondAttribute="trailing" constant="20" id="a7e-sJ-OEv"/>
                             <constraint firstItem="juC-s8-4YR" firstAttribute="centerY" secondItem="FBw-cM-fzy" secondAttribute="centerY" id="nR2-Zn-KZY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="authorizationButton" destination="H9D-yO-jRV" id="WUG-6S-Xry"/>
+                        <outlet property="userInfoButton" destination="rfq-XG-iuJ" id="65R-EF-dEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocj-7I-VMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="-39"/>
+            <point key="canvasLocation" x="-132.06106870229007" y="-39.436619718309863"/>
         </scene>
     </scenes>
     <resources>

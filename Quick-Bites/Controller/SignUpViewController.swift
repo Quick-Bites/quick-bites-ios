@@ -9,11 +9,11 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var fullname: UITextField!
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     
     private var dataSource = AuthenticationDataSource()
     
@@ -26,11 +26,11 @@ class SignUpViewController: UIViewController {
 
     @IBAction func signup(_ sender: Any) {
         if
-            let fullname = fullname.text,
-            let username = username.text,
-                let password = password.text,
-                let email = email.text,
-                let phoneNumber = phoneNumber.text
+            let fullname = fullNameTextField.text,
+            let username = usernameTextField.text,
+                let password = passwordTextField.text,
+                let email = emailTextField.text,
+                let phoneNumber = phoneNumberTextField.text
         {
             dataSource.signUpUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber)
             
@@ -51,7 +51,7 @@ class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController: AuthenticationDataDelegate {
-    func userSignedIn() {
+    func userSignedUp() {
         _ = navigationController?.popViewController(animated: true)
     }
 }

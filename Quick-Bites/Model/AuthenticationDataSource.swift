@@ -46,7 +46,7 @@ class AuthenticationDataSource {
                 let statusCode = httpResponse.statusCode
                 if statusCode == 201 {
                     DispatchQueue.main.async {
-                        self.delegate?.userSignedIn()
+                        self.delegate?.userSignedUp()
                     }
                 }else{
                     return
@@ -89,7 +89,7 @@ class AuthenticationDataSource {
                         }
                         
                         DispatchQueue.main.async {
-                            self.delegate?.userLoggedIn()
+                            self.delegate?.userLoggedIn(username: username)
                         }
                     }
                 } catch {
