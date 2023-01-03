@@ -23,15 +23,23 @@ class CategorySelectionViewController: UIViewController {
     }
    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if
+            let cell = sender as? UICollectionViewCell,
+            let indexPath = categorySelectionCollectionView.indexPath(for: cell),
+            let category = categorySelectionDataSource.getCategory(for: indexPath.row),
+            let restaurantController = segue.destination as? RestaurantSelectionViewController
+        {
+            restaurantController.category = category.name
+            restaurantController.cityName = cityName
+        }
+        
     }
-    */
+    
 
 }
 

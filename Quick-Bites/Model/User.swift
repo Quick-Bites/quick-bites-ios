@@ -12,5 +12,5 @@ struct User: Decodable {
     let username: String
     let email: String
     let phoneNumber: String
-    let reservations: [String?]
+    let reservations: [Reservation?]
 }
