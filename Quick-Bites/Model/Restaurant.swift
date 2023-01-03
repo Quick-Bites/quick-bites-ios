@@ -16,5 +16,5 @@ struct Restaurant: Decodable{
     let category: String
     let rating: String
     let capacity: Int
-    let reservations: [String?]
+    let reservations: [Reservation?]
 }
