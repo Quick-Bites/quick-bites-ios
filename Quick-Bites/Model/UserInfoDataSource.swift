@@ -41,7 +41,7 @@ class UserInfoDataSource {
     }
     
     func getUserAvatar(for username: String) {
-            if let url = URL(string: "https://avatars.dicebear.com/api/adventurer/\(username).png?size=128") {
+            if let url = URL(string: "https://avatars.dicebear.com/api/adventurer/\(username).png?size=128&b=lightgray&r=50") {
                 var request = URLRequest(url: url)
                 request.httpMethod = "GET"
                 request.addValue("image/png", forHTTPHeaderField: "Content-Type")
