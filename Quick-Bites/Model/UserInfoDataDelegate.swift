@@ -5,8 +5,9 @@
 //  Created by Sefa Değirmenci on 2.01.2023.
 //
 
-import Foundation
+import UIKit
 
 protocol UserInfoDataDelegate {
     func userInfoLoaded(user: User)
+    func userAvatarLoaded(image: UIImage)
 }

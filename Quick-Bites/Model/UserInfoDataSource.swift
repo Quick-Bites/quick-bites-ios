@@ -5,7 +5,7 @@
 //  Created by Sefa Değirmenci on 2.01.2023.
 //
 
-import Foundation
+import UIKit
 
 class UserInfoDataSource {
     
@@ -39,4 +39,23 @@ class UserInfoDataSource {
             dataTask.resume()
         }
     }
-}
+    
+    func getUserAvatar(for username: String) {
+            if let url = URL(string: "https://avatars.dicebear.com/api/adventurer/\(username).png?size=128") {
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                request.addValue("image/png", forHTTPHeaderField: "Content-Type")
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    if let data = data,
+                       let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.delegate?.userAvatarLoaded(image: image)
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
+    }
+    
+
