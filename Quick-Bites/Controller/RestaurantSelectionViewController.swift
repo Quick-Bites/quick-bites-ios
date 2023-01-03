@@ -62,9 +62,9 @@ extension RestaurantSelectionViewController: UITableViewDataSource {
         }
         
         if let restaurant = restaurantSelectionDataSource.getRestaurant(for: indexPath.row) {
-            cell.restaurantName.text = restaurant.name
+            cell.restaurantNameLabel.text = restaurant.name
         } else {
-            cell.restaurantName.text = ""
+            cell.restaurantNameLabel.text = ""
         }
         
         return cell
