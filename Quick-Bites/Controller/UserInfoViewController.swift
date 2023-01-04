@@ -18,14 +18,19 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        self.title = "Profile"
         userInfoDataSource.delegate = self
         if let username = username {
             userInfoDataSource.getUserAvatar(for: username)
             userInfoDataSource.getUserDetails(for: username)
         }
-        // Depends on the success of getUserDetails
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title:"Sign Out", style: .done, target: self, action: #selector(signOutTapped))  
+    }
+    
+    @objc func signOutTapped() {
+        self.navigationController?.popToRootViewController(animated: true)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
