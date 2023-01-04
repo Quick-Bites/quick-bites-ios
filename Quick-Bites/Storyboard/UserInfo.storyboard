@@ -28,8 +28,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icb-Vv-u3A">
-                                <rect key="frame" x="20" y="407" width="53" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icb-Vv-u3A">
+                                <rect key="frame" x="20.000000000000004" y="407" width="45.333333333333343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIZ-U6-lS7">
-                                <rect key="frame" x="93" y="407" width="41.333333333333343" height="21"/>
+                                <rect key="frame" x="85.333333333333329" y="407" width="41.333333333333329" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -72,6 +72,13 @@
                                     <segue destination="Lp3-4d-CS6" kind="presentation" id="BSJ-Re-Egd"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ARr-xJ-bk7">
+                                <rect key="frame" x="132.66666666666666" y="100" width="127.99999999999997" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ARr-xJ-bk7" secondAttribute="height" multiplier="1:1" id="TPu-3U-qcc"/>
+                                    <constraint firstAttribute="width" constant="128" id="eSe-Rs-eXW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,6 +86,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zIZ-U6-lS7" secondAttribute="trailing" constant="20" id="1xv-9z-LWC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LTV-Lp-2fR" secondAttribute="trailing" constant="20" id="27L-Uo-69U"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z5x-1e-rrr" secondAttribute="trailing" constant="20" id="2mX-qK-Ris"/>
+                            <constraint firstItem="ARr-xJ-bk7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="41" id="30E-dE-mAw"/>
                             <constraint firstItem="LTV-Lp-2fR" firstAttribute="leading" secondItem="TJO-Mn-5jH" secondAttribute="trailing" constant="20" id="3cY-Bz-puQ"/>
                             <constraint firstItem="icb-Vv-u3A" firstAttribute="top" secondItem="wHg-hL-cRL" secondAttribute="bottom" constant="40" id="5XB-cZ-dyR"/>
                             <constraint firstItem="sCC-jh-36b" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="5i7-Rm-10X"/>
@@ -88,10 +96,11 @@
                             <constraint firstItem="zIZ-U6-lS7" firstAttribute="leading" secondItem="icb-Vv-u3A" secondAttribute="trailing" constant="20" id="Ko7-XF-ZbA"/>
                             <constraint firstItem="LTV-Lp-2fR" firstAttribute="centerY" secondItem="TJO-Mn-5jH" secondAttribute="centerY" id="LN9-tP-4aO"/>
                             <constraint firstItem="icb-Vv-u3A" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="OIy-Ad-5ZI"/>
-                            <constraint firstItem="TJO-Mn-5jH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="226" id="Qr5-Rf-b0f"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HiN-Qg-1CB" secondAttribute="trailing" constant="20" id="ZgZ-Pd-9Aj"/>
+                            <constraint firstItem="TJO-Mn-5jH" firstAttribute="top" secondItem="ARr-xJ-bk7" secondAttribute="bottom" constant="57" id="blZ-D1-2Xb"/>
                             <constraint firstItem="TJO-Mn-5jH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="e3A-pk-8Tv"/>
                             <constraint firstItem="vTn-go-Ymj" firstAttribute="top" secondItem="icb-Vv-u3A" secondAttribute="bottom" constant="40" id="fr9-IN-586"/>
+                            <constraint firstItem="ARr-xJ-bk7" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="gpQ-jX-x3O"/>
                             <constraint firstItem="HiN-Qg-1CB" firstAttribute="leading" secondItem="vTn-go-Ymj" secondAttribute="trailing" constant="20" id="hFd-Ly-xr0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sCC-jh-36b" secondAttribute="bottom" constant="20" id="hgO-7u-jrQ"/>
                             <constraint firstItem="vTn-go-Ymj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="iTQ-Ld-g1H"/>
@@ -106,6 +115,7 @@
                         <outlet property="fullNameLabel" destination="Z5x-1e-rrr" id="RZq-J4-RE6"/>
                         <outlet property="phoneLabel" destination="HiN-Qg-1CB" id="T6g-mZ-0zh"/>
                         <outlet property="reservationsButton" destination="sCC-jh-36b" id="EtP-G7-Q6A"/>
+                        <outlet property="userImageView" destination="ARr-xJ-bk7" id="xKj-j1-pFh"/>
                         <outlet property="usernameLabel" destination="LTV-Lp-2fR" id="RtS-Tp-Rs0"/>
                     </connections>
                 </viewController>

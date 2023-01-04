@@ -15,21 +15,22 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var reservationsButton: UIButton!
-    
+    @IBOutlet weak var userImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.title = "Profile"
         userInfoDataSource.delegate = self
         if let username = username {
+            userInfoDataSource.getUserAvatar(for: username)
             userInfoDataSource.getUserDetails(for: username)
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title:"Sign Out", style: .done, target: self, action: #selector(signOutTapped))
-      
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title:"Sign Out", style: .done, target: self, action: #selector(signOutTapped))  
     }
     
     @objc func signOutTapped() {
         self.navigationController?.popToRootViewController(animated: true)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +53,10 @@ class UserInfoViewController: UIViewController {
 }
 
 extension UserInfoViewController: UserInfoDataDelegate {
+    func userAvatarLoaded(image: UIImage) {
+        userImageView.image = image
+    }
+    
     func userInfoLoaded(user: User) {
         usernameLabel.text = user.username
         fullNameLabel.text = user.name
