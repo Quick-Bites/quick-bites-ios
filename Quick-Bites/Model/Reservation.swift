@@ -8,7 +8,7 @@
 import Foundation
 
 struct Reservation: Decodable {
-    
+
     let id: Int
     let startTime: String
     let endTime: String

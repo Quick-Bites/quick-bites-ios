@@ -8,7 +8,7 @@
 import UIKit
 
 class UserInfoDataSource {
-    
+
     var delegate: UserInfoDataDelegate?
     private let keychain = KeychainWrapper()
 
@@ -20,13 +20,13 @@ class UserInfoDataSource {
         if let url = URL(string: "\(Constants.getUserDetailsURL())/\(username)") {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            
+
             if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
                 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             } else {
                 print("An error occurred")
             }
-            
+
             let dataTask = session.dataTask(with: request) { data, response, error in
                 if let data = data {
                     let decoder = JSONDecoder()
@@ -39,23 +39,23 @@ class UserInfoDataSource {
             dataTask.resume()
         }
     }
-    
+
     func getUserAvatar(for username: String) {
-            if let url = URL(string: "https://avatars.dicebear.com/api/adventurer/\(username).png?size=128&b=lightgray&r=50") {
-                var request = URLRequest(url: url)
-                request.httpMethod = "GET"
-                request.addValue("image/png", forHTTPHeaderField: "Content-Type")
-                let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                    if let data = data,
-                       let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self.delegate?.userAvatarLoaded(image: image)
-                        }
+        if let url = URL(string: "https://avatars.dicebear.com/api/adventurer/\(username).png?size=128&b=lightgray&r=50") {
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            request.addValue("image/png", forHTTPHeaderField: "Content-Type")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let data = data,
+                    let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.delegate?.userAvatarLoaded(image: image)
                     }
                 }
-                task.resume()
             }
+            task.resume()
         }
     }
-    
+}
+
 

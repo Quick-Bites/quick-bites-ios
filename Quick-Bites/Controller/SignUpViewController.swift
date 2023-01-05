@@ -14,31 +14,31 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    
+
     private var dataSource = AuthenticationDataSource()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.delegate = self
         // Do any additional setup after loading the view.
         self.title = "Sign Up"
     }
-    
+
 
     @IBAction func signup(_ sender: Any) {
         if
             let fullname = fullNameTextField.text,
             let username = usernameTextField.text,
-                let password = passwordTextField.text,
-                let email = emailTextField.text,
-                let phoneNumber = phoneNumberTextField.text
+            let password = passwordTextField.text,
+            let email = emailTextField.text,
+            let phoneNumber = phoneNumberTextField.text
         {
             dataSource.signUpUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber)
-            
-        }else{
+
+        } else {
             print("error")
         }
-}
+    }
     /*
     // MARK: - Navigation
 

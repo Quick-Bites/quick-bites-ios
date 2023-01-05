@@ -8,11 +8,11 @@
 import UIKit
 
 class RestaurantDetailViewController: UIViewController {
-    
+
     var restaurantName: String?
     var cityName: String?
     private var restaurantSelectionDataSource = RestaurantSelectionDataSource()
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
@@ -29,10 +29,10 @@ class RestaurantDetailViewController: UIViewController {
             self.title = "\(restaurantName) Details"
             restaurantSelectionDataSource.getRestaurantDetails(with: cityName, with: restaurantName)
         }
-        
+
     }
-    
-    
+
+
     /*
     // MARK: - Navigation
 
