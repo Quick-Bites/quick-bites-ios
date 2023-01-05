@@ -28,13 +28,30 @@ class CitySelectionDataSource {
             }
 
             let dataTask = session.dataTask(with: request) { data, response, error in
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    self.cityArray = try! decoder.decode([City].self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.citiesLoaded()
+                if let data = data,
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        let decoder = JSONDecoder()
+                        self.cityArray = try! decoder.decode([City].self, from: data)
+                        DispatchQueue.main.async {
+                            self.delegate?.citiesLoaded()
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.getListOfCities()
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
                     }
-
                 }
             }
             dataTask.resume()

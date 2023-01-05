@@ -28,6 +28,7 @@
 		257BE4B92963170F00F4F006 /* RestaurantSelectionDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257BE4B82963170F00F4F006 /* RestaurantSelectionDataDelegate.swift */; };
 		257BE4BB296367CD00F4F006 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257BE4BA296367CD00F4F006 /* RestaurantDetailViewController.swift */; };
 		490CDF47296347B500E082CC /* ReservationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490CDF46296347B500E082CC /* ReservationListViewController.swift */; };
+		497344962966E52900D77C55 /* TokenDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497344952966E52900D77C55 /* TokenDataSource.swift */; };
 		497F83DE295F4D0100F57A91 /* CitySelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83D8295F4D0100F57A91 /* CitySelectionDataSource.swift */; };
 		497F83DF295F4D0100F57A91 /* CitySelectionDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83D9295F4D0100F57A91 /* CitySelectionDataDelegate.swift */; };
 		497F83E0295F4D0100F57A91 /* AuthenticationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83DA295F4D0100F57A91 /* AuthenticationDataSource.swift */; };
@@ -74,6 +75,7 @@
 		257BE4B82963170F00F4F006 /* RestaurantSelectionDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSelectionDataDelegate.swift; sourceTree = "<group>"; };
 		257BE4BA296367CD00F4F006 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		490CDF46296347B500E082CC /* ReservationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListViewController.swift; sourceTree = "<group>"; };
+		497344952966E52900D77C55 /* TokenDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDataSource.swift; sourceTree = "<group>"; };
 		497F83D8295F4D0100F57A91 /* CitySelectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySelectionDataSource.swift; sourceTree = "<group>"; };
 		497F83D9295F4D0100F57A91 /* CitySelectionDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitySelectionDataDelegate.swift; sourceTree = "<group>"; };
 		497F83DA295F4D0100F57A91 /* AuthenticationDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationDataSource.swift; sourceTree = "<group>"; };
@@ -146,19 +148,20 @@
 			children = (
 				497F83DB295F4D0100F57A91 /* AuthenticationDataDelegate.swift */,
 				497F83DA295F4D0100F57A91 /* AuthenticationDataSource.swift */,
+				497F841A29604F5100F57A91 /* Category.swift */,
+				497F841629604EC100F57A91 /* CategorySelectionDataDelegate.swift */,
+				497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */,
 				497F83DD295F4D0100F57A91 /* City.swift */,
 				497F83D9295F4D0100F57A91 /* CitySelectionDataDelegate.swift */,
 				497F83D8295F4D0100F57A91 /* CitySelectionDataSource.swift */,
-				497F83DC295F4D0100F57A91 /* User.swift */,
-				497F841629604EC100F57A91 /* CategorySelectionDataDelegate.swift */,
-				497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */,
-				497F841A29604F5100F57A91 /* Category.swift */,
+				2527860729644356008CB9FC /* Reservation.swift */,
 				257BE4B42963163C00F4F006 /* Restaurant.swift */,
-				257BE4B6296316FB00F4F006 /* RestaurantSelectionDataSource.swift */,
 				257BE4B82963170F00F4F006 /* RestaurantSelectionDataDelegate.swift */,
+				257BE4B6296316FB00F4F006 /* RestaurantSelectionDataSource.swift */,
+				497344952966E52900D77C55 /* TokenDataSource.swift */,
+				497F83DC295F4D0100F57A91 /* User.swift */,
 				497F84222963280F00F57A91 /* UserInfoDataDelegate.swift */,
 				497F84242963281700F57A91 /* UserInfoDataSource.swift */,
-				2527860729644356008CB9FC /* Reservation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,15 +169,15 @@
 		254A5F942957293900B0D089 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				254A5F7F29571CD800B0D089 /* LoginViewController.swift */,
-				254A5F9829572AC000B0D089 /* SignUpViewController.swift */,
-				497F83EC295F65B500F57A91 /* LocationViewController.swift */,
-				254A5F9A295738E100B0D089 /* CitySelectionViewController.swift */,
 				497F83F2295F708800F57A91 /* CategorySelectionViewController.swift */,
-				257BE4AE296312BE00F4F006 /* RestaurantSelectionViewController.swift */,
-				497F841E2963162A00F57A91 /* UserInfoViewController.swift */,
+				254A5F9A295738E100B0D089 /* CitySelectionViewController.swift */,
+				497F83EC295F65B500F57A91 /* LocationViewController.swift */,
+				254A5F7F29571CD800B0D089 /* LoginViewController.swift */,
 				490CDF46296347B500E082CC /* ReservationListViewController.swift */,
 				257BE4BA296367CD00F4F006 /* RestaurantDetailViewController.swift */,
+				257BE4AE296312BE00F4F006 /* RestaurantSelectionViewController.swift */,
+				254A5F9829572AC000B0D089 /* SignUpViewController.swift */,
+				497F841E2963162A00F57A91 /* UserInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,10 +198,10 @@
 		254A5FA62958578900B0D089 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				497F83E8295F515600F57A91 /* LocationHelper.swift */,
-				254A5F922957279400B0D089 /* KeychainService.swift */,
 				254A5FA0295746AA00B0D089 /* Constants.swift */,
+				254A5F922957279400B0D089 /* KeychainService.swift */,
 				497F83EA295F63DF00F57A91 /* LocationDelegate.swift */,
+				497F83E8295F515600F57A91 /* LocationHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				257BE4BB296367CD00F4F006 /* RestaurantDetailViewController.swift in Sources */,
 				497F83E3295F4D0100F57A91 /* City.swift in Sources */,
 				497F83F3295F708800F57A91 /* CategorySelectionViewController.swift in Sources */,
+				497344962966E52900D77C55 /* TokenDataSource.swift in Sources */,
 				497F84252963281700F57A91 /* UserInfoDataSource.swift in Sources */,
 				254A5FA1295746AA00B0D089 /* Constants.swift in Sources */,
 				497F841B29604F5100F57A91 /* Category.swift in Sources */,

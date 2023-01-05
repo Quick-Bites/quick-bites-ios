@@ -17,6 +17,10 @@ class Constants {
     static func getRegisterURL() -> String {
         return "\(baseURL)/api/user/register"
     }
+    
+    static func getRefreshURL() -> String {
+        return "\(baseURL)/api/token/refresh"
+    }
 
     static func getCitySelectionURL() -> String {
         return "\(baseURL)/api/cities"

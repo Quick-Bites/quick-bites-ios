@@ -52,4 +52,8 @@ extension RestaurantDetailViewController: RestaurantSelectionDataDelegate {
         phoneNumberLabel.text = restaurant.phoneNumber
         ratingLabel.text = restaurant.rating
     }
+    
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

@@ -71,4 +71,9 @@ extension CategorySelectionViewController: CategorySelectionDataDelegate {
     func categoriesLoaded() {
         categorySelectionCollectionView.reloadData()
     }
+    
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
+
