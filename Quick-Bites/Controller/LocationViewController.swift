@@ -22,7 +22,8 @@ class LocationViewController: UIViewController {
         locationHelper.delegate = self
         // Do any additional setup after loading the view.
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
-        self.title = "Location"
+        navigationItem.hidesBackButton = true
+        self.title = "Quick Bites"
     }
     
     @objc func rightButtonTapped() {
