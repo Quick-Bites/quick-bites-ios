@@ -71,4 +71,8 @@ extension CitySelectionViewController: CitySelectionDataDelegate {
     func citiesLoaded() {
         self.citySelectionTableView.reloadData()
     }
+    
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

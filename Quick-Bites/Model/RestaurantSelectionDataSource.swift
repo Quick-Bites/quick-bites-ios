@@ -25,11 +25,29 @@ class RestaurantSelectionDataSource {
             }
 
             let dataTask = session.dataTask(with: request) { data, response, error in
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    self.restaurantArray = try! decoder.decode([Restaurant].self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.restaurantsLoaded()
+                if let data = data,
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        let decoder = JSONDecoder()
+                        self.restaurantArray = try! decoder.decode([Restaurant].self, from: data)
+                        DispatchQueue.main.async {
+                            self.delegate?.restaurantsLoaded()
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.getListOfRestaurants(with: city)
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -50,11 +68,29 @@ class RestaurantSelectionDataSource {
             }
 
             let dataTask = session.dataTask(with: request) { data, response, error in
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    self.restaurantArray = try! decoder.decode([Restaurant].self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.restaurantsLoaded()
+                if let data = data,
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        let decoder = JSONDecoder()
+                        self.restaurantArray = try! decoder.decode([Restaurant].self, from: data)
+                        DispatchQueue.main.async {
+                            self.delegate?.restaurantsLoaded()
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.getListOfRestaurants(with: city, with: category)
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -86,13 +122,30 @@ class RestaurantSelectionDataSource {
                 print("Error: \(error)")
                 return
             }
-            if let data = data {
-                let decoder = JSONDecoder()
-                let restaurant = try! decoder.decode([Restaurant].self, from: data)
-                DispatchQueue.main.async {
-                    self.delegate?.restaurantDetailsLoaded(restaurant: restaurant[0])
+            if let data = data,
+               let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                    let decoder = JSONDecoder()
+                    let restaurant = try! decoder.decode([Restaurant].self, from: data)
+                    DispatchQueue.main.async {
+                        self.delegate?.restaurantDetailsLoaded(restaurant: restaurant[0])
+                    }
+                } else if httpResponse.statusCode == 403 {
+                    print("Access token expired")
+                    TokenDataSource.askForAccessToken { result in
+                        switch result {
+                        case .success(_):
+                            // Access token is refreshed
+                            self.getRestaurantDetails(with: city, with: restaurantName)
+                        case .failure(let error):
+                            // Refresh token expired
+                            print(error)
+                            DispatchQueue.main.async {
+                                self.delegate?.refreshTokenExpired()
+                            }
+                        }
+                    }
                 }
-
             }
         }
         task.resume()

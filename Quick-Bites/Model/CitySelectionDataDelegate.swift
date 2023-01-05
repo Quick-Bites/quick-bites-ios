@@ -9,4 +9,5 @@ import Foundation
 
 protocol CitySelectionDataDelegate {
     func citiesLoaded()
+    func refreshTokenExpired()
 }

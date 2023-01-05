@@ -73,4 +73,8 @@ extension UserInfoViewController: UserInfoDataDelegate {
             reservationsButton.tintColor = .blue
         }
     }
+    
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

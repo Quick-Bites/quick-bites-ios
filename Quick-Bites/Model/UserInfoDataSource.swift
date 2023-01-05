@@ -28,11 +28,29 @@ class UserInfoDataSource {
             }
 
             let dataTask = session.dataTask(with: request) { data, response, error in
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    let user = try! decoder.decode(User.self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.userInfoLoaded(user: user)
+                if let data = data,
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        let decoder = JSONDecoder()
+                        let user = try! decoder.decode(User.self, from: data)
+                        DispatchQueue.main.async {
+                            self.delegate?.userInfoLoaded(user: user)
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.getUserDetails(for: username)
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -47,9 +65,27 @@ class UserInfoDataSource {
             request.addValue("image/png", forHTTPHeaderField: "Content-Type")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 if let data = data,
-                    let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.delegate?.userAvatarLoaded(image: image)
+                   let image = UIImage(data: data),
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        DispatchQueue.main.async {
+                            self.delegate?.userAvatarLoaded(image: image)
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.getUserAvatar(for: username)
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
                     }
                 }
             }

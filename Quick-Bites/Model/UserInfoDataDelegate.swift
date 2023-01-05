@@ -10,4 +10,5 @@ import UIKit
 protocol UserInfoDataDelegate {
     func userInfoLoaded(user: User)
     func userAvatarLoaded(image: UIImage)
+    func refreshTokenExpired()
 }

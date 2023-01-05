@@ -78,5 +78,7 @@ extension RestaurantSelectionViewController: RestaurantSelectionDataDelegate {
         self.restaurantSelectionTableView.reloadData()
     }
 
-
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
