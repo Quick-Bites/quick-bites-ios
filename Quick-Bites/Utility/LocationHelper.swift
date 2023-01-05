@@ -47,6 +47,7 @@ extension LocationHelper: CLLocationManagerDelegate {
                     error == nil {
                     print("City: \(cityName)")
                     self.city = cityName
+                    self.locationManager.stopUpdatingLocation()
                     self.delegate?.cityNameFound(cityName: cityName)
                 }
             }

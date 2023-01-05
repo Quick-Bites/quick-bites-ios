@@ -71,7 +71,6 @@ class LocationViewController: UIViewController {
 
 extension LocationViewController: LocationDelegate {
     func cityNameFound(cityName: String) {
-        print("City is found")
         self.cityName = cityName
         if let cityName = self.cityName {
             authorizationButton.setTitle("Your Location: \(cityName)", for: .normal)
