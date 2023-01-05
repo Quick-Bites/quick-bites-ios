@@ -29,7 +29,11 @@ class RestaurantSelectionDataSource {
                    let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         let decoder = JSONDecoder()
-                        self.restaurantArray = try! decoder.decode([Restaurant].self, from: data)
+                        do {
+                            self.restaurantArray = try decoder.decode([Restaurant].self, from: data)
+                        } catch {
+                            print(error)
+                        }
                         DispatchQueue.main.async {
                             self.delegate?.restaurantsLoaded()
                         }
@@ -72,7 +76,11 @@ class RestaurantSelectionDataSource {
                    let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         let decoder = JSONDecoder()
-                        self.restaurantArray = try! decoder.decode([Restaurant].self, from: data)
+                        do {
+                            self.restaurantArray = try decoder.decode([Restaurant].self, from: data)
+                        } catch {
+                            print(error)
+                        }
                         DispatchQueue.main.async {
                             self.delegate?.restaurantsLoaded()
                         }
@@ -126,9 +134,13 @@ class RestaurantSelectionDataSource {
                let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode == 200 {
                     let decoder = JSONDecoder()
-                    let restaurant = try! decoder.decode([Restaurant].self, from: data)
-                    DispatchQueue.main.async {
-                        self.delegate?.restaurantDetailsLoaded(restaurant: restaurant[0])
+                    do {
+                        let restaurant = try decoder.decode([Restaurant].self, from: data)
+                        DispatchQueue.main.async {
+                            self.delegate?.restaurantDetailsLoaded(restaurant: restaurant[0])
+                        }
+                    } catch {
+                        print(error)
                     }
                 } else if httpResponse.statusCode == 403 {
                     print("Access token expired")

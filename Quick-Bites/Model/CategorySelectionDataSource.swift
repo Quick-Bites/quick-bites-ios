@@ -32,7 +32,12 @@ class CategorySelectionDataSource {
                    let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         let decoder = JSONDecoder()
-                        self.categoryArray = try! decoder.decode([Category].self, from: data)
+                        do {
+                            self.categoryArray = try decoder.decode([Category].self, from: data)
+                        } catch {
+                            // Handle the error here
+                            print(error)
+                        }
                         DispatchQueue.main.async {
                             self.delegate?.categoriesLoaded()
                         }
