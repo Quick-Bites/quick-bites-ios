@@ -20,13 +20,13 @@ class CategorySelectionDataSource {
         if let url = URL(string: Constants.getCategoriesURL()) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            
+
             if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
                 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             } else {
                 print("An error occurred")
             }
-            
+
             let dataTask = session.dataTask(with: request) { data, response, error in
                 if let data = data,
                    let httpResponse = response as? HTTPURLResponse {
@@ -57,13 +57,13 @@ class CategorySelectionDataSource {
             dataTask.resume()
         }
     }
- 
+
 
     func getNumberOfCategories() -> Int {
         return categoryArray.count
     }
 
-    func getCategory(for index:Int) -> Category? {
+    func getCategory(for index: Int) -> Category? {
         guard index < categoryArray.count else {
             return nil
         }

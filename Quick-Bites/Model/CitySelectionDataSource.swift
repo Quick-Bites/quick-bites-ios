@@ -20,13 +20,13 @@ class CitySelectionDataSource {
         if let url = URL(string: Constants.getCitySelectionURL()) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            
+
             if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
                 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             } else {
                 print("An error occurred")
             }
-            
+
             let dataTask = session.dataTask(with: request) { data, response, error in
                 if let data = data {
                     let decoder = JSONDecoder()
@@ -40,13 +40,13 @@ class CitySelectionDataSource {
             dataTask.resume()
         }
     }
- 
+
 
     func getNumberOfCities() -> Int {
         return cityArray.count
     }
 
-    func getCity(for index:Int) -> City? {
+    func getCity(for index: Int) -> City? {
         guard index < cityArray.count else {
             return nil
         }

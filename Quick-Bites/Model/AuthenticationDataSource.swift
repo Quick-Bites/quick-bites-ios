@@ -8,16 +8,16 @@
 import Foundation
 
 class AuthenticationDataSource {
-    
+
     var delegate: AuthenticationDataDelegate?
     private let keychain = KeychainWrapper()
-    
-    init(){
-        
+
+    init() {
+
     }
-    
-    func signUpUser(fullname:String, username:String, password:String, email:String, phoneNumber:String) {
-        
+
+    func signUpUser(fullname: String, username: String, password: String, email: String, phoneNumber: String) {
+
         let url = URL(string: Constants.getRegisterURL())!
         let body = [
             "id": nil,
@@ -41,22 +41,22 @@ class AuthenticationDataSource {
                 print("Error: \(error)")
                 return
             }
-            
+
             if let httpResponse = response as? HTTPURLResponse {
                 let statusCode = httpResponse.statusCode
                 if statusCode == 201 {
                     DispatchQueue.main.async {
                         self.delegate?.userSignedUp()
                     }
-                }else{
+                } else {
                     return
                 }
             }
         }
         task.resume()
     }
-    
-    func logInUser(username:String, password:String){
+
+    func logInUser(username: String, password: String) {
         let url = URL(string: Constants.getLoginURL())!
         let session = URLSession.shared
 
@@ -71,7 +71,7 @@ class AuthenticationDataSource {
 
         let data = parameters.map { "\($0)=\($1)" }.joined(separator: "&").data(using: .utf8)!
         request.httpBody = data
-        
+
         let task = session.dataTask(with: request) { data, response, error in
             if let data = data {
                 do {
@@ -81,13 +81,13 @@ class AuthenticationDataSource {
                         let refreshToken = json["refresh_token"]
                         print("Access token: \(accessToken ?? "err")")
                         print("Refresh token: \(refreshToken ?? "err")")
-                        
+
                         if let accessTokenStr = accessToken,
                             let refreshTokenStr = refreshToken {
                             try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_access_token", password: accessTokenStr)
                             try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_refresh_token", password: refreshTokenStr)
                         }
-                        
+
                         DispatchQueue.main.async {
                             self.delegate?.userLoggedIn(username: username)
                         }

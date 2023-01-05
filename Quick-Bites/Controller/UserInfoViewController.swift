@@ -25,14 +25,14 @@ class UserInfoViewController: UIViewController {
             userInfoDataSource.getUserAvatar(for: username)
             userInfoDataSource.getUserDetails(for: username)
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title:"Sign Out", style: .done, target: self, action: #selector(signOutTapped))  
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOutTapped))
     }
-    
+
     @objc func signOutTapped() {
         self.navigationController?.popToRootViewController(animated: true)
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         usernameLabel.text = "N/A"
         fullNameLabel.text = "N/A"
@@ -56,7 +56,7 @@ extension UserInfoViewController: UserInfoDataDelegate {
     func userAvatarLoaded(image: UIImage) {
         userImageView.image = image
     }
-    
+
     func userInfoLoaded(user: User) {
         usernameLabel.text = user.username
         fullNameLabel.text = user.name

@@ -9,20 +9,20 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    
+
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+
     private var username: String?
-    
+
     private var dataSource = AuthenticationDataSource()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.delegate = self
         // Do any additional setup after loading the view.
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -33,17 +33,17 @@ class LoginViewController: UIViewController {
             locationViewController.username = username
         }
     }
-    
+
     @IBAction func login(_ sender: Any) {
         if
             let username = usernameTextField.text,
             let password = passwordTextField.text
         {
             dataSource.logInUser(username: username, password: password)
-        } else{
+        } else {
             print("error")
         }
-        
+
     }
 }
 

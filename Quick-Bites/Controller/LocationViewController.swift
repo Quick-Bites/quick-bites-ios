@@ -10,13 +10,13 @@ import UIKit
 class LocationViewController: UIViewController {
 
     private var locationHelper = LocationHelper()
-    
+
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
     var username: String?
 
     @IBOutlet weak var userInfoButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationHelper.delegate = self
@@ -25,17 +25,17 @@ class LocationViewController: UIViewController {
         navigationItem.hidesBackButton = true
         self.title = "Quick Bites"
     }
-    
+
     @objc func rightButtonTapped() {
         let storyboard = UIStoryboard(name: "UserInfo", bundle: nil)
         if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
-           let username = username {
+            let username = username {
             destinationViewController.username = username
             show(destinationViewController, sender: self)
         }
     }
 
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -49,7 +49,7 @@ class LocationViewController: UIViewController {
             userInfoViewController.username = username
         }
     }
-    
+
 
     @IBAction func askForPermission(_ sender: Any) {
         if let cityName = self.cityName {
@@ -61,7 +61,7 @@ class LocationViewController: UIViewController {
             locationHelper.askForInUsePermission()
         }
     }
-    
+
     func instantiateCategoryViewController() -> CategorySelectionViewController? {
         guard let categoryViewController = self.storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") else { print("CategoryViewController not found!")
             return nil }

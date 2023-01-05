@@ -25,9 +25,9 @@ class RestaurantSelectionViewController: UIViewController {
             restaurantSelectionDataSource.getListOfRestaurants(with: cityName, with: category)
         }
     }
-    
 
-    
+
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -42,7 +42,7 @@ class RestaurantSelectionViewController: UIViewController {
             restaurantDetailController.cityName = restaurant.locatedCity
         }
     }
-    
+
 
 }
 
@@ -50,33 +50,33 @@ extension RestaurantSelectionViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantSelectionDataSource.getNumberOfRestaurants()
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as? RestaurantSelectionTableViewCell
-        else  {
+            else {
             return UITableViewCell()
         }
-        
+
         if let restaurant = restaurantSelectionDataSource.getRestaurant(for: indexPath.row) {
             cell.restaurantNameLabel.text = restaurant.name
         } else {
             cell.restaurantNameLabel.text = ""
         }
-        
+
         return cell
     }
-    
-    
+
+
 }
 
-extension RestaurantSelectionViewController: RestaurantSelectionDataDelegate{
+extension RestaurantSelectionViewController: RestaurantSelectionDataDelegate {
     func restaurantsLoaded() {
         self.restaurantSelectionTableView.reloadData()
     }
-    
-    
+
+
 }
