@@ -9,4 +9,5 @@ import Foundation
 
 protocol CategorySelectionDataDelegate {
     func categoriesLoaded()
+    func refreshTokenExpired()
 }

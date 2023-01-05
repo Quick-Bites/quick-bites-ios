@@ -12,6 +12,7 @@ class CategorySelectionViewController: UIViewController {
     @IBOutlet weak var categorySelectionCollectionView: UICollectionView!
     var cityName: String?
     private var categorySelectionDataSource = CategorySelectionDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -70,4 +71,8 @@ extension CategorySelectionViewController: CategorySelectionDataDelegate {
     func categoriesLoaded() {
         categorySelectionCollectionView.reloadData()
     }
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
+
