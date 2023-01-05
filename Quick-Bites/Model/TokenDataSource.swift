@@ -59,7 +59,6 @@ class TokenDataSource {
                         } catch {
                             print(error)
                         }
-                        
                     }
                 }
             }

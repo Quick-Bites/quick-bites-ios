@@ -32,7 +32,12 @@ class CitySelectionDataSource {
                    let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         let decoder = JSONDecoder()
-                        self.cityArray = try! decoder.decode([City].self, from: data)
+                        do {
+                            self.cityArray = try decoder.decode([City].self, from: data)
+                        } catch {
+                            // Handle the error here
+                            print(error)
+                        }
                         DispatchQueue.main.async {
                             self.delegate?.citiesLoaded()
                         }

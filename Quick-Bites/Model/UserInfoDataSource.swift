@@ -32,9 +32,13 @@ class UserInfoDataSource {
                    let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 200 {
                         let decoder = JSONDecoder()
-                        let user = try! decoder.decode(User.self, from: data)
-                        DispatchQueue.main.async {
-                            self.delegate?.userInfoLoaded(user: user)
+                        do {
+                            let user = try decoder.decode(User.self, from: data)
+                            DispatchQueue.main.async {
+                                self.delegate?.userInfoLoaded(user: user)
+                            }
+                        } catch {
+                            print(error)
                         }
                     } else if httpResponse.statusCode == 403 {
                         print("Access token expired")
