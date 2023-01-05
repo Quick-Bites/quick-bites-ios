@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Restaurant: Decodable{
+struct Restaurant: Decodable {
     let id: Int
     let name: String
     let locatedCity: String

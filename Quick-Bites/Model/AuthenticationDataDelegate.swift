@@ -8,14 +8,14 @@
 import Foundation
 
 protocol AuthenticationDataDelegate {
-    
+
     func userLoggedIn(username: String)
     func userSignedUp()
-    
+
 }
 
 extension AuthenticationDataDelegate {
-    
-    func userLoggedIn(username: String) {}
-    func userSignedUp() {}
+
+    func userLoggedIn(username: String) { }
+    func userSignedUp() { }
 }

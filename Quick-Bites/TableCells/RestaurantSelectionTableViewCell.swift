@@ -10,7 +10,7 @@ import UIKit
 class RestaurantSelectionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var restaurantNameLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

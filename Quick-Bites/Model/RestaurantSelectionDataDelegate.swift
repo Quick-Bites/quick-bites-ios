@@ -13,6 +13,6 @@ protocol RestaurantSelectionDataDelegate {
 }
 
 extension RestaurantSelectionDataDelegate {
-    func restaurantsLoaded() {}
-    func restaurantDetailsLoaded(restaurant: Restaurant) {}
+    func restaurantsLoaded() { }
+    func restaurantDetailsLoaded(restaurant: Restaurant) { }
 }
