@@ -63,6 +63,9 @@ class CitySelectionDataSource {
         }
     }
 
+    func getCityArray() -> [City] {
+        return cityArray
+    }
 
     func getNumberOfCities() -> Int {
         return cityArray.count
