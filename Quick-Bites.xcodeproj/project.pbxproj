@@ -12,6 +12,8 @@
 		2527860A2969EAEA008CB9FC /* ReservationDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252786092969EAEA008CB9FC /* ReservationDataDelegate.swift */; };
 		2527860C2969EB4E008CB9FC /* ReservationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527860B2969EB4E008CB9FC /* ReservationDataSource.swift */; };
 		2527860E2969EF4E008CB9FC /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527860D2969EF4E008CB9FC /* ReservationResponse.swift */; };
+		25278610296A0EC2008CB9FC /* UserReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2527860F296A0EC2008CB9FC /* UserReservationTableViewCell.swift */; };
+		25278612296A300B008CB9FC /* ReservationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25278611296A300B008CB9FC /* ReservationDetailViewController.swift */; };
 		254A5F7C29571CD800B0D089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7B29571CD800B0D089 /* AppDelegate.swift */; };
 		254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7D29571CD800B0D089 /* SceneDelegate.swift */; };
 		254A5F8029571CD800B0D089 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7F29571CD800B0D089 /* LoginViewController.swift */; };
@@ -62,6 +64,8 @@
 		252786092969EAEA008CB9FC /* ReservationDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReservationDataDelegate.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/quick-bites-ios 23.58.06/Quick-Bites/Model/ReservationDataDelegate.swift"; sourceTree = "<group>"; };
 		2527860B2969EB4E008CB9FC /* ReservationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDataSource.swift; sourceTree = "<group>"; };
 		2527860D2969EF4E008CB9FC /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
+		2527860F296A0EC2008CB9FC /* UserReservationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReservationTableViewCell.swift; sourceTree = "<group>"; };
+		25278611296A300B008CB9FC /* ReservationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailViewController.swift; sourceTree = "<group>"; };
 		254A5F7829571CD800B0D089 /* Quick-Bites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick-Bites.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		254A5F7B29571CD800B0D089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		254A5F7D29571CD800B0D089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				254A5F9829572AC000B0D089 /* SignUpViewController.swift */,
 				497F841E2963162A00F57A91 /* UserInfoViewController.swift */,
 				672A4B832969E367009E9B18 /* ReservationViewController.swift */,
+				25278611296A300B008CB9FC /* ReservationDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			children = (
 				497F83E5295F4D6700F57A91 /* CitySelectionTableViewCell.swift */,
 				257BE4B2296314BB00F4F006 /* RestaurantSelectionTableViewCell.swift */,
+				2527860F296A0EC2008CB9FC /* UserReservationTableViewCell.swift */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25278612296A300B008CB9FC /* ReservationDetailViewController.swift in Sources */,
 				254A5F8029571CD800B0D089 /* LoginViewController.swift in Sources */,
 				497F83E0295F4D0100F57A91 /* AuthenticationDataSource.swift in Sources */,
 				254A5F932957279400B0D089 /* KeychainService.swift in Sources */,
@@ -335,6 +342,7 @@
 				497F841F2963162A00F57A91 /* UserInfoViewController.swift in Sources */,
 				2527860C2969EB4E008CB9FC /* ReservationDataSource.swift in Sources */,
 				497F83E2295F4D0100F57A91 /* User.swift in Sources */,
+				25278610296A0EC2008CB9FC /* UserReservationTableViewCell.swift in Sources */,
 				257BE4B7296316FB00F4F006 /* RestaurantSelectionDataSource.swift in Sources */,
 				497F841D2960548D00F57A91 /* CategorySelectionCollectionViewCell.swift in Sources */,
 				497F84232963280F00F57A91 /* UserInfoDataDelegate.swift in Sources */,

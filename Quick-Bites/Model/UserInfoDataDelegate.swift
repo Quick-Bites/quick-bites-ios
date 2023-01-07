@@ -10,5 +10,13 @@ import UIKit
 protocol UserInfoDataDelegate {
     func userInfoLoaded(user: User)
     func userAvatarLoaded(image: UIImage)
+    func userReservationsLoaded()
     func refreshTokenExpired()
+}
+
+extension UserInfoDataDelegate {
+    func userInfoLoaded(user: User) {}
+    func userAvatarLoaded(image: UIImage) {}
+    func userReservationsLoaded() {}
+    func refreshTokenExpired() {}
 }

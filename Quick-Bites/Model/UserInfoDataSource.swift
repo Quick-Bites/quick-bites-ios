@@ -11,6 +11,7 @@ class UserInfoDataSource {
 
     var delegate: UserInfoDataDelegate?
     private let keychain = KeychainWrapper()
+    private var reservedRestaurants: [Restaurant] = []
 
     init() {
     }
@@ -95,6 +96,65 @@ class UserInfoDataSource {
             }
             task.resume()
         }
+    }
+    func getReservedRestaurants(){
+        
+        let session = URLSession.shared
+        if let url = URL(string: Constants.getRestaurantWithReservation()) {
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+
+            if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } else {
+                print("An error occurred")
+            }
+
+            let dataTask = session.dataTask(with: request) { data, response, error in
+                if let data = data,
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                        let decoder = JSONDecoder()
+                        do {
+                            self.reservedRestaurants = try decoder.decode([Restaurant].self, from: data)
+                            
+                        } catch {
+                            // Handle the error here
+                            print(error)
+                        }
+                        DispatchQueue.main.async {
+                            self.delegate?.userReservationsLoaded()
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.getReservedRestaurants()
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            dataTask.resume()
+        }
+    }
+    func getNumberOfReservedRestaurants() -> Int {
+        return reservedRestaurants.count
+    }
+    
+    func getReservedRestaurant(for index: Int) -> Restaurant? {
+        guard index < reservedRestaurants.count else {
+            return nil
+        }
+        return reservedRestaurants[index]
     }
 }
 

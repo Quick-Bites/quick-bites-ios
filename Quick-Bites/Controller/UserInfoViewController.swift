@@ -9,6 +9,7 @@ import UIKit
 
 class UserInfoViewController: UIViewController {
     var username: String?
+    var userReservations: [Reservation?]?
     private let userInfoDataSource = UserInfoDataSource()
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var fullNameLabel: UILabel!
@@ -40,15 +41,16 @@ class UserInfoViewController: UIViewController {
         phoneLabel.text = "N/A"
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if
+            let reservationListController = segue.destination as? ReservationListViewController {
+            reservationListController.userReservations = userReservations
+        }
     }
-    */
+    
 
 }
 
@@ -71,6 +73,7 @@ extension UserInfoViewController: UserInfoDataDelegate {
             reservationsButton.isEnabled = true
             reservationsButton.alpha = 1
             reservationsButton.tintColor = .blue
+            userReservations = user.reservations
         }
     }
     

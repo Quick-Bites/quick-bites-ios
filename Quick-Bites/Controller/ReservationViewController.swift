@@ -15,6 +15,7 @@ class ReservationViewController: UIViewController {
     private var choosenStartTime: String?
     private var choosenEndTime: String?
     var restaurantId: String?
+    private var isDateCorrect = false
     
     private lazy var dateTimePicker: DateTimePicker = {
         let picker = DateTimePicker()
@@ -22,6 +23,10 @@ class ReservationViewController: UIViewController {
         picker.didSelectDates = { [weak self] (day, startTime, endTime) in
             let startDate = Date.buildDateTimeString(day: day, time: startTime)
             let endDate = Date.buildDateTimeString(day: day, time: endTime)
+            
+            if endDate > startDate {
+                self?.isDateCorrect = true
+            }
             self?.choosenStartTime = startDate
             self?.choosenEndTime = endDate
             self?.dateTimePickerTextField.text = Date.buildDateTimeStringForTextField(day: day, startTime: startTime, endTime: endTime)
@@ -37,6 +42,13 @@ class ReservationViewController: UIViewController {
     }
     
     @IBAction func confirmReservation(_ sender: Any) {
+        if isDateCorrect == false {
+            let alert = UIAlertController(title: "Reservation Failed", message: "Start time must be later than end time.", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "Okay", style: .default)
+            alert.addAction(okayAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
         if
             let numGuests = guestNumberTextField.text,
             let startTime = choosenStartTime,
@@ -63,8 +75,7 @@ class ReservationViewController: UIViewController {
 extension ReservationViewController: ReservationDataDelegate {
     func reservationConfirmed(isConfirmed: Bool) {
         let alert = UIAlertController(title: "Reservation Failed", message: "The restaurant is not available for the given time or guest number.", preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "Okay", style: .default){_ in
-        }
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
         let okayActionWithPop = UIAlertAction(title: "Okay", style: .default){_ in
             _ = self.navigationController?.popViewController(animated: true)
         }

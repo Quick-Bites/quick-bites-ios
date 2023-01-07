@@ -31,6 +31,8 @@ class LoginViewController: UIViewController {
             let username = self.username
         {
             locationViewController.username = username
+            usernameTextField.text=""
+            passwordTextField.text=""
         }
     }
 
