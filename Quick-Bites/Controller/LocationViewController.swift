@@ -10,20 +10,20 @@ import UIKit
 class LocationViewController: UIViewController {
 
     private var locationHelper = LocationHelper()
-
+    private var citySelectionDataSource = CitySelectionDataSource()
+    
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
     var username: String?
 
-    @IBOutlet weak var userInfoButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationHelper.delegate = self
         // Do any additional setup after loading the view.
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
-        navigationItem.hidesBackButton = true
         self.title = "Quick Bites"
+        locationHelper.delegate = self
+        citySelectionDataSource.getListOfCities()
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
     }
 
     @objc func rightButtonTapped() {
@@ -73,7 +73,16 @@ extension LocationViewController: LocationDelegate {
     func cityNameFound(cityName: String) {
         self.cityName = cityName
         if let cityName = self.cityName {
-            authorizationButton.setTitle("Your Location: \(cityName)", for: .normal)
+            if citySelectionDataSource.getCityArray().contains(where: { $0.name.lowercased() == cityName.lowercased() }) {
+                authorizationButton.isEnabled = true
+                authorizationButton.alpha = 1
+                authorizationButton.setTitle("Your Location: \(cityName)", for: .normal)
+            } else {
+                authorizationButton.isEnabled = false
+                authorizationButton.alpha = 0.95
+                authorizationButton.tintColor = .gray
+                authorizationButton.setTitle("We don't support \(cityName) yet", for: .normal)
+            }
         }
     }
 }

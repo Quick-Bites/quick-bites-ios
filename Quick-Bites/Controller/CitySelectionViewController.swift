@@ -36,8 +36,6 @@ class CitySelectionViewController: UIViewController {
             categorySelectionController.cityName = city.name
         }
     }
-
-
 }
 
 extension CitySelectionViewController: UITableViewDataSource {
