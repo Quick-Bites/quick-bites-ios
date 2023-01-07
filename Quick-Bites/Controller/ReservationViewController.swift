@@ -10,16 +10,22 @@ import UIKit
 class ReservationViewController: UIViewController {
 
     @IBOutlet weak var dateTimePickerTextField: UITextField!
-
+    @IBOutlet weak var guestNumberTextField: UITextField!
+    private var dataSource = ReservationDataSource()
+    private var choosenStartTime: String?
+    private var choosenEndTime: String?
+    var restaurantId: String?
+    
     private lazy var dateTimePicker: DateTimePicker = {
         let picker = DateTimePicker()
         picker.setup()
         picker.didSelectDates = { [weak self] (day, startTime, endTime) in
             let startDate = Date.buildDateTimeString(day: day, time: startTime)
             let endDate = Date.buildDateTimeString(day: day, time: endTime)
+            self?.choosenStartTime = startDate
+            self?.choosenEndTime = endDate
+            self?.dateTimePickerTextField.text = Date.buildDateTimeStringForTextField(day: day, startTime: startTime, endTime: endTime)
             
-            print("Start Date: \(startDate)")
-            print("End Date: \(endDate)")
         }
         return picker
     }()
@@ -27,6 +33,18 @@ class ReservationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dateTimePickerTextField.inputView = dateTimePicker.inputView
+        dataSource.delegate = self
+    }
+    
+    @IBAction func confirmReservation(_ sender: Any) {
+        if
+            let numGuests = guestNumberTextField.text,
+            let startTime = choosenStartTime,
+            let endTime = choosenEndTime,
+            let restaurantId = restaurantId
+        {
+            dataSource.makeReservation(with: startTime, with: endTime, with: numGuests, with: restaurantId)
+        }
     }
 
 
@@ -40,4 +58,32 @@ class ReservationViewController: UIViewController {
      }
      */
 
+}
+
+extension ReservationViewController: ReservationDataDelegate {
+    func reservationConfirmed(isConfirmed: Bool) {
+        let alert = UIAlertController(title: "Reservation Failed", message: "The restaurant is not available for the given time or guest number.", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default){_ in
+        }
+        let okayActionWithPop = UIAlertAction(title: "Okay", style: .default){_ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+
+        if isConfirmed == true {
+            alert.title = "Reservation Confirmed"
+            alert.message = "You have successfuly made a reservation."
+            alert.addAction(okayActionWithPop)
+            present(alert, animated: true, completion: nil)
+        }else {
+            alert.addAction(okayAction)
+            present(alert, animated: true, completion: nil)
+
+        }
+
+    }
+    
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }

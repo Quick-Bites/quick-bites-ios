@@ -197,3 +197,20 @@ extension Date {
     }
 
 }
+
+extension Date {
+
+    static func buildDateTimeStringForTextField(day: Date, startTime: Date, endTime: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yy"
+
+        let dayString = dateFormatter.string(from: day)
+        dateFormatter.dateFormat = "HH:mm"
+        let startTimeString = dateFormatter.string(from: startTime)
+        let endTimeString = dateFormatter.string(from: endTime)
+
+
+        return "\(startTimeString) - \(endTimeString) | \(dayString)"
+    }
+
+}
