@@ -34,13 +34,6 @@ class UserInfoViewController: UIViewController {
 
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        usernameLabel.text = "N/A"
-        fullNameLabel.text = "N/A"
-        emailLabel.text = "N/A"
-        phoneLabel.text = "N/A"
-    }
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

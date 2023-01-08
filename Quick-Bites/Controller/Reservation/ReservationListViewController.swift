@@ -19,6 +19,7 @@ class ReservationListViewController: UIViewController {
         // Do any additional setup after loading the view.
         userReservationDataSource.delegate = self
         userReservationDataSource.getReservedRestaurants()
+        self.title = "Reservations"
     }
 
 
@@ -34,7 +35,11 @@ class ReservationListViewController: UIViewController {
             reservationDetailController.reservation = reservation
         }
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        userReservationDataSource.getReservedRestaurants()
+    }
+    
 }
 
 extension ReservationListViewController: UITableViewDataSource {
@@ -54,7 +59,7 @@ extension ReservationListViewController: UITableViewDataSource {
 
         if
             let restaurant = userReservationDataSource.getReservedRestaurant(for: indexPath.row) {
-            cell.userReservationRestaurantNameLabel.text = restaurant.name
+                cell.userReservationRestaurantNameLabel.text = restaurant.name
         } else {
             cell.userReservationRestaurantNameLabel.text = ""
         }
@@ -73,4 +78,5 @@ extension ReservationListViewController: UserInfoDataDelegate {
     func refreshTokenExpired() {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
 }

@@ -24,11 +24,11 @@ class RestaurantDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         restaurantSelectionDataSource.delegate = self
         if
-            let restaurantName,
-            let cityName
+            let restaurantId,
+            let restaurantName
         {
             self.title = "\(restaurantName) Details"
-            restaurantSelectionDataSource.getRestaurantDetails(with: cityName, with: restaurantName)
+            restaurantSelectionDataSource.getRestaurantDetails(with: restaurantId)
         }
 
     }
