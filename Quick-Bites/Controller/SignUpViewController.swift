@@ -14,7 +14,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-
+    @IBOutlet weak var addressTextField: UITextField!
+    
     private var dataSource = AuthenticationDataSource()
 
     override func viewDidLoad() {
@@ -31,12 +32,17 @@ class SignUpViewController: UIViewController {
             let username = usernameTextField.text,
             let password = passwordTextField.text,
             let email = emailTextField.text,
-            let phoneNumber = phoneNumberTextField.text
+            let phoneNumber = phoneNumberTextField.text,
+            let address = addressTextField.text
         {
-            dataSource.signUpUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber)
+            if fullname.isEmpty || username.isEmpty || password.isEmpty || email.isEmpty || phoneNumber.isEmpty || address.isEmpty {
+                displaySignUpAlert(title: "Sign Up Failed", message: "All fields must be filled.")
+                return
+            }
+            dataSource.signUpUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber, address: address)
 
         } else {
-            print("error")
+            displaySignUpAlert(title: "Sign Up Failed", message: "Sign Up proccess has been failed.")
         }
     }
     /*
@@ -48,11 +54,22 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func displaySignUpAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(okayAction)
+        present(alert, animated: true, completion: nil)
+    }
 
 }
 
 extension SignUpViewController: AuthenticationDataDelegate {
     func userSignedUp() {
-        _ = navigationController?.popViewController(animated: true)
+        let alert = UIAlertController(title: "Sign Up Successful", message: "You have successfuly signed up to our system.", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default) {_ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okayAction)
+        present(alert, animated: true, completion: nil)
     }
 }

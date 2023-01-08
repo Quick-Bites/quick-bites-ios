@@ -16,7 +16,7 @@ class AuthenticationDataSource {
 
     }
 
-    func signUpUser(fullname: String, username: String, password: String, email: String, phoneNumber: String) {
+    func signUpUser(fullname: String, username: String, password: String, email: String, phoneNumber: String, address: String) {
 
         let url = URL(string: Constants.getRegisterURL())!
         let body = [
@@ -26,7 +26,7 @@ class AuthenticationDataSource {
             "password": password,
             "email": email,
             "phoneNumber": phoneNumber,
-            "address": "N/A",
+            "address": address,
             "roles": nil
         ]
         let bodyData = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)

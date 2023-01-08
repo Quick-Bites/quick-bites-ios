@@ -136,7 +136,7 @@
                                 <rect key="frame" x="131.66666666666666" y="263" width="129.99999999999997" height="34"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8j4-jt-rEh">
                                 <rect key="frame" x="131.66666666666666" y="317" width="129.99999999999997" height="34"/>
@@ -148,22 +148,14 @@
                                 <rect key="frame" x="131.66666666666666" y="371" width="129.99999999999997" height="34"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UgL-UI-AtP">
                                 <rect key="frame" x="131.66666666666666" y="425" width="129.99999999999997" height="34"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="tel"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er8-AA-cOS">
-                                <rect key="frame" x="131.66666666666666" y="515" width="129.99999999999997" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
-                                <connections>
-                                    <action selector="signup:" destination="4Dc-GI-ynn" eventType="touchUpInside" id="uWt-7j-rUO"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up with your credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwa-gX-HXW">
                                 <rect key="frame" x="85" y="157" width="223" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -174,11 +166,25 @@
                                 <rect key="frame" x="131.66666666666666" y="209" width="129.99999999999997" height="34"/>
                                 <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="sf9-sm-rWK"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="sf9-sm-rWK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="name"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M8y-xQ-mnx">
+                                <rect key="frame" x="131.66666666666666" y="479" width="129.99999999999997" height="34"/>
+                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="er8-AA-cOS">
+                                <rect key="frame" x="131.66666666666666" y="573" width="129.99999999999997" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signup:" destination="4Dc-GI-ynn" eventType="touchUpInside" id="uWt-7j-rUO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Ll-iP-dG9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -189,11 +195,13 @@
                             <constraint firstItem="8j4-jt-rEh" firstAttribute="top" secondItem="qpN-r0-DxJ" secondAttribute="bottom" constant="20" id="Ftq-3T-qZx"/>
                             <constraint firstItem="qpN-r0-DxJ" firstAttribute="centerX" secondItem="0Ll-iP-dG9" secondAttribute="centerX" id="GCU-CX-d54"/>
                             <constraint firstItem="UgL-UI-AtP" firstAttribute="top" secondItem="YkZ-Br-4sq" secondAttribute="bottom" constant="20" id="IEw-pG-EsW"/>
+                            <constraint firstItem="M8y-xQ-mnx" firstAttribute="top" secondItem="UgL-UI-AtP" secondAttribute="bottom" constant="20" id="JNf-du-nhv"/>
                             <constraint firstItem="8j4-jt-rEh" firstAttribute="width" secondItem="qpN-r0-DxJ" secondAttribute="width" id="JiG-xr-thc"/>
+                            <constraint firstItem="M8y-xQ-mnx" firstAttribute="width" secondItem="UgL-UI-AtP" secondAttribute="width" id="LDN-1u-R8R"/>
+                            <constraint firstItem="M8y-xQ-mnx" firstAttribute="centerX" secondItem="UgL-UI-AtP" secondAttribute="centerX" id="NqC-Nu-Tr0"/>
                             <constraint firstItem="UgL-UI-AtP" firstAttribute="centerX" secondItem="0Ll-iP-dG9" secondAttribute="centerX" id="OQg-pU-3tV"/>
                             <constraint firstItem="qpN-r0-DxJ" firstAttribute="width" secondItem="qna-7Y-8le" secondAttribute="width" id="UTX-bI-bAL"/>
                             <constraint firstItem="YkZ-Br-4sq" firstAttribute="width" secondItem="8j4-jt-rEh" secondAttribute="width" id="Uzd-Zz-9YA"/>
-                            <constraint firstItem="er8-AA-cOS" firstAttribute="top" secondItem="UgL-UI-AtP" secondAttribute="bottom" constant="56" id="WSt-IT-F9h"/>
                             <constraint firstItem="UgL-UI-AtP" firstAttribute="width" secondItem="YkZ-Br-4sq" secondAttribute="width" id="ZFi-rj-C9r"/>
                             <constraint firstItem="qna-7Y-8le" firstAttribute="centerX" secondItem="0Ll-iP-dG9" secondAttribute="centerX" id="ah1-mb-saA"/>
                             <constraint firstItem="er8-AA-cOS" firstAttribute="centerX" secondItem="0Ll-iP-dG9" secondAttribute="centerX" id="cfs-9W-XfR"/>
@@ -202,10 +210,12 @@
                             <constraint firstItem="8j4-jt-rEh" firstAttribute="centerX" secondItem="0Ll-iP-dG9" secondAttribute="centerX" id="naM-jQ-Op4"/>
                             <constraint firstItem="YkZ-Br-4sq" firstAttribute="centerX" secondItem="0Ll-iP-dG9" secondAttribute="centerX" id="r9o-uO-t6Q"/>
                             <constraint firstItem="YkZ-Br-4sq" firstAttribute="top" secondItem="8j4-jt-rEh" secondAttribute="bottom" constant="20" id="sE5-rh-KQZ"/>
+                            <constraint firstItem="er8-AA-cOS" firstAttribute="top" secondItem="M8y-xQ-mnx" secondAttribute="bottom" constant="60" id="x8D-Ph-a9H"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XNV-dY-Bh8"/>
                     <connections>
+                        <outlet property="addressTextField" destination="M8y-xQ-mnx" id="tvF-68-Sxf"/>
                         <outlet property="emailTextField" destination="YkZ-Br-4sq" id="tap-iU-gvf"/>
                         <outlet property="fullNameTextField" destination="qna-7Y-8le" id="2ZR-gG-r2Z"/>
                         <outlet property="passwordTextField" destination="8j4-jt-rEh" id="CBB-Ka-C5C"/>
