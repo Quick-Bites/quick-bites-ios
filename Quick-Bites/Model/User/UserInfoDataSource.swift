@@ -16,7 +16,7 @@ class UserInfoDataSource {
     init() {
     }
 
-    func getUserDetails(for username: String) {
+    func getUserDetails() {
         let session = URLSession.shared
         if let url = URL(string: "\(Constants.getUserDetailsURL())") {
             var request = URLRequest(url: url)
@@ -47,7 +47,7 @@ class UserInfoDataSource {
                             switch result {
                             case .success(_):
                                 // Access token is refreshed
-                                self.getUserDetails(for: username)
+                                self.getUserDetails()
                             case .failure(let error):
                                 // Refresh token expired
                                 print(error)
@@ -98,7 +98,6 @@ class UserInfoDataSource {
         }
     }
     func getReservedRestaurants(){
-        
         let session = URLSession.shared
         if let url = URL(string: Constants.getRestaurantWithReservation()) {
             var request = URLRequest(url: url)
@@ -145,6 +144,10 @@ class UserInfoDataSource {
             }
             dataTask.resume()
         }
+    }
+    
+    func deleteRestaurant(for index: Int) {
+        reservedRestaurants.remove(at: index)
     }
     func getNumberOfReservedRestaurants() -> Int {
         return reservedRestaurants.count

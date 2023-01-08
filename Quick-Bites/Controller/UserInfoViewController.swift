@@ -24,7 +24,7 @@ class UserInfoViewController: UIViewController {
         userInfoDataSource.delegate = self
         if let username = username {
             userInfoDataSource.getUserAvatar(for: username)
-            userInfoDataSource.getUserDetails(for: username)
+            userInfoDataSource.getUserDetails()
         }
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOutTapped))
     }

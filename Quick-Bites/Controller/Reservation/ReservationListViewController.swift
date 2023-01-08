@@ -22,7 +22,6 @@ class ReservationListViewController: UIViewController {
         self.title = "Reservations"
     }
 
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if
             let cell = sender as? UITableViewCell,
@@ -38,6 +37,7 @@ class ReservationListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         userReservationDataSource.getReservedRestaurants()
+        userReservationDataSource.getUserDetails()
     }
     
 }
@@ -77,6 +77,10 @@ extension ReservationListViewController: UserInfoDataDelegate {
     
     func refreshTokenExpired() {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func userInfoLoaded(user: User) {
+        userReservations = user.reservations
     }
     
 }
