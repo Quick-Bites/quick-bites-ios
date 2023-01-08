@@ -17,7 +17,7 @@ class CategorySelectionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = "Select a category"
+        self.title = "Select a Category"
         categorySelectionDataSource.delegate = self
         categorySelectionDataSource.getListOfCategories()
     }
