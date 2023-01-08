@@ -87,37 +87,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="juC-s8-4YR">
-                                <rect key="frame" x="102" y="372.66666666666669" width="189" height="106.66666666666669"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_location_on_white_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="PSJ-yD-xvI">
+                                <rect key="frame" x="172.66666666666666" y="91" width="48" height="48"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="76V-Bw-AVw"/>
+                                    <constraint firstAttribute="height" constant="48" id="vSW-wg-Lr1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="By allowing geolocation, you are able to quickly find restaurants in your city." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhb-8x-7mN">
+                                <rect key="frame" x="175" y="416" width="573" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="juC-s8-4YR">
+                                <rect key="frame" x="100" y="626" width="192" height="106.66666666666667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-yO-jRV">
-                                        <rect key="frame" x="21.666666666666671" y="0.0" width="145.66666666666663" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="192" height="34.333333333333336"/>
+                                        <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Use my location"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Use my Location" cornerStyle="large"/>
                                         <connections>
                                             <action selector="askForPermission:" destination="Fv9-B3-r5H" eventType="touchUpInside" id="ycj-b7-SF6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfB-SW-BcN">
-                                        <rect key="frame" x="0.0" y="72.333333333333314" width="189" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="72.333333333333329" width="192" height="34.333333333333329"/>
+                                        <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Select a city manually"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Select a City Manually" cornerStyle="large"/>
                                         <connections>
                                             <segue destination="Y6W-OH-hqX" kind="show" id="1Yo-7h-647"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="mfB-SW-BcN" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="4Nt-4P-NVR"/>
-                                    <constraint firstItem="H9D-yO-jRV" firstAttribute="centerX" secondItem="juC-s8-4YR" secondAttribute="centerX" id="f6y-t9-i3V"/>
+                                    <constraint firstItem="H9D-yO-jRV" firstAttribute="width" secondItem="mfB-SW-BcN" secondAttribute="width" id="0bj-Pf-yLI"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rvg-v2-xUF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="tintColor" red="0.054186150430000003" green="0.48047697540000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="juC-s8-4YR" firstAttribute="centerX" secondItem="FBw-cM-fzy" secondAttribute="centerX" id="FYQ-YT-y3G"/>
-                            <constraint firstItem="juC-s8-4YR" firstAttribute="centerY" secondItem="FBw-cM-fzy" secondAttribute="centerY" id="nR2-Zn-KZY"/>
+                            <constraint firstItem="zhb-8x-7mN" firstAttribute="top" secondItem="PSJ-yD-xvI" secondAttribute="bottom" constant="56" id="1yY-dY-55a"/>
+                            <constraint firstItem="PSJ-yD-xvI" firstAttribute="top" secondItem="Rvg-v2-xUF" secondAttribute="top" constant="32" id="Ogw-Iq-GaW"/>
+                            <constraint firstItem="PSJ-yD-xvI" firstAttribute="centerX" secondItem="Rvg-v2-xUF" secondAttribute="centerX" id="Xc9-yt-Gzh"/>
+                            <constraint firstItem="zhb-8x-7mN" firstAttribute="centerX" secondItem="Rvg-v2-xUF" secondAttribute="centerX" id="ogh-ws-ndn"/>
                         </constraints>
                     </view>
                     <connections>
@@ -130,8 +148,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="baseline_location_on_white_48pt" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

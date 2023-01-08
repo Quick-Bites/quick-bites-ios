@@ -106,11 +106,11 @@ class RestaurantSelectionDataSource {
         }
     }
 
-    func getRestaurantDetails(with city: String, with restaurantName: String) {
-        let url = URL(string: Constants.getRestaurantDetailsURL())!
+    func getRestaurantDetails(with restaurantId: String) {
+        let url = URL(string: "\(Constants.getRestaurantDetailsURL())/\(restaurantId)")!
 
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
@@ -129,9 +129,9 @@ class RestaurantSelectionDataSource {
                 if httpResponse.statusCode == 200 {
                     let decoder = JSONDecoder()
                     do {
-                        let restaurant = try decoder.decode([Restaurant].self, from: data)
+                        let restaurant = try decoder.decode(Restaurant.self, from: data)
                         DispatchQueue.main.async {
-                            self.delegate?.restaurantDetailsLoaded(restaurant: restaurant[0])
+                            self.delegate?.restaurantDetailsLoaded(restaurant: restaurant)
                         }
                     } catch {
                         print(error)
@@ -142,7 +142,7 @@ class RestaurantSelectionDataSource {
                         switch result {
                         case .success(_):
                             // Access token is refreshed
-                            self.getRestaurantDetails(with: city, with: restaurantName)
+                            self.getRestaurantDetails(with: restaurantId)
                         case .failure(let error):
                             // Refresh token expired
                             print(error)

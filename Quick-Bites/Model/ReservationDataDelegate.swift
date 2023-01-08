@@ -10,4 +10,13 @@ import Foundation
 protocol ReservationDataDelegate {
     func reservationConfirmed(isConfirmed: Bool)
     func refreshTokenExpired()
+    func reservationCanceled()
+    func reservationCancelFailed()
+}
+
+extension ReservationDataDelegate {
+    func reservationConfirmed(isConfirmed: Bool) {}
+    func refreshTokenExpired() {}
+    func reservationCanceled() {}
+    func reservationCancelFailed() {}
 }

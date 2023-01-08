@@ -69,7 +69,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Reservations"/>
                                 <connections>
-                                    <segue destination="Lp3-4d-CS6" kind="presentation" id="BSJ-Re-Egd"/>
+                                    <segue destination="Lp3-4d-CS6" kind="show" id="BjQ-aK-HlM"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ARr-xJ-bk7">
@@ -156,7 +156,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="userReservationRestaurantNameLabel" destination="Ihj-CB-zSw" id="RC4-Hc-ezZ"/>
-                                            <segue destination="fny-uq-wR4" kind="show" id="vCT-3F-kM1"/>
+                                            <segue destination="fny-uq-wR4" kind="show" id="QIy-ty-m4l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -175,6 +175,7 @@
                             <constraint firstItem="oGw-eh-qg1" firstAttribute="trailing" secondItem="Vsc-79-RPK" secondAttribute="trailing" id="rr6-pg-YYl"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="igX-7F-A66"/>
                     <connections>
                         <outlet property="userReservationsTableView" destination="Vsc-79-RPK" id="gRc-yk-EM6"/>
                     </connections>
@@ -204,7 +205,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qJ-9i-BU1">
-                                <rect key="frame" x="175.66666666666666" y="506.66666666666669" width="42" height="20.333333333333314"/>
+                                <rect key="frame" x="175.66666666666666" y="481.66666666666669" width="42" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -215,15 +216,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trd-1U-fz3">
+                                <rect key="frame" x="111.33333333333333" y="552" width="170.66666666666669" height="35"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Cancel Reservation">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelReservation:" destination="fny-uq-wR4" eventType="touchUpInside" id="JzQ-Hf-mF5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ANx-dl-AoY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5sv-31-4Om" firstAttribute="centerX" secondItem="ANx-dl-AoY" secondAttribute="centerX" id="9Z9-fq-d0v"/>
                             <constraint firstItem="5sv-31-4Om" firstAttribute="top" secondItem="ZqY-6c-nPN" secondAttribute="bottom" constant="50" id="ET7-JO-rgt"/>
-                            <constraint firstItem="5qJ-9i-BU1" firstAttribute="top" secondItem="5sv-31-4Om" secondAttribute="bottom" constant="75" id="GE2-NJ-Ic2"/>
+                            <constraint firstItem="5qJ-9i-BU1" firstAttribute="top" secondItem="5sv-31-4Om" secondAttribute="bottom" constant="50" id="GE2-NJ-Ic2"/>
                             <constraint firstItem="ZqY-6c-nPN" firstAttribute="top" secondItem="j89-xa-57F" secondAttribute="bottom" constant="50" id="J11-pR-Mbn"/>
                             <constraint firstItem="ZqY-6c-nPN" firstAttribute="centerX" secondItem="5sv-31-4Om" secondAttribute="centerX" id="hcp-Ta-mHa"/>
+                            <constraint firstItem="trd-1U-fz3" firstAttribute="centerX" secondItem="5qJ-9i-BU1" secondAttribute="centerX" id="itd-YH-QvW"/>
+                            <constraint firstItem="trd-1U-fz3" firstAttribute="top" secondItem="5qJ-9i-BU1" secondAttribute="bottom" constant="50" id="r7G-9Z-V0p"/>
                             <constraint firstItem="j89-xa-57F" firstAttribute="centerX" secondItem="ZqY-6c-nPN" secondAttribute="centerX" id="rMb-n2-kGl"/>
                             <constraint firstItem="5sv-31-4Om" firstAttribute="centerY" secondItem="ANx-dl-AoY" secondAttribute="centerY" id="xSA-1c-hzT"/>
                             <constraint firstItem="5qJ-9i-BU1" firstAttribute="centerX" secondItem="5sv-31-4Om" secondAttribute="centerX" id="xro-Xj-RuB"/>
@@ -245,6 +259,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

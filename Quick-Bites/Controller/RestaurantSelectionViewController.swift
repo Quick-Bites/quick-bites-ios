@@ -40,6 +40,7 @@ class RestaurantSelectionViewController: UIViewController {
         {
             restaurantDetailController.restaurantName = restaurant.name
             restaurantDetailController.cityName = restaurant.locatedCity
+            restaurantDetailController.restaurantId = String(restaurant.id)
         }
     }
 

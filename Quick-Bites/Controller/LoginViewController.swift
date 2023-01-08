@@ -36,13 +36,15 @@ class LoginViewController: UIViewController {
                 let animation = CABasicAnimation(keyPath: "startPoint")
                 animation.fromValue = CGPoint(x: 0, y: 0.5)
                 animation.toValue = CGPoint(x: 1, y: 0.5)
-                animation.duration = 10.0
+                animation.duration = 5.0
                 animation.repeatCount = Float.infinity
                 animation.autoreverses = true
                 animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                 gradientLayer.add(animation, forKey: "startPoint")
                 view.layer.addSublayer(gradientLayer)
                 gradientLayer.zPosition = -1
+        loginButton.tintColor = UIColorFromRGB(0x333333)
+        signUpButton.tintColor = UIColorFromRGB(0x333333)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -15,11 +15,12 @@ class ReservationDetailViewController: UIViewController {
     @IBOutlet weak var reservationEndTimeLabel: UILabel!
     @IBOutlet weak var numberOfGuestsLabel: UILabel!
     @IBOutlet weak var restaurantPhoneNumberLabel: UILabel!
-    
+    private var dataSource = ReservationDataSource()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        dataSource.delegate = self
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         
@@ -45,6 +46,12 @@ class ReservationDetailViewController: UIViewController {
     }
     
 
+    @IBAction func cancelReservation(_ sender: Any) {
+        if
+            let reservationId = reservation?.id {
+            dataSource.cancelReservation(with: String(reservationId))
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -55,4 +62,49 @@ class ReservationDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension ReservationDetailViewController: ReservationDataDelegate {
+    func reservationConfirmed(isConfirmed: Bool) {
+        let alert = UIAlertController(title: "Reservation Failed", message: "The restaurant is not available for the given time or guest number.", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
+        let okayActionWithPop = UIAlertAction(title: "Okay", style: .default){_ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+
+        if isConfirmed == true {
+            alert.title = "Reservation Confirmed"
+            alert.message = "You have successfuly made a reservation."
+            alert.addAction(okayActionWithPop)
+            present(alert, animated: true, completion: nil)
+        }else {
+            alert.addAction(okayAction)
+            present(alert, animated: true, completion: nil)
+
+        }
+
+    }
+    
+    func refreshTokenExpired() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func reservationCanceled() {
+        let alert = UIAlertController(title: "Reservation Cancelled", message: "The reservation on this page has been cancelled.", preferredStyle: .alert)
+        let okayActionWithPop = UIAlertAction(title: "Okay", style: .default){_ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okayActionWithPop)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func reservationCancelFailed() {
+        let alert = UIAlertController(title: "Reservation Cancel Failed", message: "The procces of canceling reservation has been failed, please contact us for the problem.", preferredStyle: .alert)
+        let okayActionWithPop = UIAlertAction(title: "Okay", style: .default){_ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okayActionWithPop)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }

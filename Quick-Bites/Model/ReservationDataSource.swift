@@ -69,4 +69,53 @@ class ReservationDataSource {
         }
         task.resume()
     }
+    
+    func cancelReservation(with reservationId: String) {
+        let url = URL(string: "\(Constants.getCancelReservationURL())/\(reservationId)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        } else {
+            print("An error occurred")
+        }
+
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            if
+               let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode == 200 {
+                        DispatchQueue.main.async {
+                            self.delegate?.reservationCanceled()
+                        }
+                    
+                } else if httpResponse.statusCode == 403 {
+                    print("Access token expired")
+                    TokenDataSource.askForAccessToken { result in
+                        switch result {
+                        case .success(_):
+                            // Access token is refreshed
+                            self.cancelReservation(with: reservationId)
+                        case .failure(let error):
+                            // Refresh token expired
+                            print(error)
+                            DispatchQueue.main.async {
+                                self.delegate?.refreshTokenExpired()
+                            }
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.delegate?.reservationCancelFailed()
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
 }
