@@ -32,6 +32,9 @@ class ReservationViewController: UIViewController {
             self?.dateTimePickerTextField.text = Date.buildDateTimeStringForTextField(day: day, startTime: startTime, endTime: endTime)
             
         }
+        dateTimePickerTextField = addShadowToTextField(textField: dateTimePickerTextField)
+        guestNumberTextField = addShadowToTextField(textField: guestNumberTextField)
+        
         return picker
     }()
 
@@ -39,6 +42,16 @@ class ReservationViewController: UIViewController {
         super.viewDidLoad()
         dateTimePickerTextField.inputView = dateTimePicker.inputView
         dataSource.delegate = self
+    }
+    
+    func addShadowToTextField(textField: UITextField) -> UITextField {
+        textField.layer.borderWidth = 0.25
+        textField.layer.borderColor = UIColor.white.cgColor
+        textField.layer.shadowOpacity = 1
+        textField.layer.shadowRadius = 3.0
+        textField.layer.shadowOffset = CGSize.zero
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        return textField
     }
     
     @IBAction func confirmReservation(_ sender: Any) {
