@@ -108,15 +108,9 @@ class RestaurantSelectionDataSource {
 
     func getRestaurantDetails(with city: String, with restaurantName: String) {
         let url = URL(string: Constants.getRestaurantDetailsURL())!
-        let body = [
-            "restaurantName": restaurantName,
-            "locatedCity": city
-        ]
-        let bodyData = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = bodyData
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {

@@ -33,79 +33,88 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HdR-J3-VHc">
-                                <rect key="frame" x="137.66666666666666" y="228" width="117.66666666666666" height="34"/>
-                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <rect key="frame" x="137.66666666666666" y="379.66666666666669" width="117.66666666666666" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="username"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Quick-Bites App!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNn-rg-fQ0">
-                                <rect key="frame" x="84.666666666666686" y="91" width="224" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UDJ-GL-5h3">
-                                <rect key="frame" x="137.66666666666666" y="292" width="117.66666666666666" height="34"/>
-                                <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
+                                <rect key="frame" x="137.66666666666666" y="443.66666666666669" width="117.66666666666666" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T18-2C-wug">
-                                <rect key="frame" x="137.66666666666666" y="370" width="117.66666666666666" height="35"/>
+                                <rect key="frame" x="137.66666666666666" y="522.66666666666663" width="117.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbp-PP-AIs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Re-agk">
-                                <rect key="frame" x="137.66666666666666" y="605" width="117.66666666666666" height="35"/>
+                                <rect key="frame" x="137.66666666666666" y="757.66666666666663" width="117.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Up">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <segue destination="4Dc-GI-ynn" kind="show" id="msS-J7-sCB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmw-nO-Yuc">
-                                <rect key="frame" x="107" y="553" width="179" height="21"/>
+                                <rect key="frame" x="107" y="705.66666666666663" width="179" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login with your credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyG-jQ-KmD">
-                                <rect key="frame" x="67" y="174" width="259" height="21"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pizzasymbol" translatesAutoresizingMaskIntoConstraints="NO" id="9pT-yG-4BQ">
+                                <rect key="frame" x="96.666666666666686" y="103" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9pT-yG-4BQ" secondAttribute="height" multiplier="16:9" priority="750" id="IL0-gs-NiK"/>
+                                    <constraint firstAttribute="height" constant="200" id="WRk-eg-Lt0"/>
+                                    <constraint firstAttribute="width" constant="200" id="b2z-Z5-QME"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Back to Quick Bites!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyG-jQ-KmD">
+                                <rect key="frame" x="82.666666666666686" y="323" width="228" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="T18-2C-wug" firstAttribute="top" secondItem="UDJ-GL-5h3" secondAttribute="bottom" constant="44" id="0H5-cy-R1i"/>
-                            <constraint firstItem="HdR-J3-VHc" firstAttribute="top" secondItem="nyG-jQ-KmD" secondAttribute="bottom" constant="33" id="1B9-aU-3z1"/>
-                            <constraint firstItem="UNn-rg-fQ0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="6ez-nd-ZF8"/>
+                            <constraint firstItem="T18-2C-wug" firstAttribute="top" secondItem="UDJ-GL-5h3" secondAttribute="bottom" constant="45" id="0H5-cy-R1i"/>
+                            <constraint firstItem="9pT-yG-4BQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2BE-nt-gN5"/>
                             <constraint firstItem="zMu-Re-agk" firstAttribute="width" secondItem="T18-2C-wug" secondAttribute="width" id="A1t-Nm-hhb"/>
-                            <constraint firstItem="nyG-jQ-KmD" firstAttribute="top" secondItem="UNn-rg-fQ0" secondAttribute="bottom" constant="62" id="I72-uO-TUy"/>
+                            <constraint firstItem="9pT-yG-4BQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HKI-d9-sdC"/>
                             <constraint firstItem="UDJ-GL-5h3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="I7a-vq-jii"/>
                             <constraint firstItem="UDJ-GL-5h3" firstAttribute="width" secondItem="HdR-J3-VHc" secondAttribute="width" id="J4N-iT-Kbb"/>
                             <constraint firstItem="HdR-J3-VHc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JYw-RO-YIs"/>
+                            <constraint firstItem="nyG-jQ-KmD" firstAttribute="top" secondItem="9pT-yG-4BQ" secondAttribute="bottom" constant="20" id="L0K-3M-9W9"/>
                             <constraint firstItem="HdR-J3-VHc" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.3" id="NIa-x7-mAI"/>
+                            <constraint firstItem="nyG-jQ-KmD" firstAttribute="centerX" secondItem="HdR-J3-VHc" secondAttribute="centerX" id="NdR-jy-0Ir"/>
                             <constraint firstItem="UDJ-GL-5h3" firstAttribute="top" secondItem="HdR-J3-VHc" secondAttribute="bottom" constant="30" id="Pd2-Dy-DHF"/>
                             <constraint firstItem="hmw-nO-Yuc" firstAttribute="top" secondItem="T18-2C-wug" secondAttribute="bottom" constant="148" id="TgP-1g-kiO"/>
                             <constraint firstItem="zMu-Re-agk" firstAttribute="top" secondItem="hmw-nO-Yuc" secondAttribute="bottom" constant="31" id="Ub9-ZY-n1r"/>
+                            <constraint firstItem="UDJ-GL-5h3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Wdg-tl-aq3"/>
                             <constraint firstItem="zMu-Re-agk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Z2e-xG-RX2"/>
                             <constraint firstItem="hmw-nO-Yuc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="aZg-eq-pg3"/>
                             <constraint firstItem="nyG-jQ-KmD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="c6S-67-Q6f"/>
                             <constraint firstItem="T18-2C-wug" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jQ3-nc-14A"/>
                             <constraint firstItem="T18-2C-wug" firstAttribute="width" secondItem="UDJ-GL-5h3" secondAttribute="width" id="oT2-A3-cam"/>
                             <constraint firstItem="zMu-Re-agk" firstAttribute="top" secondItem="T18-2C-wug" secondAttribute="bottom" constant="200" id="ogi-NT-x8H"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="UNn-rg-fQ0" secondAttribute="top" constant="12" id="wTv-a7-Pb1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="brA-Fd-VhQ"/>
                     <connections>
+                        <outlet property="loginButton" destination="T18-2C-wug" id="QwT-3P-qn8"/>
                         <outlet property="passwordTextField" destination="UDJ-GL-5h3" id="RcL-K4-vMa"/>
+                        <outlet property="signUpButton" destination="zMu-Re-agk" id="Exk-ym-GJU"/>
                         <outlet property="usernameTextField" destination="HdR-J3-VHc" id="a3t-ZB-3H0"/>
                         <segue destination="KiQ-pz-Cki" kind="show" identifier="showCitySelection" id="R4c-6W-jYL"/>
                     </connections>
@@ -229,11 +238,18 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pizzasymbol" width="333.33334350585938" height="466.66665649414062"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondarySystemFillColor">
             <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
