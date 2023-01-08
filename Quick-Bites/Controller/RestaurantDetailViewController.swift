@@ -11,6 +11,7 @@ class RestaurantDetailViewController: UIViewController {
 
     var restaurantName: String?
     var cityName: String?
+    var restaurantId: String?
     private var restaurantSelectionDataSource = RestaurantSelectionDataSource()
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -33,15 +34,18 @@ class RestaurantDetailViewController: UIViewController {
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if
+            let reservationController = segue.destination as? ReservationViewController {
+            reservationController.restaurantId = restaurantId
+        }
+        
     }
-    */
+    
 
 }
 
@@ -51,6 +55,7 @@ extension RestaurantDetailViewController: RestaurantSelectionDataDelegate {
         addressLabel.text = restaurant.address
         phoneNumberLabel.text = restaurant.phoneNumber
         ratingLabel.text = restaurant.rating
+        restaurantId = String(restaurant.id)
     }
     
     func refreshTokenExpired() {
