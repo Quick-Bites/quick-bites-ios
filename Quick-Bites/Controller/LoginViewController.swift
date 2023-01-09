@@ -44,11 +44,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.delegate = self
-        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         loginButton.tintColor = UIColorFromRGB(0x333333)
         signUpButton.tintColor = UIColorFromRGB(0x333333)
     }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -80,6 +81,25 @@ extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn(username: String) {
         self.username = username
         performSegue(withIdentifier: "showCitySelection", sender: self)
+    }
+    
+    func userLoginFailed() {
+        let alert = UIAlertController(title: "Login Unsuccessful", message: "Wrong Username or Password", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(okayAction)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

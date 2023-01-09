@@ -45,6 +45,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.delegate = self
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
         self.title = "Sign Up"
         signUpButton.tintColor = UIColorFromRGB(0x333333)

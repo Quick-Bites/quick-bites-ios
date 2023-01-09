@@ -87,13 +87,21 @@ class AuthenticationDataSource {
                             try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_access_token", password: accessTokenStr)
                             try self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_refresh_token", password: refreshTokenStr)
                         }
-
-                        DispatchQueue.main.async {
-                            self.delegate?.userLoggedIn(username: username)
+                        
+                        if let httpResponse = response as? HTTPURLResponse {
+                            let statusCode = httpResponse.statusCode
+                            if statusCode == 200 {
+                                DispatchQueue.main.async {
+                                    self.delegate?.userLoggedIn(username: username)
+                                }
+                            }
                         }
+                        
                     }
                 } catch {
-                    print(error)
+                    DispatchQueue.main.async {
+                        self.delegate?.userLoginFailed()
+                    }
                 }
             }
         }
