@@ -23,13 +23,10 @@ class SignUpViewController: UIViewController {
         return UIColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((rgbValue & 0x00FF00) >> 8))/255.0, blue: ((CGFloat)((rgbValue & 0x0000FF)))/255.0, alpha: 1.0)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dataSource.delegate = self
-        // Do any additional setup after loading the view.
-        self.title = "Sign Up"
-        
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         let gradientLayer = CAGradientLayer()
+        
         gradientLayer.colors = [UIColorFromRGB(0x2ECAD5).cgColor, UIColorFromRGB(0x2B95CE).cgColor]
                 gradientLayer.frame = view.bounds
                 let animation = CABasicAnimation(keyPath: "startPoint")
@@ -42,7 +39,14 @@ class SignUpViewController: UIViewController {
                 gradientLayer.add(animation, forKey: "startPoint")
                 view.layer.addSublayer(gradientLayer)
                 gradientLayer.zPosition = -1
-        
+        gradientLayer.frame = view.layer.bounds
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataSource.delegate = self
+        // Do any additional setup after loading the view.
+        self.title = "Sign Up"
         signUpButton.tintColor = UIColorFromRGB(0x333333)
 
     }
