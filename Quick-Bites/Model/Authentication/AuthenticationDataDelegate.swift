@@ -10,6 +10,7 @@ import Foundation
 protocol AuthenticationDataDelegate {
 
     func userLoggedIn(username: String)
+    func userLoginFailed()
     func userSignedUp()
 
 }
@@ -17,5 +18,6 @@ protocol AuthenticationDataDelegate {
 extension AuthenticationDataDelegate {
 
     func userLoggedIn(username: String) { }
+    func userLoginFailed() { }
     func userSignedUp() { }
 }

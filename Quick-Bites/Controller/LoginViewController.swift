@@ -23,12 +23,8 @@ class LoginViewController: UIViewController {
     func UIColorFromRGB(_ rgbValue: Int) -> UIColor {
         return UIColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((rgbValue & 0x00FF00) >> 8))/255.0, blue: ((CGFloat)((rgbValue & 0x0000FF)))/255.0, alpha: 1.0)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dataSource.delegate = self
-        
-        // Do any additional setup after loading the view.
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         let gradientLayer = CAGradientLayer()
         
         gradientLayer.colors = [UIColorFromRGB(0x2B95CE).cgColor, UIColorFromRGB(0x2ECAD5).cgColor]
@@ -43,9 +39,17 @@ class LoginViewController: UIViewController {
                 gradientLayer.add(animation, forKey: "startPoint")
                 view.layer.addSublayer(gradientLayer)
                 gradientLayer.zPosition = -1
+        gradientLayer.frame = view.layer.bounds
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataSource.delegate = self
+        self.hideKeyboardWhenTappedAround()
+        // Do any additional setup after loading the view.
         loginButton.tintColor = UIColorFromRGB(0x333333)
         signUpButton.tintColor = UIColorFromRGB(0x333333)
     }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -77,6 +81,25 @@ extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn(username: String) {
         self.username = username
         performSegue(withIdentifier: "showCitySelection", sender: self)
+    }
+    
+    func userLoginFailed() {
+        let alert = UIAlertController(title: "Login Unsuccessful", message: "Wrong Username or Password", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(okayAction)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
