@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     private var username: String?
-    
+    private let keychain = KeychainWrapper()
     private var dataSource = AuthenticationDataSource()
 
     func UIColorFromRGB(_ rgbValue: Int) -> UIColor {
@@ -45,9 +45,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         dataSource.delegate = self
         self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
         loginButton.tintColor = UIColorFromRGB(0x333333)
         signUpButton.tintColor = UIColorFromRGB(0x333333)
+        if (try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token")) != nil {
+        } else {
+            print("An error occurred")
+        }        // Do any additional setup after loading the view.
     }
     
 

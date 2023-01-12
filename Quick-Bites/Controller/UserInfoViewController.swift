@@ -17,6 +17,8 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var reservationsButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
+    private let keychain = KeychainWrapper()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,6 +32,7 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc func signOutTapped() {
+        try? keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_access_token")
         self.navigationController?.popToRootViewController(animated: true)
 
     }
@@ -42,6 +45,10 @@ class UserInfoViewController: UIViewController {
             let reservationListController = segue.destination as? ReservationListViewController {
             reservationListController.userReservations = userReservations
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        userInfoDataSource.getUserDetails()
     }
     
 
