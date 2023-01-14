@@ -21,34 +21,12 @@ class LocationViewController: UIViewController {
         self.title = "Quick Bites"
         locationHelper.delegate = self
         citySelectionDataSource.getListOfCities()
-        navigationItem.hidesBackButton = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
     }
 
-    @objc func rightButtonTapped() {
-        let storyboard = UIStoryboard(name: "UserInfo", bundle: nil)
-        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
-           let username = UserInfoDataSource.username {
-            destinationViewController.username = username
-            show(destinationViewController, sender: self)
-        }
+    @IBAction func exploreButtonTapped(_ sender: Any) {
+        PresenterManager.shared.show(vc: .category)
     }
-
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if
-            let userInfoViewController = segue.destination as? UserInfoViewController
-        {
-            userInfoViewController.username = UserInfoDataSource.username
-        }
-    }
-
-
+    
     @IBAction func askForPermission(_ sender: Any) {
         if let cityName = self.cityName {
             if let categoryViewController = self.instantiateCategoryViewController() {
@@ -75,6 +53,7 @@ extension LocationViewController: LocationDelegate {
                 authorizationButton.isEnabled = true
                 authorizationButton.alpha = 1
                 authorizationButton.setTitle("Your Location: \(cityName)", for: .normal)
+                PresenterManager.shared.show(vc: .category)
             } else {
                 authorizationButton.isEnabled = false
                 authorizationButton.alpha = 0.95

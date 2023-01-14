@@ -23,6 +23,7 @@ class UserInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Profile"
         userInfoDataSource.delegate = self
+        self.username = UserInfoDataSource.username
         if let username = username {
             userInfoDataSource.getUserAvatar(for: username)
             userInfoDataSource.getUserDetails()

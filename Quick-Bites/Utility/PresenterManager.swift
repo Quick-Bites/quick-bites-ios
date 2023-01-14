@@ -14,6 +14,7 @@ class PresenterManager {
     enum ViewControllerEnum {
         case login
         case location
+        case category
     }
     
     func show(vc: ViewControllerEnum) {
@@ -23,6 +24,8 @@ class PresenterManager {
             viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController")
         case .location:
             viewController = UIStoryboard(name: "CitySelection", bundle: nil).instantiateViewController(withIdentifier: "LocationNavigationViewController")
+        case .category:
+            viewController = UIStoryboard(name: "CategorySelection", bundle: nil).instantiateViewController(withIdentifier: "CategoryNavigationViewController")
         }
         
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,

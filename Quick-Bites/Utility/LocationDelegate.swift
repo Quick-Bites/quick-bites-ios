@@ -9,4 +9,12 @@ import Foundation
 
 protocol LocationDelegate: AnyObject {
     func cityNameFound(cityName: String)
+    func authorizationGiven()
+    func authorizationNotGiven()
+}
+
+extension LocationDelegate {
+    func cityNameFound(cityName: String) {}
+    func authorizationGiven() {}
+    func authorizationNotGiven() {}
 }

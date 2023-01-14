@@ -11,10 +11,15 @@ import CoreLocation
 class LocationHelper: NSObject {
     private let locationManager = CLLocationManager()
     weak var delegate: LocationDelegate?
-    private var city: String?
-
+    static var cityName: String?
+    
     override init() {
         super.init()
+        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+            delegate?.authorizationGiven()
+        } else {
+            delegate?.authorizationNotGiven()
+        }
         locationManager.delegate = self
         locationManager.distanceFilter = 5000
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -27,10 +32,6 @@ class LocationHelper: NSObject {
 
     func askForAlwaysPermission() {
         locationManager.requestAlwaysAuthorization()
-    }
-
-    func getCityName() -> String? {
-        return city
     }
 }
 
@@ -46,7 +47,7 @@ extension LocationHelper: CLLocationManagerDelegate {
                     let cityName = lastPlacemark.administrativeArea,
                     error == nil {
                     print("City: \(cityName)")
-                    self.city = cityName
+                    LocationHelper.cityName = cityName
                     self.delegate?.cityNameFound(cityName: cityName)
                 }
             }

@@ -6,22 +6,49 @@
 //
 
 import UIKit
+import DropDown
 
 class CategorySelectionViewController: UIViewController {
     
     @IBOutlet weak var categorySelectionCollectionView: UICollectionView!
+    @IBOutlet weak var cityDropDownView: UIView!
+    @IBOutlet weak var dropdownButton: UIButton!
     var cityName: String?
+    private var cityArray: [String]? = []
+    let cityDropDown = DropDown()
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBAction func tappedDropDownButton(_ sender: Any) {
+        cityDropDown.show()
+    }
     private var categorySelectionDataSource = CategorySelectionDataSource()
+    private var citySelectionDataSource = CitySelectionDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.title = "Select a Category"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
+        
+        cityDropDown.anchorView = cityDropDownView
+        cityDropDown.bottomOffset = CGPoint(x: 0, y: (cityDropDown.anchorView?.plainView.bounds.height)!)
+        cityDropDown.topOffset = CGPoint(x: 0, y: -(cityDropDown.anchorView?.plainView.bounds.height)!)
+        cityDropDown.direction = .bottom
+        cityDropDown.width = 200
+        citySelectionDataSource.delegate = self
+        citySelectionDataSource.getListOfCities()
+        
         categorySelectionDataSource.delegate = self
         categorySelectionDataSource.getListOfCategories()
+        self.cityName = LocationHelper.cityName
     }
-
+    
+    @objc func rightButtonTapped() {
+        let storyboard = UIStoryboard(name: "UserInfo", bundle: nil)
+        if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController {
+            show(destinationViewController, sender: self)
+        }
+    }
 
 
     // MARK: - Navigation
@@ -63,7 +90,7 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
             if category.name == "All" {
                 cell.foodImageView.image = UIImage(named: self.cityName?.lowercased() ?? "istanbul")
-                cell.nameLabel.text = "All Restaurants"
+                cell.nameLabel.text = "Restaurants in \(self.cityName ?? "Istanbul")"
             } else {
                 cell.foodImageView.image = UIImage(named: category.name.lowercased())
                 cell.nameLabel.text = category.name
@@ -95,5 +122,29 @@ extension CategorySelectionViewController: CategorySelectionDataDelegate {
     func refreshTokenExpired() {
         PresenterManager.shared.show(vc: .login)
     }
+}
+
+extension CategorySelectionViewController: CitySelectionDataDelegate {
+
+    func citiesLoaded() {
+        self.cityArray = self.citySelectionDataSource.getCityArray().map{$0.name}
+        if let cityArray = self.cityArray {
+
+            self.cityDropDown.dataSource = cityArray
+
+            if let index = cityDropDown.dataSource.firstIndex(of: "Istanbul") {
+                self.cityDropDown.selectRow(at: index)
+                self.cityNameLabel.text = self.cityName ?? "Select a City"
+            }
+            
+            cityDropDown.selectionAction = {(index: Int, item: String) in
+                self.cityNameLabel.text = cityArray[index]
+                self.cityNameLabel.textColor = .black
+                self.cityName = cityArray[index]
+                self.categorySelectionCollectionView.reloadData()
+            }
+        }
+    }
+
 }
 
