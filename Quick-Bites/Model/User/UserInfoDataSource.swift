@@ -12,10 +12,10 @@ class UserInfoDataSource {
     var delegate: UserInfoDataDelegate?
     private let keychain = KeychainWrapper()
     private var reservedRestaurants: [Restaurant] = []
-
+    static var username: String?
     init() {
     }
-
+    
     func getUserDetails() {
         let session = URLSession.shared
         if let url = URL(string: "\(Constants.getUserDetailsURL())") {
@@ -35,7 +35,9 @@ class UserInfoDataSource {
                         let decoder = JSONDecoder()
                         do {
                             let user = try decoder.decode(User.self, from: data)
+                            UserInfoDataSource.username = user.username
                             DispatchQueue.main.async {
+                                self.delegate?.userLoggedIn()
                                 self.delegate?.userInfoLoaded(user: user)
                             }
                         } catch {
@@ -48,6 +50,7 @@ class UserInfoDataSource {
                             case .success(_):
                                 // Access token is refreshed
                                 self.getUserDetails()
+                                self.delegate?.userLoggedIn()
                             case .failure(let error):
                                 // Refresh token expired
                                 print(error)

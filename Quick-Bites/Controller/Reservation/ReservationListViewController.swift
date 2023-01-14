@@ -12,7 +12,6 @@ class ReservationListViewController: UIViewController {
     @IBOutlet weak var userReservationsTableView: UITableView!
     private let userReservationDataSource = UserInfoDataSource()
     var userReservations: [Reservation?]?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +19,7 @@ class ReservationListViewController: UIViewController {
         userReservationDataSource.delegate = self
         userReservationDataSource.getReservedRestaurants()
         self.title = "Reservations"
+
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -81,6 +81,11 @@ extension ReservationListViewController: UserInfoDataDelegate {
     
     func userInfoLoaded(user: User) {
         userReservations = user.reservations
+        
+        if user.reservations.count == 0 {
+            _ = self.navigationController?.popViewController(animated: true)
+            
+        }
     }
     
 }

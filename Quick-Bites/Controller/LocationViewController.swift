@@ -14,8 +14,7 @@ class LocationViewController: UIViewController {
     
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
-    var username: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -29,7 +28,7 @@ class LocationViewController: UIViewController {
     @objc func rightButtonTapped() {
         let storyboard = UIStoryboard(name: "UserInfo", bundle: nil)
         if let destinationViewController = storyboard.instantiateViewController(withIdentifier: "UserInfoViewController") as? UserInfoViewController,
-            let username = username {
+           let username = UserInfoDataSource.username {
             destinationViewController.username = username
             show(destinationViewController, sender: self)
         }
@@ -43,10 +42,9 @@ class LocationViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if
-            let userInfoViewController = segue.destination as? UserInfoViewController,
-            let username = self.username
+            let userInfoViewController = segue.destination as? UserInfoViewController
         {
-            userInfoViewController.username = username
+            userInfoViewController.username = UserInfoDataSource.username
         }
     }
 

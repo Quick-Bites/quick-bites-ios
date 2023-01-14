@@ -17,6 +17,7 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var reservationsButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,8 +31,8 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc func signOutTapped() {
-        self.navigationController?.popToRootViewController(animated: true)
-
+        TokenDataSource.deleteTokens()
+        PresenterManager.shared.show(vc: .login)
     }
 
     // MARK: - Navigation
@@ -42,6 +43,10 @@ class UserInfoViewController: UIViewController {
             let reservationListController = segue.destination as? ReservationListViewController {
             reservationListController.userReservations = userReservations
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        userInfoDataSource.getUserDetails()
     }
     
 
@@ -71,6 +76,6 @@ extension UserInfoViewController: UserInfoDataDelegate {
     }
     
     func refreshTokenExpired() {
-        self.navigationController?.popToRootViewController(animated: true)
+        PresenterManager.shared.show(vc: .login)
     }
 }

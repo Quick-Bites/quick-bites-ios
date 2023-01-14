@@ -12,7 +12,8 @@ protocol AuthenticationDataDelegate {
     func userLoggedIn(username: String)
     func userLoginFailed()
     func userSignedUp()
-
+    func userValidated()
+    func refreshTokenExpired()
 }
 
 extension AuthenticationDataDelegate {
@@ -20,4 +21,6 @@ extension AuthenticationDataDelegate {
     func userLoggedIn(username: String) { }
     func userLoginFailed() { }
     func userSignedUp() { }
+    func userValidated() { }
+    func refreshTokenExpired() { }
 }

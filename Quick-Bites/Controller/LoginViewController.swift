@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     
     private var username: String?
-    
+    private let keychain = KeychainWrapper()
     private var dataSource = AuthenticationDataSource()
 
     func UIColorFromRGB(_ rgbValue: Int) -> UIColor {
@@ -45,7 +45,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         dataSource.delegate = self
         self.hideKeyboardWhenTappedAround()
-        // Do any additional setup after loading the view.
         loginButton.tintColor = UIColorFromRGB(0x333333)
         signUpButton.tintColor = UIColorFromRGB(0x333333)
     }
@@ -55,10 +54,9 @@ class LoginViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if
-            let locationViewController = segue.destination as? LocationViewController,
             let username = self.username
         {
-            locationViewController.username = username
+            UserInfoDataSource.username = username
             usernameTextField.text=""
             passwordTextField.text=""
         }
@@ -75,12 +73,20 @@ class LoginViewController: UIViewController {
         }
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let _ = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
+            //skip to next view
+        }
+        dataSource.validateUser()
+    }
+    
 }
 
 extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn(username: String) {
-        self.username = username
-        performSegue(withIdentifier: "showCitySelection", sender: self)
+        UserInfoDataSource.username = username
+        PresenterManager.shared.show(vc: .location)
     }
     
     func userLoginFailed() {
@@ -88,6 +94,10 @@ extension LoginViewController: AuthenticationDataDelegate {
         let okayAction = UIAlertAction(title: "Okay", style: .default)
         alert.addAction(okayAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func userValidated() {
+        
     }
 }
 
