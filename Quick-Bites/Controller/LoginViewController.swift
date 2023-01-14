@@ -47,10 +47,6 @@ class LoginViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         loginButton.tintColor = UIColorFromRGB(0x333333)
         signUpButton.tintColor = UIColorFromRGB(0x333333)
-        if (try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token")) != nil {
-        } else {
-            print("An error occurred")
-        }        // Do any additional setup after loading the view.
     }
     
 
@@ -78,6 +74,14 @@ class LoginViewController: UIViewController {
         }
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let _ = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
+            //skip to next view
+        }
+        dataSource.validateUser()
+    }
+    
 }
 
 extension LoginViewController: AuthenticationDataDelegate {
@@ -91,6 +95,10 @@ extension LoginViewController: AuthenticationDataDelegate {
         let okayAction = UIAlertAction(title: "Okay", style: .default)
         alert.addAction(okayAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func userValidated() {
+        
     }
 }
 

@@ -15,7 +15,7 @@ class LocationViewController: UIViewController {
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
     var username: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

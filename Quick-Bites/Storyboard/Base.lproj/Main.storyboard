@@ -118,7 +118,7 @@
                         <outlet property="passwordTextField" destination="UDJ-GL-5h3" id="RcL-K4-vMa"/>
                         <outlet property="signUpButton" destination="zMu-Re-agk" id="Exk-ym-GJU"/>
                         <outlet property="usernameTextField" destination="HdR-J3-VHc" id="a3t-ZB-3H0"/>
-                        <segue destination="KiQ-pz-Cki" kind="show" identifier="showCitySelection" id="R4c-6W-jYL"/>
+                        <segue destination="KiQ-pz-Cki" kind="show" identifier="showCitySelection" destinationCreationSelector="citySelectionSegue:" id="R4c-6W-jYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

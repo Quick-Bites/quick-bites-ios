@@ -82,7 +82,7 @@
         <!--Location View Controller-->
         <scene sceneID="FZn-Fw-o9C">
             <objects>
-                <viewController id="Fv9-B3-r5H" customClass="LocationViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fv9-B3-r5H" customClass="LocationViewController" customModule="Quick_Bites" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FBw-cM-fzy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

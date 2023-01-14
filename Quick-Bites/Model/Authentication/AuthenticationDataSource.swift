@@ -108,4 +108,45 @@ class AuthenticationDataSource {
 
         task.resume()
     }
+    
+    func validateUser() {
+        let session = URLSession.shared
+        if let url = URL(string: "\(Constants.getUserDetailsURL())") {
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+
+            if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
+                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            } else {
+                print("An error occurred")
+            }
+
+            let dataTask = session.dataTask(with: request) { data, response, error in
+                if
+                   let httpResponse = response as? HTTPURLResponse {
+                    if httpResponse.statusCode == 200 {
+                            DispatchQueue.main.async {
+                                self.delegate?.userValidated()
+                        }
+                    } else if httpResponse.statusCode == 403 {
+                        print("Access token expired")
+                        TokenDataSource.askForAccessToken { result in
+                            switch result {
+                            case .success(_):
+                                // Access token is refreshed
+                                self.delegate?.userValidated()
+                            case .failure(let error):
+                                // Refresh token expired
+                                print(error)
+                                DispatchQueue.main.async {
+                                    self.delegate?.refreshTokenExpired()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            dataTask.resume()
+        }
+    }
 }
