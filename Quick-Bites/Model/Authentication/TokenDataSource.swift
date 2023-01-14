@@ -19,6 +19,11 @@ class TokenDataSource {
         
     }
     
+    static func deleteTokens() {
+            try? keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_access_token")
+            try? keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_refresh_token")
+    }
+    
     static func askForAccessToken(completion: @escaping (Result<Data, Error>) -> Void){
         let session = URLSession.shared
         if let url = URL(string: Constants.getRefreshURL()) {

@@ -17,7 +17,6 @@ class UserInfoViewController: UIViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var reservationsButton: UIButton!
     @IBOutlet weak var userImageView: UIImageView!
-    private let keychain = KeychainWrapper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc func signOutTapped() {
-        try? keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_access_token")
+        TokenDataSource.deleteTokens()
         self.navigationController?.popToRootViewController(animated: true)
 
     }
