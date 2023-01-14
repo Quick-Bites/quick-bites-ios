@@ -7,15 +7,23 @@
 
 import UIKit
 
-class LocationPrepareViewController: UIViewController {
+class LocationAuthorizationViewController: UIViewController {
     private let locationHelper = LocationHelper()
-
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    private var authorizationGiven: Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadingIndicator.startAnimating()
         // Do any additional setup after loading the view.
         locationHelper.delegate = self
-
+        authorizationGiven = locationHelper.isAuthorized()
+        if let authorizationGiven = self.authorizationGiven {
+            if authorizationGiven {
+                print("Authorization is given")
+            } else {
+                PresenterManager.shared.show(vc: .location)
+            }
+        }
     }
     
 
@@ -31,11 +39,9 @@ class LocationPrepareViewController: UIViewController {
 
 }
 
-extension LocationPrepareViewController: LocationDelegate {
-    func authorizationGiven() {
-        print("Authorization is given before.")
-    }
-    func authorizationNotGiven() {
-        print("Authorization is not given")
+extension LocationAuthorizationViewController: LocationDelegate {
+    func cityNameFound(cityName: String) {
+        PresenterManager.shared.show(vc: .category)
     }
 }
+

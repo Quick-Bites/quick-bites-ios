@@ -141,10 +141,10 @@
             </objects>
             <point key="canvasLocation" x="52.671755725190835" y="4.9295774647887329"/>
         </scene>
-        <!--CitySelection-->
+        <!--Location-->
         <scene sceneID="qF0-lw-vWI">
             <objects>
-                <viewControllerPlaceholder storyboardName="CitySelection" id="KiQ-pz-Cki" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Location" id="KiQ-pz-Cki" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Ke0-XE-76x"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WPk-FT-1Ni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

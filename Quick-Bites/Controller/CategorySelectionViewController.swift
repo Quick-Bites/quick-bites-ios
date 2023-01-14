@@ -27,9 +27,9 @@ class CategorySelectionViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.title = "Select a Category"
+        self.title = "Quick Bites"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: #selector(rightButtonTapped))
-        
+    
         cityDropDown.anchorView = cityDropDownView
         cityDropDown.bottomOffset = CGPoint(x: 0, y: (cityDropDown.anchorView?.plainView.bounds.height)!)
         cityDropDown.topOffset = CGPoint(x: 0, y: -(cityDropDown.anchorView?.plainView.bounds.height)!)
@@ -54,17 +54,6 @@ class CategorySelectionViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if
-            let cell = sender as? UICollectionViewCell,
-            let indexPath = categorySelectionCollectionView.indexPath(for: cell),
-            let category = categorySelectionDataSource.getCategory(for: indexPath.row),
-            let restaurantController = segue.destination as? RestaurantSelectionViewController {
-            restaurantController.category = category.name
-            restaurantController.cityName = cityName
-        }
-
-    }
 
 
 }
@@ -75,7 +64,12 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categorySelectionDataSource.getNumberOfCategories()
+        if let _ = self.cityName {
+            return categorySelectionDataSource.getNumberOfCategories()
+        }
+        else {
+            return categorySelectionDataSource.getNumberOfCategories() - 1
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCollectionCell", for: indexPath) as? CategorySelectionCollectionViewCell else {
@@ -86,12 +80,19 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         cell.contentView.layer.shadowOffset = CGSize(width: 1, height: 2)
         cell.contentView.layer.shadowOpacity = 0.8
         cell.contentView.layer.shadowRadius = 1.0
-
-        if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
-            if category.name == "All" {
-                cell.foodImageView.image = UIImage(named: self.cityName?.lowercased() ?? "istanbul")
-                cell.nameLabel.text = "Restaurants in \(self.cityName ?? "Istanbul")"
-            } else {
+        
+        if let cityName = self.cityName {
+            if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
+                if category.name == "All" {
+                        cell.foodImageView.image = UIImage(named: cityName.lowercased())
+                        cell.nameLabel.text = "Restaurants in \(cityName)"
+                } else {
+                    cell.foodImageView.image = UIImage(named: category.name.lowercased())
+                    cell.nameLabel.text = category.name
+                }
+            }
+        } else {
+            if let category = categorySelectionDataSource.getCategory(for: indexPath.row + 1) {
                 cell.foodImageView.image = UIImage(named: category.name.lowercased())
                 cell.nameLabel.text = category.name
             }
@@ -103,12 +104,32 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
 
 extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 {
+        if indexPath.item == 0 && self.cityName != nil {
             // Return the width of the superview for the first cell
             return CGSize(width: collectionView.bounds.width, height: 200)
         } else {
             // Return a fixed width of 190 for all other cells
             return CGSize(width: 190, height: 200)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if cityName == nil {
+            let alert = UIAlertController(title: "Please select a city", message: "Please select a city from the dropdown menu before continuing", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else {
+            // Perform segue to next view controller
+            let storyboard = UIStoryboard(name: "RestaurantSelection", bundle: nil)
+            let restaurantController = storyboard.instantiateViewController(withIdentifier: "RestaurantSelectionViewController") as! RestaurantSelectionViewController
+            
+            if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
+                restaurantController.category = category.name
+                restaurantController.cityName = cityName
+            }
+                
+            self.navigationController?.pushViewController(restaurantController, animated: true)
+            
         }
     }
 }

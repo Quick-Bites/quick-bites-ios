@@ -76,7 +76,7 @@ extension ReservationListViewController: UserInfoDataDelegate {
     }
     
     func refreshTokenExpired() {
-        self.navigationController?.popToRootViewController(animated: true)
+        PresenterManager.shared.show(vc: .login)
     }
     
     func userInfoLoaded(user: User) {

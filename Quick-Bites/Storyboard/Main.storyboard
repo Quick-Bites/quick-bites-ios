@@ -32,20 +32,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-hc-t71">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Upd-hc-t71">
                                 <rect key="frame" x="0.0" y="123" width="393" height="729"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-YE-Onl">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="14"/>
+                                        <rect key="frame" x="118.66666666666667" y="0.0" width="155.66666666666663" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aSD-55-UFB">
-                                                <rect key="frame" x="40.000000000000007" y="-3" width="95.666666666666686" height="20.333333333333332"/>
+                                                <rect key="frame" x="29.999999999999979" y="14.999999999999998" width="95.666666666666686" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baseline_location_on_white_18pt" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-Ti-vVC">
-                                                <rect key="frame" x="20" y="-3" width="20" height="20"/>
+                                                <rect key="frame" x="0.0" y="15" width="20" height="20"/>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="34g-F1-okg"/>
@@ -53,7 +53,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gD-Oo-cK4">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="50"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                 <connections>
@@ -61,21 +61,20 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="4gD-Oo-cK4" firstAttribute="leading" secondItem="Zvu-YE-Onl" secondAttribute="leading" id="0rM-wg-Ill"/>
                                             <constraint firstAttribute="trailing" secondItem="4gD-Oo-cK4" secondAttribute="trailing" id="5f7-VB-D4o"/>
                                             <constraint firstItem="aSD-55-UFB" firstAttribute="centerY" secondItem="Zvu-YE-Onl" secondAttribute="centerY" id="B1i-eZ-MaO"/>
                                             <constraint firstAttribute="bottom" secondItem="4gD-Oo-cK4" secondAttribute="bottom" id="HBO-2b-Ydc"/>
                                             <constraint firstItem="4gD-Oo-cK4" firstAttribute="top" secondItem="Zvu-YE-Onl" secondAttribute="top" id="h6w-FL-HbG"/>
-                                            <constraint firstItem="jDk-Ti-vVC" firstAttribute="leading" secondItem="Zvu-YE-Onl" secondAttribute="leading" constant="20" symbolic="YES" id="jdi-pn-Yc4"/>
+                                            <constraint firstItem="jDk-Ti-vVC" firstAttribute="leading" secondItem="Zvu-YE-Onl" secondAttribute="leading" id="jdi-pn-Yc4"/>
                                             <constraint firstItem="jDk-Ti-vVC" firstAttribute="centerY" secondItem="Zvu-YE-Onl" secondAttribute="centerY" id="ojY-eE-qkU"/>
-                                            <constraint firstItem="aSD-55-UFB" firstAttribute="leading" secondItem="jDk-Ti-vVC" secondAttribute="trailing" id="sa4-pG-GJI"/>
+                                            <constraint firstItem="aSD-55-UFB" firstAttribute="leading" secondItem="jDk-Ti-vVC" secondAttribute="trailing" constant="10" id="sa4-pG-GJI"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aSD-55-UFB" secondAttribute="trailing" constant="20" id="wtq-cK-kAG"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dgK-gu-43d">
-                                        <rect key="frame" x="0.0" y="38" width="393" height="691"/>
+                                        <rect key="frame" x="0.0" y="74" width="393" height="655"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="ar4-Be-8yz">
                                             <size key="itemSize" width="196" height="200"/>
@@ -127,7 +126,6 @@
                                                 <connections>
                                                     <outlet property="foodImageView" destination="zHT-Y4-EBA" id="fze-e7-dTA"/>
                                                     <outlet property="nameLabel" destination="kVv-7C-1Mi" id="bcN-p6-DVe"/>
-                                                    <segue destination="hO6-W8-p78" kind="show" id="Jeb-LS-UOY"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -165,16 +163,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bC8-0B-5HX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="872.51908396946567" y="37.323943661971832"/>
-        </scene>
-        <!--RestaurantSelection-->
-        <scene sceneID="PNK-AV-lb3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="RestaurantSelection" id="hO6-W8-p78" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="xpd-bE-8Rw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iO1-vu-tti" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1526" y="-57"/>
         </scene>
     </scenes>
     <resources>

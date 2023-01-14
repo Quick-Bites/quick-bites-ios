@@ -14,6 +14,7 @@ class PresenterManager {
     enum ViewControllerEnum {
         case login
         case location
+        case authorize
         case category
     }
     
@@ -21,11 +22,13 @@ class PresenterManager {
         var viewController: UIViewController
         switch vc {
         case .login:
-            viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController")
+            viewController = UIStoryboard(name: "Onboarding", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController")
+        case .authorize:
+            viewController = UIStoryboard(name: "Location", bundle: nil).instantiateViewController(withIdentifier: "LocationPrepareViewController")
         case .location:
-            viewController = UIStoryboard(name: "CitySelection", bundle: nil).instantiateViewController(withIdentifier: "LocationNavigationViewController")
+            viewController = UIStoryboard(name: "Location", bundle: nil).instantiateViewController(withIdentifier: "LocationViewController")
         case .category:
-            viewController = UIStoryboard(name: "CategorySelection", bundle: nil).instantiateViewController(withIdentifier: "CategoryNavigationViewController")
+            viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoryNavigationViewController")
         }
         
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,

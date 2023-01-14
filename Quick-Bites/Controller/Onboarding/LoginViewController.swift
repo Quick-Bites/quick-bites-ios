@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn(username: String) {
         UserInfoDataSource.username = username
-        PresenterManager.shared.show(vc: .location)
+        PresenterManager.shared.show(vc: .authorize)
     }
     
     func userLoginFailed() {

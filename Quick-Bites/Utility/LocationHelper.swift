@@ -15,13 +15,8 @@ class LocationHelper: NSObject {
     
     override init() {
         super.init()
-        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
-            delegate?.authorizationGiven()
-        } else {
-            delegate?.authorizationNotGiven()
-        }
         locationManager.delegate = self
-        locationManager.distanceFilter = 5000
+        locationManager.distanceFilter = 10
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.startUpdatingLocation()
     }
@@ -32,6 +27,14 @@ class LocationHelper: NSObject {
 
     func askForAlwaysPermission() {
         locationManager.requestAlwaysAuthorization()
+    }
+    
+    func isAuthorized() -> Bool {
+        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+            return true
+        } else {
+            return false
+        }
     }
 }
 
@@ -46,7 +49,6 @@ extension LocationHelper: CLLocationManagerDelegate {
                     let lastPlacemark = placemarks.last,
                     let cityName = lastPlacemark.administrativeArea,
                     error == nil {
-                    print("City: \(cityName)")
                     LocationHelper.cityName = cityName
                     self.delegate?.cityNameFound(cityName: cityName)
                 }
