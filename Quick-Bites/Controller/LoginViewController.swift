@@ -54,10 +54,9 @@ class LoginViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if
-            let locationViewController = segue.destination as? LocationViewController,
             let username = self.username
         {
-            locationViewController.username = username
+            UserInfoDataSource.username = username
             usernameTextField.text=""
             passwordTextField.text=""
         }
@@ -86,8 +85,8 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn(username: String) {
-        self.username = username
-        performSegue(withIdentifier: "showCitySelection", sender: self)
+        UserInfoDataSource.username = username
+        PresenterManager.shared.show(vc: .location)
     }
     
     func userLoginFailed() {

@@ -12,6 +12,7 @@ protocol UserInfoDataDelegate {
     func userAvatarLoaded(image: UIImage)
     func userReservationsLoaded()
     func refreshTokenExpired()
+    func userLoggedIn()
 }
 
 extension UserInfoDataDelegate {
@@ -19,4 +20,5 @@ extension UserInfoDataDelegate {
     func userAvatarLoaded(image: UIImage) {}
     func userReservationsLoaded() {}
     func refreshTokenExpired() {}
+    func userLoggedIn() {}
 }

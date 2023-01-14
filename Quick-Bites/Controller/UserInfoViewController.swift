@@ -32,8 +32,7 @@ class UserInfoViewController: UIViewController {
 
     @objc func signOutTapped() {
         TokenDataSource.deleteTokens()
-        self.navigationController?.popToRootViewController(animated: true)
-
+        PresenterManager.shared.show(vc: .login)
     }
 
     // MARK: - Navigation
@@ -77,6 +76,6 @@ extension UserInfoViewController: UserInfoDataDelegate {
     }
     
     func refreshTokenExpired() {
-        self.navigationController?.popToRootViewController(animated: true)
+        PresenterManager.shared.show(vc: .login)
     }
 }

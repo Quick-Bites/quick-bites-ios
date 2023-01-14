@@ -11,7 +11,6 @@ class CitySelectionViewController: UIViewController {
 
     @IBOutlet weak var citySelectionTableView: UITableView!
     private var citySelectionDataSource = CitySelectionDataSource()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Select a city"
@@ -19,8 +18,6 @@ class CitySelectionViewController: UIViewController {
         citySelectionDataSource.delegate = self
         citySelectionDataSource.getListOfCities()
     }
-
-
 
     // MARK: - Navigation
 
@@ -71,6 +68,6 @@ extension CitySelectionViewController: CitySelectionDataDelegate {
     }
     
     func refreshTokenExpired() {
-        self.navigationController?.popToRootViewController(animated: true)
+        PresenterManager.shared.show(vc: .login)
     }
 }
