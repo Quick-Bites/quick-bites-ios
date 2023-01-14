@@ -11,12 +11,12 @@ class PresenterManager {
     static let shared = PresenterManager()
     private init() {}
     
-    enum viewControllerEnum {
+    enum ViewControllerEnum {
         case login
         case location
     }
     
-    func show(vc: viewControllerEnum) {
+    func show(vc: ViewControllerEnum) {
         var viewController: UIViewController
         switch vc {
         case .login:
