@@ -15,7 +15,7 @@ class UserInfoDataSource {
     static var username: String?
     init() {
     }
-    
+
     func getUserDetails() {
         let session = URLSession.shared
         if let url = URL(string: "\(Constants.getUserDetailsURL())") {
@@ -100,7 +100,7 @@ class UserInfoDataSource {
             task.resume()
         }
     }
-    func getReservedRestaurants(){
+    func getReservedRestaurants() {
         let session = URLSession.shared
         if let url = URL(string: Constants.getRestaurantWithReservation()) {
             var request = URLRequest(url: url)
@@ -119,7 +119,6 @@ class UserInfoDataSource {
                         let decoder = JSONDecoder()
                         do {
                             self.reservedRestaurants = try decoder.decode([Restaurant].self, from: data)
-                            
                         } catch {
                             // Handle the error here
                             print(error)
@@ -148,14 +147,14 @@ class UserInfoDataSource {
             dataTask.resume()
         }
     }
-    
+
     func deleteRestaurant(for index: Int) {
         reservedRestaurants.remove(at: index)
     }
     func getNumberOfReservedRestaurants() -> Int {
         return reservedRestaurants.count
     }
-    
+
     func getReservedRestaurant(for index: Int) -> Restaurant? {
         guard index < reservedRestaurants.count else {
             return nil
@@ -163,5 +162,3 @@ class UserInfoDataSource {
         return reservedRestaurants[index]
     }
 }
-
-

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CategorySelectionDataDelegate {
+protocol CategorySelectionDataDelegate: AnyObject {
     func categoriesLoaded()
     func refreshTokenExpired()
 }

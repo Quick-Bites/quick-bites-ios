@@ -103,7 +103,6 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         let startTime = startTimes[startTimeIndex]
         let endTime = endTimes[endTimeIndex]
 
-
         didSelectDates?(day, startTime, endTime)
     }
 
@@ -146,7 +145,7 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
 
         var hour = Calendar.current.component(.hour, from: nextDate)
 
-        while(hour < 23) {
+        while hour < 23 {
             times.append(nextDate)
 
             nextDiff = interval - calendar.component(.minute, from: nextDate) % interval
@@ -208,7 +207,6 @@ extension Date {
         dateFormatter.dateFormat = "HH:mm"
         let startTimeString = dateFormatter.string(from: startTime)
         let endTimeString = dateFormatter.string(from: endTime)
-
 
         return "\(startTimeString) - \(endTimeString) | \(dayString)"
     }

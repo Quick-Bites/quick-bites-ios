@@ -10,17 +10,17 @@ import UIKit
 class PresenterManager {
     static let shared = PresenterManager()
     private init() {}
-    
+
     enum ViewControllerEnum {
         case login
         case location
         case authorize
         case category
     }
-    
-    func show(vc: ViewControllerEnum) {
+
+    func show(nextViewController: ViewControllerEnum) {
         var viewController: UIViewController
-        switch vc {
+        switch nextViewController {
         case .login:
             viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainNavigationController")
         case .authorize:
@@ -30,11 +30,11 @@ class PresenterManager {
         case .category:
             viewController = UIStoryboard(name: "CategorySelection", bundle: nil).instantiateViewController(withIdentifier: "CategoryNavigationViewController")
         }
-        
+
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
            let window = sceneDelegate.window {
             window.rootViewController = viewController
-            UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: nil, completion:nil)
+            UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: nil, completion: nil)
         }
     }
 }

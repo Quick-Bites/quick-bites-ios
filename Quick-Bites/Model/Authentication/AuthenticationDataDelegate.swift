@@ -7,12 +7,11 @@
 
 import Foundation
 
-protocol AuthenticationDataDelegate {
+protocol AuthenticationDataDelegate: AnyObject {
 
     func userLoggedIn(username: String)
     func userLoginFailed()
     func userSignedUp()
-    func userValidated()
     func refreshTokenExpired()
 }
 
@@ -21,6 +20,5 @@ extension AuthenticationDataDelegate {
     func userLoggedIn(username: String) { }
     func userLoginFailed() { }
     func userSignedUp() { }
-    func userValidated() { }
     func refreshTokenExpired() { }
 }

@@ -21,12 +21,10 @@ class LocationAuthorizationViewController: UIViewController {
             if authorizationGiven {
                 print("Authorization is given")
             } else {
-                PresenterManager.shared.show(vc: .location)
+                PresenterManager.shared.show(nextViewController: .location)
             }
         }
     }
-    
-
     /*
     // MARK: - Navigation
 
@@ -41,7 +39,6 @@ class LocationAuthorizationViewController: UIViewController {
 
 extension LocationAuthorizationViewController: LocationDelegate {
     func cityNameFound(cityName: String) {
-        PresenterManager.shared.show(vc: .category)
+        PresenterManager.shared.show(nextViewController: .category)
     }
 }
-

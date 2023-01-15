@@ -27,19 +27,17 @@ class LoadingViewController: UIViewController {
     }
     */
     func showInitialScreen() {
-        
+
     }
 }
 
 extension LoadingViewController: UserInfoDataDelegate {
     func refreshTokenExpired() {
         print("Refresh token expired")
-        PresenterManager.shared.show(vc: .login)
+        PresenterManager.shared.show(nextViewController: .login)
     }
     func userLoggedIn() {
         print("Refresh token not expired")
-        PresenterManager.shared.show(vc: .authorize)
+        PresenterManager.shared.show(nextViewController: .authorize)
     }
 }
-
-

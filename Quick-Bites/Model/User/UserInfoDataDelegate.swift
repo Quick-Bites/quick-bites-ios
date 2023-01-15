@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol UserInfoDataDelegate {
+protocol UserInfoDataDelegate: AnyObject {
     func userInfoLoaded(user: User)
     func userAvatarLoaded(image: UIImage)
     func userReservationsLoaded()

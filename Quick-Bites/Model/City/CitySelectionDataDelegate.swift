@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CitySelectionDataDelegate {
+protocol CitySelectionDataDelegate: AnyObject {
     func citiesLoaded()
     func refreshTokenExpired()
 }

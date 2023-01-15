@@ -33,7 +33,7 @@ class UserInfoViewController: UIViewController {
 
     @objc func signOutTapped() {
         TokenDataSource.deleteTokens()
-        PresenterManager.shared.show(vc: .login)
+        PresenterManager.shared.show(nextViewController: .login)
     }
 
     // MARK: - Navigation
@@ -45,12 +45,10 @@ class UserInfoViewController: UIViewController {
             reservationListController.userReservations = userReservations
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         userInfoDataSource.getUserDetails()
     }
-    
-
 }
 
 extension UserInfoViewController: UserInfoDataDelegate {
@@ -75,8 +73,8 @@ extension UserInfoViewController: UserInfoDataDelegate {
             userReservations = user.reservations
         }
     }
-    
+
     func refreshTokenExpired() {
-        PresenterManager.shared.show(vc: .login)
+        PresenterManager.shared.show(nextViewController: .login)
     }
 }

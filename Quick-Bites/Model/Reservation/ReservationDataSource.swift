@@ -10,7 +10,7 @@ import Foundation
 class ReservationDataSource {
     var delegate: ReservationDataDelegate?
     private let keychain = KeychainWrapper()
-    
+
     func makeReservation(with startTime: String, with endTime: String, with numGuests: String, with restaurantId: String) {
         let url = URL(string: Constants.getMakeReservationURL())!
         let body = [
@@ -69,7 +69,7 @@ class ReservationDataSource {
         }
         task.resume()
     }
-    
+
     func cancelReservation(with reservationId: String) {
         let url = URL(string: "\(Constants.getCancelReservationURL())/\(reservationId)")!
         var request = URLRequest(url: url)
@@ -93,7 +93,7 @@ class ReservationDataSource {
                         DispatchQueue.main.async {
                             self.delegate?.reservationCanceled()
                         }
-                    
+
                 } else if httpResponse.statusCode == 403 {
                     print("Access token expired")
                     TokenDataSource.askForAccessToken { result in

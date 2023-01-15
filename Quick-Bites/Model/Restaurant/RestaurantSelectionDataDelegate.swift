@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol RestaurantSelectionDataDelegate {
+protocol RestaurantSelectionDataDelegate: AnyObject {
     func restaurantsLoaded()
     func restaurantDetailsLoaded(restaurant: Restaurant)
     func refreshTokenExpired()
