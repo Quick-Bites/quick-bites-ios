@@ -27,17 +27,17 @@ class SignUpViewController: UIViewController {
         super.viewWillLayoutSubviews()
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColorFromRGB(0x2ECAD5).cgColor, UIColorFromRGB(0x2B95CE).cgColor]
-                gradientLayer.frame = view.bounds
-                let animation = CABasicAnimation(keyPath: "startPoint")
-                animation.fromValue = CGPoint(x: 0, y: 0.5)
-                animation.toValue = CGPoint(x: 1, y: 0.5)
-                animation.duration = 5.0
-                animation.repeatCount = Float.infinity
-                animation.autoreverses = true
-                animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-                gradientLayer.add(animation, forKey: "startPoint")
-                view.layer.addSublayer(gradientLayer)
-                gradientLayer.zPosition = -1
+        gradientLayer.frame = view.bounds
+        let animation = CABasicAnimation(keyPath: "startPoint")
+        animation.fromValue = CGPoint(x: 0, y: 0.5)
+        animation.toValue = CGPoint(x: 1, y: 0.5)
+        animation.duration = 5.0
+        animation.repeatCount = Float.infinity
+        animation.autoreverses = true
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        gradientLayer.add(animation, forKey: "startPoint")
+        view.layer.addSublayer(gradientLayer)
+        gradientLayer.zPosition = -1
         gradientLayer.frame = view.layer.bounds
     }
 
@@ -61,6 +61,10 @@ class SignUpViewController: UIViewController {
         {
             if fullname.isEmpty || username.isEmpty || password.isEmpty || email.isEmpty || phoneNumber.isEmpty || address.isEmpty {
                 displaySignUpAlert(title: "Sign Up Failed", message: "All fields must be filled.")
+                return
+            }
+            if !EmailHelper.isValidEmail(email) {
+                displaySignUpAlert(title: "Invalid Email", message: "Please enter a valid e-mail.")
                 return
             }
             dataSource.signUpUser(fullname: fullname, username: username, password: password, email: email, phoneNumber: phoneNumber, address: address)

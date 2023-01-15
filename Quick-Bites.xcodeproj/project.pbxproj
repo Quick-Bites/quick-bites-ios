@@ -58,6 +58,7 @@
 		49A9C04B29730C9D00F73EEE /* LocationAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A9C04A29730C9D00F73EEE /* LocationAuthorizationViewController.swift */; };
 		672A4B842969E367009E9B18 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672A4B832969E367009E9B18 /* ReservationViewController.swift */; };
 		672A4B862969E39B009E9B18 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672A4B852969E39B009E9B18 /* DateTimePicker.swift */; };
+		67A81FD52974879500947DD3 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A81FD42974879500947DD3 /* EmailHelper.swift */; };
 		952BB13E58E0EEFEE7ADFD80 /* Pods_Quick_Bites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78D146D0840764AC83A87B70 /* Pods_Quick_Bites.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		49A9C04A29730C9D00F73EEE /* LocationAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAuthorizationViewController.swift; sourceTree = "<group>"; };
 		672A4B832969E367009E9B18 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		672A4B852969E39B009E9B18 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
+		67A81FD42974879500947DD3 /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		77C8509361F753286D807DEF /* Pods-Quick-Bites.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick-Bites.debug.xcconfig"; path = "Target Support Files/Pods-Quick-Bites/Pods-Quick-Bites.debug.xcconfig"; sourceTree = "<group>"; };
 		78D146D0840764AC83A87B70 /* Pods_Quick_Bites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_Bites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACED99824562BDF0B4192E10 /* Pods-Quick-Bites.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick-Bites.release.xcconfig"; path = "Target Support Files/Pods-Quick-Bites/Pods-Quick-Bites.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				497F83E8295F515600F57A91 /* LocationHelper.swift */,
 				672A4B852969E39B009E9B18 /* DateTimePicker.swift */,
 				49A9C0462973009400F73EEE /* PresenterManager.swift */,
+				67A81FD42974879500947DD3 /* EmailHelper.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				497F841929604ECB00F57A91 /* CategorySelectionDataSource.swift in Sources */,
 				257BE4B52963163C00F4F006 /* Restaurant.swift in Sources */,
 				497F83E7295F4D6700F57A91 /* CitySelectionTableViewCell.swift in Sources */,
+				67A81FD52974879500947DD3 /* EmailHelper.swift in Sources */,
 				257BE4B3296314BB00F4F006 /* RestaurantSelectionTableViewCell.swift in Sources */,
 				2527860829644356008CB9FC /* Reservation.swift in Sources */,
 				497F841F2963162A00F57A91 /* UserInfoViewController.swift in Sources */,

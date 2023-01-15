@@ -26,9 +26,6 @@ class LoadingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func showInitialScreen() {
-
-    }
 }
 
 extension LoadingViewController: UserInfoDataDelegate {

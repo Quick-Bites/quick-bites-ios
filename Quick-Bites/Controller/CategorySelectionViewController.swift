@@ -57,7 +57,8 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if self.cityName != nil {
+        if let cityName = self.cityName,
+           CitySelectionDataSource.cityArray.contains(where: { $0.name.lowercased() == cityName.lowercased()}) {
             return categorySelectionDataSource.getNumberOfCategories()
         } else {
             return categorySelectionDataSource.getNumberOfCategories() - 1
@@ -74,7 +75,8 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         cell.contentView.layer.shadowOpacity = 0.8
         cell.contentView.layer.shadowRadius = 1.0
 
-        if let cityName = self.cityName {
+        if let cityName = self.cityName,
+           CitySelectionDataSource.cityArray.contains(where: { $0.name.lowercased() == cityName.lowercased() }) {
             if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
                 if category.name == "All" {
                     UIView.animate(withDuration: 1) {
@@ -105,9 +107,13 @@ extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 && self.cityName != nil {
-            // Return the width of the superview for the first cell
-            return CGSize(width: collectionView.bounds.width, height: 200)
+        if indexPath.item == 0 {
+            if let cityName = self.cityName,
+               CitySelectionDataSource.cityArray.contains(where: { $0.name.lowercased() == cityName.lowercased()}) {
+                // Return the width of the superview for the first cell
+                return CGSize(width: collectionView.bounds.width, height: 200)
+            }
+            return CGSize(width: 190, height: 200)
         } else {
             // Return a fixed width of 190 for all other cells
             return CGSize(width: 190, height: 200)
@@ -115,12 +121,9 @@ extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if cityName == nil {
-            let message = "Please select a city from the dropdown menu before continuing"
-            let alert = UIAlertController(title: "Please select a city", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-        } else {
+        if let cityName = self.cityName,
+            CitySelectionDataSource.cityArray.contains(where: { $0.name.lowercased() == cityName.lowercased()}) {
+
             // Perform segue to next view controller
             let storyboard = UIStoryboard(name: "RestaurantSelection", bundle: nil)
             if let restaurantController = storyboard.instantiateViewController(withIdentifier: "RestaurantSelectionViewController") as? RestaurantSelectionViewController {
@@ -132,6 +135,11 @@ extension CategorySelectionViewController: UICollectionViewDelegateFlowLayout {
 
                 self.navigationController?.pushViewController(restaurantController, animated: true)
             }
+        } else {
+            let message = "Please select a city from the dropdown menu before continuing"
+            let alert = UIAlertController(title: "Please select a city", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
         }
     }
 }
@@ -150,7 +158,7 @@ extension CategorySelectionViewController: CategorySelectionDataDelegate {
 extension CategorySelectionViewController: CitySelectionDataDelegate {
 
     func citiesLoaded() {
-        self.cityArray = self.citySelectionDataSource.getCityArray().map {$0.name}
+        self.cityArray = CitySelectionDataSource.cityArray.map {$0.name}
         if let cityArray = self.cityArray {
             self.cityDropDown.dataSource = cityArray
             if let index = cityDropDown.dataSource.firstIndex(of: "Istanbul") {
