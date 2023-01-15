@@ -40,6 +40,8 @@ class ReservationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Make a Reservation"
         dateTimePickerTextField.inputView = dateTimePicker.inputView
         self.hideKeyboardWhenTappedAround()
 
@@ -92,7 +94,7 @@ extension ReservationViewController: ReservationDataDelegate {
         let alert = UIAlertController(title: "Reservation Failed", message: "The restaurant is not available for the given time or guest number.", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default)
         let okayActionWithPop = UIAlertAction(title: "Okay", style: .default){_ in
-            _ = self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
 
         if isConfirmed == true {
