@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ReservationDataDelegate {
+protocol ReservationDataDelegate: AnyObject {
     func reservationConfirmed(isConfirmed: Bool)
     func refreshTokenExpired()
     func reservationCanceled()

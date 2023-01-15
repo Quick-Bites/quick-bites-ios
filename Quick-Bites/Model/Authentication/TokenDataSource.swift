@@ -14,28 +14,28 @@ enum TokenError: Error {
 
 class TokenDataSource {
     private static let keychain = KeychainWrapper()
-    
+
     init() {
-        
+
     }
-    
+
     static func deleteTokens() {
             try? keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_access_token")
             try? keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_refresh_token")
     }
-    
-    static func askForAccessToken(completion: @escaping (Result<Data, Error>) -> Void){
+
+    static func askForAccessToken(completion: @escaping (Result<Data, Error>) -> Void) {
         let session = URLSession.shared
         if let url = URL(string: Constants.getRefreshURL()) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
-            
+
             if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_refresh_token") {
                 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             } else {
                 print("Refresh token not found")
             }
-            
+
             let dataTask = session.dataTask(with: request) { data, response, error in
                 if let error = error {
                     DispatchQueue.main.async {
@@ -53,8 +53,7 @@ class TokenDataSource {
                         do {
                             let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
                             if let json = json,
-                               let accessToken = json["access_token"]
-                            {
+                               let accessToken = json["access_token"] {
                                 try? self.keychain.deleteItem(account: "quick_bites_user", service: "quick_bites_access_token")
                                 try? self.keychain.addItem(account: "quick_bites_user", service: "quick_bites_access_token", password: accessToken)
                                 DispatchQueue.main.async {
@@ -71,6 +70,3 @@ class TokenDataSource {
         }
         }
     }
-    
-
-

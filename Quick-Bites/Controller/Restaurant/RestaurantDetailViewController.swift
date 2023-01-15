@@ -30,11 +30,7 @@ class RestaurantDetailViewController: UIViewController {
             self.title = "\(restaurantName) Details"
             restaurantSelectionDataSource.getRestaurantDetails(with: restaurantId)
         }
-
     }
-
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -43,10 +39,7 @@ class RestaurantDetailViewController: UIViewController {
             let reservationController = segue.destination as? ReservationViewController {
             reservationController.restaurantId = restaurantId
         }
-        
     }
-    
-
 }
 
 extension RestaurantDetailViewController: RestaurantSelectionDataDelegate {
@@ -57,8 +50,8 @@ extension RestaurantDetailViewController: RestaurantSelectionDataDelegate {
         ratingLabel.text = restaurant.rating
         restaurantId = String(restaurant.id)
     }
-    
+
     func refreshTokenExpired() {
-        PresenterManager.shared.show(vc: .login)
+        PresenterManager.shared.show(nextViewController: .login)
     }
 }

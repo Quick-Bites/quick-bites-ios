@@ -12,7 +12,7 @@ class LocationHelper: NSObject {
     private let locationManager = CLLocationManager()
     weak var delegate: LocationDelegate?
     static var cityName: String?
-    
+
     override init() {
         super.init()
         locationManager.delegate = self
@@ -28,7 +28,7 @@ class LocationHelper: NSObject {
     func askForAlwaysPermission() {
         locationManager.requestAlwaysAuthorization()
     }
-    
+
     func isAuthorized() -> Bool {
         if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
             return true
@@ -56,4 +56,3 @@ extension LocationHelper: CLLocationManagerDelegate {
         }
     }
 }
-

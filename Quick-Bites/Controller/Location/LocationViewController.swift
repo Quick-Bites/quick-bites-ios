@@ -11,10 +11,10 @@ class LocationViewController: UIViewController {
 
     private var locationHelper = LocationHelper()
     private var citySelectionDataSource = CitySelectionDataSource()
-    
+
     @IBOutlet weak var authorizationButton: UIButton!
     private var cityName: String?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,9 +24,9 @@ class LocationViewController: UIViewController {
     }
 
     @IBAction func exploreButtonTapped(_ sender: Any) {
-        PresenterManager.shared.show(vc: .category)
+        PresenterManager.shared.show(nextViewController: .category)
     }
-    
+
     @IBAction func askForPermission(_ sender: Any) {
         if let cityName = self.cityName {
             if let categoryViewController = self.instantiateCategoryViewController() {
@@ -53,7 +53,7 @@ extension LocationViewController: LocationDelegate {
                 authorizationButton.isEnabled = true
                 authorizationButton.alpha = 1
                 authorizationButton.setTitle("Your Location: \(cityName)", for: .normal)
-                PresenterManager.shared.show(vc: .category)
+                PresenterManager.shared.show(nextViewController: .category)
             } else {
                 authorizationButton.isEnabled = false
                 authorizationButton.alpha = 0.95

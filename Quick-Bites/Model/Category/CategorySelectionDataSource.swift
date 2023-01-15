@@ -63,7 +63,6 @@ class CategorySelectionDataSource {
         }
     }
 
-
     func getNumberOfCategories() -> Int {
         return categoryArray.count
     }

@@ -25,9 +25,6 @@ class RestaurantSelectionViewController: UIViewController {
             restaurantSelectionDataSource.getListOfRestaurants(with: cityName, with: category)
         }
     }
-
-
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -43,8 +40,6 @@ class RestaurantSelectionViewController: UIViewController {
             restaurantDetailController.restaurantId = String(restaurant.id)
         }
     }
-
-
 }
 
 extension RestaurantSelectionViewController: UITableViewDataSource {
@@ -70,8 +65,6 @@ extension RestaurantSelectionViewController: UITableViewDataSource {
 
         return cell
     }
-
-
 }
 
 extension RestaurantSelectionViewController: RestaurantSelectionDataDelegate {
@@ -80,6 +73,6 @@ extension RestaurantSelectionViewController: RestaurantSelectionDataDelegate {
     }
 
     func refreshTokenExpired() {
-        PresenterManager.shared.show(vc: .login)
+        PresenterManager.shared.show(nextViewController: .login)
     }
 }

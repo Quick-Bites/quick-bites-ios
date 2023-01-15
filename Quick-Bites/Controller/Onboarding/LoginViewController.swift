@@ -9,13 +9,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
+
     private var username: String?
     private let keychain = KeychainWrapper()
     private var dataSource = AuthenticationDataSource()
@@ -26,7 +25,7 @@ class LoginViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let gradientLayer = CAGradientLayer()
-        
+
         gradientLayer.colors = [UIColorFromRGB(0x2B95CE).cgColor, UIColorFromRGB(0x2ECAD5).cgColor]
                 gradientLayer.frame = view.bounds
                 let animation = CABasicAnimation(keyPath: "startPoint")
@@ -48,7 +47,6 @@ class LoginViewController: UIViewController {
         loginButton.tintColor = UIColorFromRGB(0x333333)
         signUpButton.tintColor = UIColorFromRGB(0x333333)
     }
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -73,31 +71,19 @@ class LoginViewController: UIViewController {
         }
 
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if let _ = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
-            //skip to next view
-        }
-        dataSource.validateUser()
-    }
-    
 }
 
 extension LoginViewController: AuthenticationDataDelegate {
     func userLoggedIn(username: String) {
         UserInfoDataSource.username = username
-        PresenterManager.shared.show(vc: .authorize)
+        PresenterManager.shared.show(nextViewController: .authorize)
     }
-    
+
     func userLoginFailed() {
         let alert = UIAlertController(title: "Login Unsuccessful", message: "Wrong Username or Password", preferredStyle: .alert)
         let okayAction = UIAlertAction(title: "Okay", style: .default)
         alert.addAction(okayAction)
         present(alert, animated: true, completion: nil)
-    }
-    
-    func userValidated() {
-        
     }
 }
 
@@ -107,9 +93,8 @@ extension UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
-

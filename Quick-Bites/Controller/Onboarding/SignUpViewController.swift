@@ -15,18 +15,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
-    
     @IBOutlet weak var signUpButton: UIButton!
+
     private var dataSource = AuthenticationDataSource()
 
     func UIColorFromRGB(_ rgbValue: Int) -> UIColor {
         return UIColor(red: ((CGFloat)((rgbValue & 0xFF0000) >> 16))/255.0, green: ((CGFloat)((rgbValue & 0x00FF00) >> 8))/255.0, blue: ((CGFloat)((rgbValue & 0x0000FF)))/255.0, alpha: 1.0)
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let gradientLayer = CAGradientLayer()
-        
         gradientLayer.colors = [UIColorFromRGB(0x2ECAD5).cgColor, UIColorFromRGB(0x2B95CE).cgColor]
                 gradientLayer.frame = view.bounds
                 let animation = CABasicAnimation(keyPath: "startPoint")
@@ -41,7 +40,7 @@ class SignUpViewController: UIViewController {
                 gradientLayer.zPosition = -1
         gradientLayer.frame = view.layer.bounds
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.delegate = self
@@ -51,8 +50,6 @@ class SignUpViewController: UIViewController {
         signUpButton.tintColor = UIColorFromRGB(0x333333)
 
     }
-
-
     @IBAction func signup(_ sender: Any) {
         if
             let fullname = fullNameTextField.text,

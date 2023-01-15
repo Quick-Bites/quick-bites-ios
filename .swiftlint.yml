@@ -2,7 +2,13 @@ opt_in_rules:
   - comma
   - leading_whitespace
 
-line_length: 120
+line_length: 200
+
+disabled_rules:
+  - unused_closure_parameter
+  - empty_enum_arguments
+  - function_parameter_count
+  - function_body_length
 
 excluded:
   - Carthage
@@ -10,8 +16,6 @@ excluded:
   - fastlane
   - Build
   - .build
-  - *.xcodeproj
-  - *.xcworkspace
-  - *.xcframework
-  - *.xcarchive
-  - *.xcappdata
+  - Pods/**
+  - Quick-Bites/AppDelegate.swift
+  - Quick-Bites/SceneDelegate.swift

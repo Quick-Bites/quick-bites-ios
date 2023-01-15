@@ -7,4 +7,5 @@ target 'Quick-Bites' do
 
   # Pods for Quick-Bites  
   pod "DropDown"
+  pod "SwiftLint"
 end
