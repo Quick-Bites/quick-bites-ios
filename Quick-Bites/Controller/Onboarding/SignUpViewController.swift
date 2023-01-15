@@ -96,4 +96,10 @@ extension SignUpViewController: AuthenticationDataDelegate {
         alert.addAction(okayAction)
         present(alert, animated: true, completion: nil)
     }
+    func userSignedUpFailed() {
+        let alert = UIAlertController(title: "Sign Up Failed", message: "The user is already registered to our system.", preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(okayAction)
+        present(alert, animated: true, completion: nil)
+    }
 }

@@ -12,6 +12,7 @@ protocol AuthenticationDataDelegate: AnyObject {
     func userLoggedIn(username: String)
     func userLoginFailed()
     func userSignedUp()
+    func userSignedUpFailed()
     func refreshTokenExpired()
 }
 
@@ -20,5 +21,6 @@ extension AuthenticationDataDelegate {
     func userLoggedIn(username: String) { }
     func userLoginFailed() { }
     func userSignedUp() { }
+    func userSignedUpFailed() { }
     func refreshTokenExpired() { }
 }

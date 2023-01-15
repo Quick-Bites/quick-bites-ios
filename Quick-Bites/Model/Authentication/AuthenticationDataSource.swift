@@ -48,8 +48,10 @@ class AuthenticationDataSource {
                     DispatchQueue.main.async {
                         self.delegate?.userSignedUp()
                     }
-                } else {
-                    return
+                } else if statusCode == 400{
+                    DispatchQueue.main.async {
+                        self.delegate?.userSignedUpFailed()
+                    }
                 }
             }
         }
