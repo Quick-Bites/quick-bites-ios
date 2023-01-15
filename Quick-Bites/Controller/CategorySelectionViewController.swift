@@ -84,8 +84,14 @@ extension CategorySelectionViewController: UICollectionViewDataSource {
         if let cityName = self.cityName {
             if let category = categorySelectionDataSource.getCategory(for: indexPath.row) {
                 if category.name == "All" {
+                    UIView.animate(withDuration: 1) {
+                        cell.foodImageView.alpha = 0.0
+                        cell.nameLabel.alpha = 0.0
                         cell.foodImageView.image = UIImage(named: cityName.lowercased())
                         cell.nameLabel.text = "Restaurants in \(cityName)"
+                        cell.foodImageView.alpha = 1.0
+                        cell.nameLabel.alpha = 1.0
+                    }
                 } else {
                     cell.foodImageView.image = UIImage(named: category.name.lowercased())
                     cell.nameLabel.text = category.name

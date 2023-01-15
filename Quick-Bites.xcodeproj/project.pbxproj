@@ -17,7 +17,7 @@
 		254A5F7C29571CD800B0D089 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7B29571CD800B0D089 /* AppDelegate.swift */; };
 		254A5F7E29571CD800B0D089 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7D29571CD800B0D089 /* SceneDelegate.swift */; };
 		254A5F8029571CD800B0D089 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F7F29571CD800B0D089 /* LoginViewController.swift */; };
-		254A5F8329571CD800B0D089 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8129571CD800B0D089 /* Onboarding.storyboard */; };
+		254A5F8329571CD800B0D089 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8129571CD800B0D089 /* Main.storyboard */; };
 		254A5F8529571CD900B0D089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8429571CD900B0D089 /* Assets.xcassets */; };
 		254A5F8829571CD900B0D089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 254A5F8629571CD900B0D089 /* LaunchScreen.storyboard */; };
 		254A5F932957279400B0D089 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254A5F922957279400B0D089 /* KeychainService.swift */; };
@@ -44,7 +44,7 @@
 		497F83EB295F63DF00F57A91 /* LocationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83EA295F63DF00F57A91 /* LocationDelegate.swift */; };
 		497F83ED295F65B500F57A91 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83EC295F65B500F57A91 /* LocationViewController.swift */; };
 		497F83F3295F708800F57A91 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F83F2295F708800F57A91 /* CategorySelectionViewController.swift */; };
-		497F83F5295F9B8900F57A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497F83F4295F9B8900F57A91 /* Main.storyboard */; };
+		497F83F5295F9B8900F57A91 /* CategorySelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497F83F4295F9B8900F57A91 /* CategorySelection.storyboard */; };
 		497F841729604EC100F57A91 /* CategorySelectionDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841629604EC100F57A91 /* CategorySelectionDataDelegate.swift */; };
 		497F841929604ECB00F57A91 /* CategorySelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */; };
 		497F841B29604F5100F57A91 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497F841A29604F5100F57A91 /* Category.swift */; };
@@ -73,7 +73,7 @@
 		254A5F7B29571CD800B0D089 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		254A5F7D29571CD800B0D089 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		254A5F7F29571CD800B0D089 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		254A5F8229571CD800B0D089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		254A5F8229571CD800B0D089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		254A5F8429571CD900B0D089 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		254A5F8729571CD900B0D089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		254A5F8929571CD900B0D089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		497F83EA295F63DF00F57A91 /* LocationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDelegate.swift; sourceTree = "<group>"; };
 		497F83EC295F65B500F57A91 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		497F83F2295F708800F57A91 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
-		497F83F4295F9B8900F57A91 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		497F83F4295F9B8900F57A91 /* CategorySelection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CategorySelection.storyboard; sourceTree = "<group>"; };
 		497F841629604EC100F57A91 /* CategorySelectionDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionDataDelegate.swift; sourceTree = "<group>"; };
 		497F841829604ECB00F57A91 /* CategorySelectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionDataSource.swift; sourceTree = "<group>"; };
 		497F841A29604F5100F57A91 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -197,9 +197,9 @@
 		254A5F952957297500B0D089 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				254A5F8129571CD800B0D089 /* Onboarding.storyboard */,
+				254A5F8129571CD800B0D089 /* Main.storyboard */,
 				254A5F9C295738EE00B0D089 /* Location.storyboard */,
-				497F83F4295F9B8900F57A91 /* Main.storyboard */,
+				497F83F4295F9B8900F57A91 /* CategorySelection.storyboard */,
 				257BE4B02963130300F4F006 /* RestaurantSelection.storyboard */,
 				497F84202963164800F57A91 /* UserInfo.storyboard */,
 				2527860529637B70008CB9FC /* Reservation.storyboard */,
@@ -416,8 +416,8 @@
 			files = (
 				254A5F8829571CD900B0D089 /* LaunchScreen.storyboard in Resources */,
 				254A5F8529571CD900B0D089 /* Assets.xcassets in Resources */,
-				497F83F5295F9B8900F57A91 /* Main.storyboard in Resources */,
-				254A5F8329571CD800B0D089 /* Onboarding.storyboard in Resources */,
+				497F83F5295F9B8900F57A91 /* CategorySelection.storyboard in Resources */,
+				254A5F8329571CD800B0D089 /* Main.storyboard in Resources */,
 				257BE4B12963130300F4F006 /* RestaurantSelection.storyboard in Resources */,
 				254A5F9D295738EE00B0D089 /* Location.storyboard in Resources */,
 				497F84212963164800F57A91 /* UserInfo.storyboard in Resources */,
@@ -523,12 +523,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		254A5F8129571CD800B0D089 /* Onboarding.storyboard */ = {
+		254A5F8129571CD800B0D089 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				254A5F8229571CD800B0D089 /* Base */,
 			);
-			name = Onboarding.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		254A5F8629571CD900B0D089 /* LaunchScreen.storyboard */ = {
