@@ -17,7 +17,7 @@ class Constants {
     static func getRegisterURL() -> String {
         return "\(baseURL)/api/user/register"
     }
-    
+
     static func getRefreshURL() -> String {
         return "\(baseURL)/api/token/refresh"
     }
@@ -43,14 +43,14 @@ class Constants {
     static func getUserDetailsURL() -> String {
         return "\(baseURL)/api/user/detail"
     }
-    
-    static func getMakeReservationURL() -> String{
+
+    static func getMakeReservationURL() -> String {
         return "\(baseURL)/api/restaurant/make-reservation"
     }
     static func getRestaurantWithReservation() -> String {
         return "\(baseURL)/api/reservation/restaurants"
     }
-    
+
     static func getCancelReservationURL() -> String {
         return "\(baseURL)/api/reservation/delete"
     }
