@@ -28,14 +28,8 @@ class LocationViewController: UIViewController {
     }
 
     @IBAction func askForPermission(_ sender: Any) {
-        if let cityName = self.cityName {
-            if let categoryViewController = self.instantiateCategoryViewController() {
-                categoryViewController.cityName = cityName
-                show(categoryViewController, sender: self)
-            }
-        } else {
-            locationHelper.askForInUsePermission()
-        }
+        print("Girdi")
+        locationHelper.askForInUsePermission()
     }
 
     func instantiateCategoryViewController() -> CategorySelectionViewController? {
@@ -49,7 +43,7 @@ extension LocationViewController: LocationDelegate {
     func cityNameFound(cityName: String) {
         self.cityName = cityName
         if let cityName = self.cityName {
-            if citySelectionDataSource.getCityArray().contains(where: { $0.name.lowercased() == cityName.lowercased() }) {
+            if CitySelectionDataSource.cityArray.contains(where: { $0.name.lowercased() == cityName.lowercased() }) {
                 authorizationButton.isEnabled = true
                 authorizationButton.alpha = 1
                 authorizationButton.setTitle("Your Location: \(cityName)", for: .normal)

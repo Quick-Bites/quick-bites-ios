@@ -8,7 +8,7 @@
 import Foundation
 
 class CitySelectionDataSource {
-    private var cityArray: [City] = []
+    static var cityArray: [City] = []
     var delegate: CitySelectionDataDelegate?
     private let keychain = KeychainWrapper()
     init() {
@@ -32,7 +32,7 @@ class CitySelectionDataSource {
                     if httpResponse.statusCode == 200 {
                         let decoder = JSONDecoder()
                         do {
-                            self.cityArray = try decoder.decode([City].self, from: data)
+                            CitySelectionDataSource.cityArray = try decoder.decode([City].self, from: data)
                         } catch {
                             // Handle the error here
                             print(error)
@@ -62,18 +62,14 @@ class CitySelectionDataSource {
         }
     }
 
-    func getCityArray() -> [City] {
-        return cityArray
-    }
-
     func getNumberOfCities() -> Int {
-        return cityArray.count
+        return CitySelectionDataSource.cityArray.count
     }
 
     func getCity(for index: Int) -> City? {
-        guard index < cityArray.count else {
+        guard index < CitySelectionDataSource.cityArray.count else {
             return nil
         }
-        return cityArray[index]
+        return CitySelectionDataSource.cityArray[index]
     }
 }
