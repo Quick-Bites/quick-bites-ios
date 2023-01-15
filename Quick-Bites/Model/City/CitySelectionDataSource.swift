@@ -11,7 +11,6 @@ class CitySelectionDataSource {
     private var cityArray: [City] = []
     var delegate: CitySelectionDataDelegate?
     private let keychain = KeychainWrapper()
-
     init() {
     }
 

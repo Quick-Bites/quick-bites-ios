@@ -59,6 +59,6 @@ extension RestaurantDetailViewController: RestaurantSelectionDataDelegate {
     }
     
     func refreshTokenExpired() {
-        self.navigationController?.popToRootViewController(animated: true)
+        PresenterManager.shared.show(vc: .login)
     }
 }

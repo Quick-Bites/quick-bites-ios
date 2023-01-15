@@ -109,7 +109,7 @@ extension ReservationViewController: ReservationDataDelegate {
     }
     
     func refreshTokenExpired() {
-        self.navigationController?.popToRootViewController(animated: true)
+        PresenterManager.shared.show(vc: .login)
     }
     
 }

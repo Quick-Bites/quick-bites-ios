@@ -25,7 +25,7 @@ class UserInfoDataSource {
             if let token = try? keychain.searchItem(account: "quick_bites_user", service: "quick_bites_access_token") {
                 request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             } else {
-                print("An error occurred")
+                print("Access token not found")
             }
 
             let dataTask = session.dataTask(with: request) { data, response, error in

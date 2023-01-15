@@ -23,6 +23,7 @@ class UserInfoViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Profile"
         userInfoDataSource.delegate = self
+        self.username = UserInfoDataSource.username
         if let username = username {
             userInfoDataSource.getUserAvatar(for: username)
             userInfoDataSource.getUserDetails()
@@ -58,10 +59,10 @@ extension UserInfoViewController: UserInfoDataDelegate {
     }
 
     func userInfoLoaded(user: User) {
-        usernameLabel.text = user.username
-        fullNameLabel.text = user.name
-        emailLabel.text = user.email
-        phoneLabel.text = user.phoneNumber
+        usernameLabel.text = "Username:  \(user.username)"
+        fullNameLabel.text = "Full Name:  \(user.name)"
+        emailLabel.text = "Email:  \(user.email)"
+        phoneLabel.text = "Phone:  \(user.phoneNumber)"
         if user.reservations.isEmpty {
             reservationsButton.isEnabled = false
             reservationsButton.alpha = 0.9
