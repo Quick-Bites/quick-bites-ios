@@ -38,7 +38,7 @@ extension LoadingViewController: UserInfoDataDelegate {
     }
     func userLoggedIn() {
         print("Refresh token not expired")
-        PresenterManager.shared.show(vc: .location)
+        PresenterManager.shared.show(vc: .authorize)
     }
 }
 
